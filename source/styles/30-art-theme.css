@@ -1,0 +1,54 @@
+/* Art uses warm drafting surfaces in every workspace. The artwork keeps its source colors. */
+body.fv-theme-dark.fv-theme-art{
+ --fx-bg:#211b17;--fx-raise:#2d251f;--fx-hover:#3b3129;
+ --fx-line:#53473d;--fx-line-2:#827467;
+ --fx-text:#f8eadf;--fx-strong:#fff3e9;--fx-muted:#d8c9bc;--fx-faint:#bdad9f;
+ --fx-accent:#faece1;--fx-ink:#2a221b;
+ --fv-frame-line:#a39181;--fv-reading-surface:#2d251f;--fv-focus:#ffe0c2;
+}
+body.fv-theme-dark.fv-theme-art #stitch-lab{
+ --sl-accent:var(--fx-accent);--sl-ink:var(--fx-ink);
+ --sl-grid:#f4d5c222;--sl-grid-major:#f4d5c23b;
+ --sl-glass:#241d18e8;--sl-paper:#1c1714;
+}
+body.fv-theme-dark.fv-theme-art #fervor-vector{
+ --vv-paper:var(--fx-bg);--vv-panel:var(--fx-raise);
+ --vv-ink:var(--fx-text);--vv-muted:var(--fx-muted);--vv-line:var(--fx-line-2);
+ --vv-canvas-paper:#1c1714;--vv-canvas-line:#f4d5c225;--vv-canvas-major:#f4d5c23b;
+ --editor-glass:#241d18e8;--editor-grid:#f4d5c21c;
+ background:var(--fx-bg)!important;color:var(--fx-text)!important;
+}
+body.fv-theme-dark.fv-theme-art #fervor-vector :is(.fvv-project-bar,.fvv-stage-bar,.fvv-tools,.fvv-inspector,.fvv-preview-tools,.fvv-preview-shell,.fvv-bottom-bar){
+ background-color:var(--fx-raise)!important;border-color:var(--fx-line-2)!important;color:var(--fx-text)!important;
+}
+body.fv-theme-dark.fv-theme-art #fervor-vector :is(.fvv-main,.fvv-canvas-area,.fvv-svg-frame){background-color:var(--vv-canvas-paper)!important}
+body.fv-theme-dark.fv-theme-art #fervor-vector :is(.fvv-more-menu,.fvv-more-menu button,.fvv-preview-actions button,.fvv-inspector input,.fvv-inspector textarea,.fvv-inspector select){
+ background:var(--fx-raise)!important;color:var(--fx-text)!important;border-color:var(--fx-line-2)!important;
+}
+body.fv-theme-dark.fv-theme-art #fervor-compose{
+ --c-ink:var(--fx-text);--c-muted:var(--fx-muted);--c-line:var(--fx-line-2);--c-paper:var(--fx-bg);
+ --c-panel:#2d251fee;--c-surface:var(--fx-hover);--c-grid:#f4d5c220;
+}
+html body.fv-home-extension.fv-theme-art #fervor-compose .fvc-header:not(#fx-none){
+ background-color:#2d251fed!important;color:var(--fx-text)!important;
+}
+body.fv-home-extension.fv-theme-art #fervor-radar{
+ --fv-glass:var(--fv-art-glass);
+ --fv-frame-line:var(--fv-art-line);
+ --fv-reading-surface:rgba(31,24,20,.94);
+ --fx-bg:#211a16;--fx-raise:#30261e;--fx-hover:#423329;
+ --fx-line:#ead7c138;--fx-line-2:#ab917c;
+ --fx-text:#fff9f3;--fx-muted:#eadbd0;--fx-faint:#d4c3b4;--fx-ink:#241a14;
+ backdrop-filter:var(--fv-art-frost);
+}
+body.fv-home-extension.fv-theme-art #fervor-radar :is(.fvr-more,.fvr-drawer){
+ backdrop-filter:var(--fv-art-frost);
+}
+body.fv-theme-art #fervor-home.fv-arcade-active :is(.fv-arcade, .fv-arcade-board,.fv-arcade-controls){
+ background-color:#251e19c9!important;color:var(--fx-text)!important;
+}
+body.fv-theme-art #fervor-home .fv-home-panels .fv-home-drawer:not([hidden]){
+ background:rgba(23,18,17,.78)!important;border-width:1px!important;border-color:#ead7c180!important;
+ backdrop-filter:blur(16px);box-shadow:0 8px 28px #10070838!important;
+}
+body.fv-theme-art #fervor-home .fv-home-panels .fv-drawer-header{background:transparent!important}

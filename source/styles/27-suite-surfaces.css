@@ -1,0 +1,271 @@
+/* Shared drafting frames. Keep controls solid where they cross the art or grid. */
+#fervor-home .fv-home-link:focus-visible,
+#fervor-home .fv-arcade-trigger:focus-visible,
+#fervor-home .fv217-footer-links a:focus-visible,
+#fervor-home .fv-arcade-choices button:focus-visible,
+#stitch-lab :is(button, a, select, input):focus-visible,
+#fervor-vector :is(button, a, select, input):focus-visible,
+#fervor-compose :is(button, a, select, input):focus-visible {
+  outline:2px solid var(--fv-focus)!important;
+  outline-offset:2px;
+}
+
+#stitch-lab .sl-top,
+html body #fervor-vector .fvv-header:not(#fx-none) {
+  border-bottom:1px dotted var(--fv-frame-line)!important;
+}
+#stitch-lab .sl-inspector,
+#fervor-vector .fvv-inspector,
+#fervor-compose .fvc-inspector {
+  border-left:1px dotted var(--fv-frame-line)!important;
+}
+#fervor-compose .fvc-editor-frame {
+  border:1px dotted var(--fv-frame-line);
+  border-radius:4px;
+}
+body.fervor-home-open #fervor-home.fv-arcade-active .fv-home-body {
+  padding-block:clamp(8px,2dvh,20px)!important;
+}
+#fervor-home .fv-arcade-shell {
+  min-height:0!important;
+}
+@media(max-width:620px) {
+  body.fervor-home-open #fervor-home .fv-home-wordmark strong {
+    font-size:clamp(33px,11.7vw,70px)!important;
+  }
+  body.fervor-home-open #fervor-home .fv-landing-wrap .fv-home-header {
+    min-height:56px!important;
+  }
+  body.fervor-home-open #fervor-home .fv-home-bottom .fv-home-link {
+    font-size:clamp(10px,2.7vw,12px)!important;
+  }
+  #fervor-home .fv-home-bottom .fv-home-link svg {
+    width:27px!important;
+    height:27px!important;
+  }
+  #fervor-home .fv217-footer-links a {
+    display:inline-flex;
+    align-items:center;
+    min-height:28px;
+    gap:4px;
+  }
+  html body.fv-home-extension :is(#fervor-compose .fvc-header,#fervor-radar .fvr-header):not(#fx-none) {
+    height:auto!important;
+    min-height:48px!important;
+    flex-wrap:wrap!important;
+    padding-block:5px!important;
+  }
+  html body #fervor-compose .fvc-header-actions,
+  html body #fervor-radar .fvr-head-actions {
+    flex:1 1 auto!important;
+    flex-wrap:wrap!important;
+    min-width:0;
+  }
+}
+@media(max-width:360px) {
+  #fervor-home .fv217-footer-links { justify-content:flex-start; }
+  #stitch-lab .sl-top-right .sl-suite,
+  #fervor-vector .fvv-header-actions .fx-suite { margin-right:0!important; }
+  #stitch-lab .sl-top-right :is(.sl-pill,.sl-theme) { padding-inline:6px!important; }
+}
+@media(max-height:720px) {
+  body.fervor-home-open #fervor-home .fv-home-ctas { margin-top:16px!important; }
+  body.fervor-home-open #fervor-home .fv-home-bottom { margin-top:12px!important; }
+  body.fervor-home-open #fervor-home .fv-home-text-workspaces { margin-top:4px!important; }
+  body.fervor-home-open #fervor-home #fv-art-info-toggle { margin-top:4px!important; }
+}
+
+/* Radar reads through one translucent surface. Floating overlays retain their own background. */
+body.fv-home-extension #fervor-radar :is(.fvr-view,.fvr-tabs,.fvr-bar,.fvr-keys,.fvr-setnav) {
+  background:transparent;
+}
+body.fv-home-extension #fervor-radar :is(.fvr-match,.fvr-card) {
+  border:1px dotted var(--fv-frame-line);
+}
+body.fv-home-extension #fervor-radar .fvr-list {
+  border-right:1px dotted var(--fv-frame-line);
+}
+@media(max-width:900px) {
+  body.fv-home-extension #fervor-radar .fvr-list { border-right:0; }
+}
+body.fv-home-extension #fervor-radar .fvr-detail {
+  overflow-wrap:anywhere;
+}
+#fervor-radar :is(button,a,input,select,textarea,summary):focus-visible {
+  outline-color:var(--fv-focus);
+}
+@media(max-width:420px) {
+  #fervor-radar .fvr-more {
+    max-height:32dvh;
+    padding:9px;
+    gap:8px;
+  }
+  #fervor-radar .fvr-pick {
+    min-width:0;
+    max-width:100%;
+  }
+  #fervor-radar .fvr-pick select { max-width:100%; }
+}
+
+/* The small editor headers can grow without covering the canvas or inspector. */
+@media(max-width:540px) {
+  #stitch-lab { --sl-top:94px; }
+  #stitch-lab .sl-top {
+    flex-wrap:wrap;
+    justify-content:flex-start!important;
+    align-content:center;
+    row-gap:5px!important;
+  }
+  #stitch-lab .sl-top-right {
+    flex:1 1 100%;
+    justify-content:space-between;
+    margin-left:0!important;
+  }
+  #stitch-lab .sl-suite .fv30-suite-select {
+    max-width:100px;
+    padding-inline:4px;
+    font-size:11px;
+  }
+}
+@media(max-width:410px) {
+  #stitch-lab .sl-top-right,#fervor-vector .fvv-header-actions {
+    flex-wrap:wrap;
+    justify-content:flex-start!important;
+  }
+  #fervor-vector .fvv-header-actions .fx-suite { margin-right:0!important; }
+}
+
+@media(max-width:760px) {
+  #fervor-compose .fvc-inspector {
+    border-left:0!important;
+    border-top:1px dotted var(--fv-frame-line)!important;
+  }
+}
+@media(max-width:320px) {
+  #stitch-lab { --sl-top:122px; }
+}
+@media(hover:none) {
+  #fv-art-puzzle .fv-art-puzzle-footer { opacity:1; }
+}
+
+/* Fullscreen art controls sit in small, labeled clusters. */
+#fv-art-viewer .fv-art-gallery-bottom {
+  width:max-content!important;
+  max-width:calc(100% - 24px)!important;
+  max-height:45dvh!important;
+  justify-content:safe center!important;
+}
+#fv-art-viewer .fv-art-gallery-bottom .fv-art-controls {
+  gap:8px 12px!important;
+}
+#fv-art-viewer .fv-view-group {
+  display:inline-flex;
+  flex:none;
+  gap:3px;
+  align-items:center;
+  padding:3px;
+  border:1px solid #ffffff52;
+  border-radius:999px;
+  background:#0c0c0c6b;
+}
+#fv-art-viewer .fv-art-gallery-bottom .fv-view-group button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:0 8px!important;
+  min-width:34px;
+  min-height:34px!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+}
+#fv-art-viewer .fv-view-group button:is(:hover,:focus-visible) {
+  background:#ffffff29!important;
+}
+#fv-art-viewer .fv-view-group button[aria-pressed="true"] {
+  background:#fff!important;
+  color:#111!important;
+}
+#fv-art-viewer .fv-view-group button:focus-visible {
+  outline:2px solid #fff;
+  outline-offset:1px;
+}
+#fv-art-viewer .fv-view-group svg {
+  width:18px;
+  height:18px;
+  flex:none;
+}
+#fv-art-viewer .fv-view-group [data-view="favorite"][aria-pressed="true"] svg {
+  fill:currentColor;
+}
+#fv-art-viewer .fv-view-group output {
+  min-width:4ch;
+  text-align:center;
+}
+.fv-viewer-sr {
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
+}
+#fv-art-viewer .fv-view-artwork-tools {
+  max-width:100%;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+#fv-art-viewer .fv-view-group button:disabled {
+  opacity:.48;
+  cursor:default;
+}
+#fv-art-bar [data-art="resume-puzzle"][hidden] {
+  display:none!important;
+}
+@media(pointer:coarse) {
+  #fv-art-viewer .fv-art-gallery-bottom .fv-view-group button {
+    min-width:40px;
+    min-height:40px!important;
+  }
+}
+
+/* Keep four preview modes and Appearance reachable on narrow canvases. */
+@media(max-width:700px) {
+  #stitch-lab .sl-ov-tl {
+    max-width:calc(100% - 22px);
+    flex-wrap:wrap;
+    gap:5px;
+  }
+  #stitch-lab .sl-ov-tl .sl-seg {
+    max-width:100%;
+    overflow:auto;
+    scrollbar-width:thin;
+  }
+  #stitch-lab .sl-ov-tl .sl-seg button {
+    flex:none;
+    padding-inline:7px;
+    font-size:11px;
+  }
+}
+
+@media(max-width:410px) {
+  #stitch-lab .sl-ov-tl {
+    left:8px;
+    right:8px;
+    gap:4px;
+  }
+  #stitch-lab.sl-rulers .sl-ov-tl {
+    left:34px;
+    max-width:calc(100% - 42px);
+  }
+  #stitch-lab .sl-ov-tr {
+    top:94px;
+  }
+  #stitch-lab.sl-rulers .sl-ov-tr {
+    top:114px;
+  }
+  #stitch-lab .sl-ov-tl .sl-pop {
+    width:min(270px,calc(100vw - 54px));
+  }
+}

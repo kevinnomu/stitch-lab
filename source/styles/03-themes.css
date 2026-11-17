@@ -1,0 +1,215 @@
+/* FERVOR 4.0 · Light and dark theme tokens and overrides for the suite.
+   Rules keep their original order; legacy selectors are scoped away from Stitch Lab. */
+/*
+  FERVOR APPEARANCE SYSTEM
+  ----------------------------------------
+  Preserve the original light drafting language.
+  In Dark mode the homepage uses white grid lines and its hero is inverted;
+  editor controls are light-gray/white on charcoal.
+  The following sections retain their specificity/order from v2.29 to avoid
+  regressions in the legacy editor's cascading style system.
+*/
+/* fv227-refine-theme-mine */
+#fervor-home{--fv-line:#8fa193;--fv-dot:#6e9076;--fv-accent:#557862;--fv-surface:rgba(255,255,255,.55)}
+#fervor-home .fv-arcade-head,#fervor-home .fv-arcade-hud,#fervor-home .fv225-scoreboard{border-color:var(--fv-line)!important}
+#fervor-home .fv-arcade-board{outline-color:var(--fv-dot)!important;transition:outline-color .28s ease,box-shadow .28s ease,transform .38s ease,opacity .28s ease}
+#fervor-home .fv-arcade-head,#fervor-home .fv-arcade-hud,#fervor-home .fv-arcade-help,#fervor-home .fv225-bestline,#fervor-home .fv225-scoreboard>summary{transition:color .28s ease,border-color .28s ease,opacity .28s ease}
+#fervor-home[data-arcade-mode="tetris"]{--fv-line:#a7afc8;--fv-dot:#8e98bd;--fv-accent:#7687ba}
+#fervor-home[data-arcade-mode="snake"]{--fv-line:#97b69f;--fv-dot:#5f8f6f;--fv-accent:#4f825f}
+#fervor-home[data-arcade-mode="breaker"]{--fv-line:#c9b088;--fv-dot:#b18958;--fv-accent:#9b7546}
+#fervor-home[data-arcade-mode="mines"]{--fv-line:#d2b7c4;--fv-dot:#b07d97;--fv-accent:#8a5d74}
+#fervor-home[data-arcade-mode="fc"]{--fv-line:#9fba9f;--fv-dot:#5e845f;--fv-accent:#3e6e43}
+#fervor-home[data-arcade-mode="bbtan"]{--fv-line:#b8afd8;--fv-dot:#877ab3;--fv-accent:#6b5a9c}
+#fervor-home[data-arcade-mode="mine"]{--fv-line:#98a29d;--fv-dot:#6e7c73;--fv-accent:#556056}
+#fervor-home[data-arcade-mode="mine"] .fv-arcade-board{box-shadow:0 0 0 1px rgba(58,67,60,.12) inset}
+#fervor-home .fv-arcade-choices button:nth-child(7):hover{color:#58655c!important}
+#fervor-home .fv-home-stage{transition:opacity .48s ease,visibility 0s .48s,transform .48s ease!important}
+#fervor-home.fv-arcade-active .fv-home-stage{transform:translateY(8px)!important}
+#fervor-home .fv-home-ambient{transition:opacity .38s ease}
+#fervor-home .fv-theme-toggle{margin-left:8px;background:transparent;border:1px dotted currentColor;padding:6px 8px;font:600 12px/1 var(--fx-sans);letter-spacing:.08em;cursor:pointer;color:inherit}
+#fervor-home .fv-theme-toggle:hover{opacity:.78}
+body.fv-theme-dark{background:#060606!important;color:#f5f5f5!important}
+body.fv-theme-dark #fervor-home,body.fv-theme-dark .fv-home{background:#060606!important;color:#f5f5f5!important}
+body.fv-theme-dark #fervor-home .fv-landing-wrap,body.fv-theme-dark #fervor-home .fv-home-header,body.fv-theme-dark #fervor-home .fv-home-body,body.fv-theme-dark #fervor-home .fv-home-stage,body.fv-theme-dark #fervor-home .fv-home-panels,body.fv-theme-dark .panel,body.fv-theme-dark .tab,body.fv-theme-dark .workspace{background-color:transparent!important;color:#f5f5f5!important}
+body.fv-theme-dark #fervor-home .fv-home-utility,body.fv-theme-dark #fervor-home .fv-home-link,body.fv-theme-dark #fervor-home .fv-arcade-trigger,body.fv-theme-dark #fervor-home .fv-arcade-choices button,body.fv-theme-dark #fervor-home .fv-arcade-actions button,body.fv-theme-dark #fervor-home .fv-arcade-touch button,body.fv-theme-dark button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *,.fv-art-chrome *)),body.fv-theme-dark input:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *,.fv-art-chrome *)),body.fv-theme-dark select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *,.fv-art-chrome *)),body.fv-theme-dark textarea:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *,.fv-art-chrome *)){background:#0b100b!important;color:#f7fbf7!important;border-color:#5c685f!important;box-shadow:none!important}
+body.fv-theme-dark #fervor-home .fv-local-status,body.fv-theme-dark #fervor-home .fv-home-lede,body.fv-theme-dark #fervor-home .fv-arcade-head,body.fv-theme-dark #fervor-home .fv-arcade-stat strong,body.fv-theme-dark #fervor-home .fv225-bestline{color:#f1f6f1!important}
+body.fv-theme-dark #fervor-home .fv-home-mark img,body.fv-theme-dark #fervor-home svg:not(canvas *,.fv-art-chrome *){filter:invert(1) hue-rotate(180deg)}
+body.fv-theme-dark #fervor-home .fv-arcade-board,body.fv-theme-dark #fervor-home .fv-home-drawer,body.fv-theme-dark #fervor-home .fv225-scoreboard{background:rgba(12,12,12,.35)!important}
+body.fv-theme-dark #fervor-home .fv-home-color{outline-color:rgba(255,255,255,.12)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 1px rgba(255,255,255,.08)!important}
+body.fv-theme-dark canvas:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){filter:none!important}
+/* fv228-dark-grid-and-inverted-hero */
+/* Dark is an exact reverse of the original drafting system: flat black,
+   white 25px grid lines, white typography, and white dotted boundaries. */
+body.fv-theme-dark{color-scheme:dark;
+  --bg:#060606;--paper:#0c0c0c;--ink:#f6f6f6;--sub:#bebebe;
+  --stroke:#898989;--accent:#bce3c9;--accent-soft:#1a271d;
+  background-color:#060606!important;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.19) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(255,255,255,.19) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.27) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(255,255,255,.27) 1px,transparent 1px)!important;
+  background-size:25px 25px,25px 25px,125px 125px,125px 125px!important;}
+body.fv-theme-dark #fervor-home.fv-home{color:#f7f7f7!important;
+  background-color:#060606!important;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.17) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(255,255,255,.17) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.26) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(255,255,255,.26) 1px,transparent 1px)!important;
+  background-size:25px 25px,25px 25px,125px 125px,125px 125px!important;
+  transition:background-color .36s ease,color .36s ease!important;}
+body.fv-theme-dark #fervor-home .fv-home-main{color:#fff!important;
+  background-color:#050505!important;
+  border:3px dotted rgba(255,255,255,.9)!important;
+  box-shadow:none!important;}
+body.fv-theme-dark #fervor-home .fv-home-wordmark{background:repeating-linear-gradient(90deg,#090909 0px,#090909 6px,#e8e8e8 6px,#e8e8e8 7px)!important;
+  border:4px solid #f6f6f6!important;
+  box-shadow:3px 3px 0 rgba(255,255,255,.18)!important;}
+body.fv-theme-dark #fervor-home .fv-home-wordmark strong{color:#f9f9f9!important;
+  -webkit-text-fill-color:#f9f9f9!important;
+  -webkit-text-stroke:clamp(3px,.46vw,6px) #050505!important;
+  text-shadow:2px 2px 0 #050505,-1px -1px 0 #050505!important;}
+body.fv-theme-dark #fervor-home .fv-home-lede,body.fv-theme-dark #fervor-home .fv-home-label,body.fv-theme-dark #fervor-home .fv-home-tagline,body.fv-theme-dark #fervor-home .fv-home-description,body.fv-theme-dark #fervor-home .fv-home-description strong,body.fv-theme-dark #fervor-home .fv-home-description p,body.fv-theme-dark #fervor-home .fv-home-ctas p,body.fv-theme-dark #fervor-home .fv-local-status,body.fv-theme-dark #fervor-home .fv-home-bottom,body.fv-theme-dark #fervor-home .fv-drawer-header,body.fv-theme-dark #fervor-home .fv-drawer-header h2{color:#f4f4f4!important;}
+body.fv-theme-dark #fervor-home .fv-home-tagline,body.fv-theme-dark #fervor-home .fv-home-description p,body.fv-theme-dark #fervor-home .fv-home-ctas p{color:#c2c2c2!important;}
+body.fv-theme-dark #fervor-home .fv-home-pill{background:#080808!important;border:2px solid #fff!important;color:#fff!important;
+  box-shadow:2px 2px 0 rgba(255,255,255,.17)!important;}
+body.fv-theme-dark #fervor-home .fv-home-pill.primary{color:#080808!important;background:#f8f8f8!important;border-color:#f8f8f8!important;
+  -webkit-text-fill-color:#080808!important;}
+body.fv-theme-dark #fervor-home .fv-home-pill:hover,body.fv-theme-dark #fervor-home .fv-home-utility:hover{box-shadow:3px 3px 0 rgba(255,255,255,.22)!important;}
+body.fv-theme-dark #fervor-home .fv-home-utility,body.fv-theme-dark #fervor-home .fv-theme-toggle,body.fv-theme-dark #fervor-home .fv-home-link{color:#fff!important;background:transparent!important;border-color:#f5f5f5!important;}
+body.fv-theme-dark #fervor-home .fv-home-link svg{color:#fff!important;stroke:#fff!important;filter:none!important;}
+body.fv-theme-dark #fervor-home .fv-home-drawer{background:#070707!important;border-color:#dedede!important;
+  color:#fafafa!important;box-shadow:3px 3px 0 rgba(255,255,255,.13)!important;}
+body.fv-theme-dark #fervor-home .fv-home-drawer p,body.fv-theme-dark #fervor-home .fv-home-drawer span,body.fv-theme-dark #fervor-home .fv-home-drawer small,body.fv-theme-dark #fervor-home .fv-home-drawer strong,body.fv-theme-dark #fervor-home .fv-home-drawer summary{color:#ededed!important;}
+body.fv-theme-dark #fervor-home .fv-home-drawer button{background:#111!important;color:#fff!important;border-color:#aaa!important;}
+body.fv-theme-dark #fervor-home .fv-recent-row{background:#111!important;border-color:#999!important;color:#fff!important;}
+body.fv-theme-dark #fervor-home .fv217-home-footer{border-top:1px dotted #d8d8d8!important;
+  color:#ededed!important;}
+body.fv-theme-dark #fervor-home .fv217-footer-brand strong,body.fv-theme-dark #fervor-home .fv217-footer-brand small,body.fv-theme-dark #fervor-home .fv217-footer-by,body.fv-theme-dark #fervor-home .fv217-footer-links a{color:#f2f2f2!important;border-color:#9e9e9e!important;}
+body.fv-theme-dark #fervor-home .fv217-footer-brand img{filter:invert(1) contrast(1.2)!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-head,body.fv-theme-dark #fervor-home .fv-arcade-hud,body.fv-theme-dark #fervor-home .fv225-scoreboard,body.fv-theme-dark #fervor-home .fv225-scoreboard-row{border-color:rgba(255,255,255,.65)!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-board{outline:2px dotted rgba(255,255,255,.88)!important;
+  background:transparent!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-title,body.fv-theme-dark #fervor-home .fv-arcade-eyebrow,body.fv-theme-dark #fervor-home .fv-arcade-stat small,body.fv-theme-dark #fervor-home .fv-arcade-stat strong,body.fv-theme-dark #fervor-home .fv-arcade-state,body.fv-theme-dark #fervor-home .fv-arcade-help,body.fv-theme-dark #fervor-home .fv225-scoreboard,body.fv-theme-dark #fervor-home .fv225-scoreboard>summary,body.fv-theme-dark #fervor-home .fv225-bestline,body.fv-theme-dark #fervor-home .fv225-scores-note,body.fv-theme-dark #fervor-home .fv-fc-career{color:#efefef!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-tabs button{color:#ccc!important;background:transparent!important;
+  border-color:transparent!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-tabs button[aria-current="true"]{color:#fff!important;border-bottom-color:#fff!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-choices button{color:#f1f1f1!important;background:transparent!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-message{background:rgba(0,0,0,.77)!important;}
+body.fv-theme-dark #fervor-home .fv-arcade-message span{background:#101010!important;color:#fff!important;border-color:#fff!important;}
+/* Do not darken or shade game cells, artwork or ambient pastel tiles. */
+body.fv-theme-dark #fervor-home #fv-arcade-canvas,body.fv-theme-dark #fervor-home .fv-home-color{filter:none!important;}
+/* Keep app chrome dark when leaving the homepage; preview artwork remains unaltered. */
+body.fv-theme-dark:not(.fervor-home-open) .topbar,body.fv-theme-dark:not(.fervor-home-open) .workspace{background:#0c0c0c!important;color:#f7f7f7!important;border-color:#999!important;}
+@media(prefers-reduced-motion:reduce){
+body.fv-theme-dark #fervor-home.fv-home,body.fv-theme-dark #fervor-home .fv-home-wordmark{transition:none!important}
+}
+/* fv229-workspace-monochrome */
+/* One monochrome system for both the home and the entire editor.
+   No filters are applied to imported artwork, photographs, or pastel game tiles. */
+body.fv-theme-dark{--bg:#080808!important;--paper:#0d0f0d!important;
+  --ink:#f3f4f3!important;--sub:#b4b8b5!important;
+  --stroke:#8d928e!important;--accent:#f2f4f2!important;
+  --accent-soft:#1b201c!important;--fv22-green:#f0f3f0!important;
+  --fv-green:#f0f3f0!important;
+  color-scheme:dark!important;color:#ededed!important;}
+body.fv-theme-dark:not(.fervor-home-open){background-color:#080808!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px)!important;
+  background-size:25px 25px!important;}
+body.fv-theme-dark #fervor-home.fv-home{background-color:#060606!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.20) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.20) 1px,transparent 1px)!important;
+  background-size:25px 25px!important;}
+body.fv-theme-dark #fervor-home .fv-home-main{background:#060606!important;
+  border:3px dotted #f0f0f0!important;
+  color:#f0f0f0!important;}
+body.fv-theme-dark #fervor-home .fv-home-wordmark{border:4px solid #eee!important;
+  background:repeating-linear-gradient(90deg,#090909 0px,#090909 5px,#e9e9e9 5px,#e9e9e9 6px)!important;
+  box-shadow:3px 3px 0 #4d4d4d!important;}
+body.fv-theme-dark #fervor-home .fv-home-wordmark strong{color:#fff!important;-webkit-text-fill-color:#fff!important;
+  -webkit-text-stroke:clamp(2.5px,.44vw,5px) #050505!important;
+  text-shadow:2px 2px #050505,-1px -1px #050505!important;}
+body.fv-theme-dark #fervor-home .fv-home-lede,body.fv-theme-dark #fervor-home .fv-home-label,body.fv-theme-dark #fervor-home .fv-home-tagline,body.fv-theme-dark #fervor-home .fv-home-description,body.fv-theme-dark #fervor-home .fv-home-bottom,body.fv-theme-dark #fervor-home .fv-home-header,body.fv-theme-dark #fervor-home .fv-home-ctas,body.fv-theme-dark #fervor-home .fv-arcade-title{color:#f5f5f5!important}
+body.fv-theme-dark #fervor-home .fv-home-ctas .fv-home-pill.primary{background:#fff!important;color:#050505!important;
+  -webkit-text-fill-color:#050505!important;
+  border-color:#fff!important;}
+body.fv-theme-dark #fervor-home .fv-home-ctas .fv-home-pill:not(.primary){background:#080808!important;color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border-color:#ddd!important;}
+body.fv-theme-dark #fervor-home .fv-home-mark img{filter:invert(1)!important}
+body.fv-theme-dark #fervor-home .fv217-home-footer{border-color:rgba(255,255,255,.65)!important}
+body.fv-theme-dark #fervor-home .fv-arcade-board{outline:2px dotted #eaeaea!important}
+body.fv-theme-dark #fervor-home .fv-home-drawer{background:#090909!important;border-color:#e0e0e0!important}
+body.fv-theme-dark #fervor-home .fv-home-drawer *:not(button):not(svg){color:#ededed!important}
+body.fv-theme-dark #fervor-home .fv-home-drawer button{background:#131513!important;color:#fff!important;border-color:#ddd!important}
+body.fv-theme-dark #fervor-home .fv-home-stage,body.fv-theme-dark #fervor-home .fv-arcade{transition:opacity .42s ease,transform .42s ease,background-color .42s ease!important;}
+/* True dark workbench: black canvas with light-gray surrounding chrome. */
+body.fv-theme-dark:not(.fervor-home-open) :is(.topbar,.fv22-project-tabs,.fv22-stage-bar,.fv22-toolrail,.fv22-editor-layout,.app,.sidebar,.workspace,.preview-shell,.preview-tools,.preview-footer,.finish-bar,.fv23-feedback,.fv21-quickbar,.fv22-toolrail,.fv22-settings-button,.stats,.stat,.advanced-settings,.tab-nav,.order-toolbar,.order-bottom,.modal,.bottom-card,.bottom-row,.fv23-chat-composer,.fv21-more-menu,.fv22-logo-popover,.fv22-project-tab,.fv21-appearance-toggle,.fv18-ruler-settings):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#0c0e0d!important;background-image:none!important;color:#f1f1f1!important;
+  border-color:#747c76!important;box-shadow:none!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.topbar,.sidebar,.workspace,.fv22-stage-bar,.fv22-project-tabs,.preview-shell,.preview-tools,.preview-footer,.fv21-quickbar,.section,.tab-pane,.fv23-control-accordion,.fv23-chat-composer,.fv23-feedback,.fv18-ruler-settings):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){border-color:#929a93!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.topbar,.sidebar,.workspace,.fv22-stage-bar,.fv22-project-tabs,.preview-shell,.preview-tools,.preview-footer,.fv21-quickbar,.section,.tab-pane,.fv23-control-accordion,.fv23-chat-composer,.fv23-feedback,.fv18-ruler-settings)
+  :is(h1,h2,h3,h4,p,span,strong,small,label,legend,summary):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){color:#ededed!important;-webkit-text-fill-color:currentColor!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.hint,.tiny,.eyebrow,.preview-note,.fv23-chat-intro,.fv23-feedback-note,.fv22-toolrail-head,.fv22-stage-mark,.brand small,.fv22-brand-label small,.fv21-quickbar p,.version,.footer,.field-head .value):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){color:#adb4ae!important;-webkit-text-fill-color:currentColor!important;}
+
+body.fv-theme-dark:not(.fervor-home-open) :is(.fv22-stage.active,.fv22-icon-tool.chosen,.fv22-project-tab.active,.tab-btn[aria-selected=true],.tool.chosen,.view-switch button[aria-pressed=true]):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){color:#fff!important;-webkit-text-fill-color:#fff!important;
+  background:#262b27!important;border-color:#aab5aa!important;
+  box-shadow:inset 0 -2px 0 #fff!important;}
+body.fv-theme-dark:not(.fervor-home-open) button:not(:disabled):hover:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){border-color:#f0f0f0!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.btn,.tool,.fv21-quickbar button,.fv21-appearance-toggle,.fv23-photo-action,.fv23-send,.fv23-quick-export,.fv22-settings-button,.fv23-mini-help,.fv21-help-btn):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#1b201c!important;color:#f7f7f7!important;
+  -webkit-text-fill-color:#f7f7f7!important;border-color:#aeb4ae!important;
+  box-shadow:none!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(#fv21-save,#export-jef,#fv23-quick-export,.btn.primary,.fv23-quick-export):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#efefef!important;color:#0a0d0a!important;
+  -webkit-text-fill-color:#0a0d0a!important;border-color:#f8f8f8!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(input,select,textarea,option,.number-row input[type=number],.field select,.fv18-ruler-settings select):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#171b18!important;color:#f5f5f5!important;
+  -webkit-text-fill-color:#f5f5f5!important;
+  border:1px solid #9ba49c!important;
+  caret-color:#fff!important;box-shadow:none!important;}
+body.fv-theme-dark:not(.fervor-home-open) input[type=range]:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){accent-color:#e4e4e4!important;
+  background:transparent!important;}
+body.fv-theme-dark:not(.fervor-home-open) input[type=checkbox]:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){accent-color:#ededed!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.fv23-msg,.layer-item,.recent-designs,.order-row,.layer-card,.fv21-more-menu,.fv22-logo-popover,.fv22-logo-popover button):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#191919!important;color:#ededed!important;border-color:#818981!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.section h2,.fv23-control-accordion>summary,.fv23-control-accordion>summary h2,.fv23-feedback-header h2,.fv18-ruler-settings label){color:#f7f7f7!important;-webkit-text-fill-color:#f7f7f7!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.fv18-ruler-top,.fv18-ruler-left,.fv18-ruler-corner){background:#191919!important;color:#dedede!important;
+  border-color:#777!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.fv21-help-btn,.fv23-mini-help,.btn.soft):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){color:#eee!important;background:#1b1b1b!important;border-color:#bbb!important;}
+body.fv-theme-dark:not(.fervor-home-open) :is(.fv22-logo-popover,.fv21-more-menu){background:#141414!important;color:#fff!important;
+  border:1px dotted #d7d7d7!important;}
+body.fv-theme-dark:not(.fervor-home-open) .fv-editor-theme-toggle{display:inline-flex!important;align-items:center;justify-content:center;
+  border:1px dotted #e6e6e6!important;border-radius:3px!important;
+  padding:6px 8px!important;min-width:91px;min-height:32px;
+  background:#141414!important;color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font:700 12px/1.2 var(--fx-mono)!important;
+  white-space:nowrap;cursor:pointer;}
+body:not(.fervor-home-open) .fv-editor-theme-toggle{display:inline-flex;align-items:center;justify-content:center;
+  border:1px dotted #aaa;border-radius:3px;padding:6px 8px;
+  background:#fff;color:#222;font:700 12px/1.2 var(--fx-mono);
+  min-width:91px;min-height:32px;white-space:nowrap;cursor:pointer;}
+/* Keep media/artwork accurate: never invert project images or actual stitch files. */
+body.fv-theme-dark:not(.fervor-home-open) :is(img,canvas:not(.fv18-ruler-top):not(.fv18-ruler-left)):where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){filter:none!important}
+@media(max-width:600px){
+body:not(.fervor-home-open) .fv-editor-theme-toggle{font-size:12px!important;min-width:62px!important;max-width:77px!important;
+    padding:4px 3px!important;}
+}
+/* fv229-dark-contrast-repair */
+/* Resolve white navigation islands and low-contrast toolbar controls. */
+body.fv-theme-dark #fervor-home .fv-arcade-trigger,body.fv-theme-dark #fervor-home .fv-arcade-choices button{background:transparent!important;color:#f5f5f5!important;border:0!important;
+ -webkit-text-fill-color:#f5f5f5!important;}
+body.fv-theme-dark:not(.fervor-home-open) #export-jef:disabled{background:#252525!important;color:#a8a8a8!important;
+ -webkit-text-fill-color:#a8a8a8!important;
+ border-color:#696969!important;opacity:.74!important;}
+/* fv229-final-legibility */
+/* v2.30: preserve 25px physical cells when resizing a game. */
+#fervor-home .fv-arcade-stage{overflow-x:auto;
+  overflow-y:visible;
+  justify-content:safe center;
+  padding:10px 8px;
+  scrollbar-width:thin;}
+/* Editor appearance menu must remain readable against the charcoal toolbar. */
+/* Clear visual keyboard focus; preserve monochrome contrast in dark mode. */
+body.fv-theme-dark :is(button,a,input,select,textarea):focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){outline:2px solid #fff!important;
+  outline-offset:3px;}

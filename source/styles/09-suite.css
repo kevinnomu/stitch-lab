@@ -1,0 +1,160 @@
+/* FERVOR 4.0 · Suite navigation and cross-workspace refinements.
+   Rules keep their original order; legacy selectors are scoped away from Stitch Lab. */
+/* FERVOR 3.0 — native suite navigation, visual/a11y consistency, Compose detail and monochrome dark mode.
+   These overrides intentionally follow the legacy theme cascade. */
+:root{--fv30-radius:7px;--fv30-grid:25px}
+/* A compact switcher replaces scattered links. Other editor actions are preserved. */
+.fv30-replaced{display:none!important}
+.fv30-suite-nav:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){display:inline-flex;align-items:center;justify-content:center;gap:0;flex-shrink:0;border:1px solid #aebbb0;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.75)}
+.fv30-suite-nav button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){border:0!important;border-right:1px solid #d6ded7!important;background:transparent!important;box-shadow:none!important;border-radius:0!important;color:#36493b!important;font:700 12px/1.3 var(--fx-sans)!important;padding:8px 10px!important;min-height:34px!important;white-space:nowrap!important}
+.fv30-suite-nav button:last-child:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){border-right:0!important}
+.fv30-suite-nav button:hover:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#edf0ed!important;color:#111!important}
+.fv30-suite-nav button[aria-current="page"]:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#202622!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+.fv30-suite-select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){display:none!important}
+body.fv-theme-dark .fv30-suite-nav:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#090909!important;border-color:#b3b3b3!important}
+body.fv-theme-dark .fv30-suite-nav button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#0e0e0e!important;border-color:#5b5b5b!important;color:#f0f0f0!important;-webkit-text-fill-color:#f0f0f0!important}
+body.fv-theme-dark .fv30-suite-nav button:hover:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#292929!important}
+body.fv-theme-dark .fv30-suite-nav button[aria-current="page"]:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#f2f2f2!important;color:#090909!important;-webkit-text-fill-color:#090909!important}
+body.fv-theme-dark .fv30-suite-select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#141414!important;border:1px solid #a5a5a5!important;color:#f3f3f3!important}
+body:not(.fv-theme-dark) .fv30-suite-select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#fff;border:1px solid #9ca99f;color:#202820}
+body > .topbar .top-actions{gap:7px!important;align-items:center!important;flex-wrap:nowrap!important}
+#fervor-vector .fvv-header-actions,#fervor-compose .fvc-header-actions{gap:7px!important;align-items:center!important}
+@media(max-width:1160px){
+.fv30-suite-nav button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){padding:8px 7px!important;font-size:12px!important}
+}
+@media(max-width:940px){
+.fv30-suite-nav:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){display:none!important}
+.fv30-suite-select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){display:inline-block!important;min-width:116px!important;width:auto!important;max-width:160px!important;height:35px!important;margin:0!important;border-radius:5px!important;font:700 12px var(--fx-sans)!important;padding:5px 23px 5px 8px!important}
+.fv30-suite-select option:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#151515;color:#fff}
+}
+@media(max-width:560px){
+.fv30-suite-select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){min-width:92px!important;max-width:115px!important;font-size:12px!important}
+#fervor-compose .fvc-header-actions{gap:5px!important}
+}
+/* The five subordinate homepage actions remain a single visual family. */
+#fervor-home .fv-home-bottom{grid-template-columns:repeat(5,minmax(0,1fr))!important;max-width:1010px!important;gap:clamp(5px,1.7vw,21px)!important}
+#fervor-home .fv-home-bottom .fv-home-link{min-width:0!important}
+@media(max-width:720px){
+#fervor-home .fv-home-bottom{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+/* Stitch Lab is the design authority for the monochrome workspace. */
+body.fv-theme-dark{--ink:#f2f2f2;--sub:#c3c3c3;--stroke:#797979;--paper:#101010;--bg:#080808}
+body.fv-theme-dark #fervor-home .fv-home-drawer{background:#111!important;color:#f4f4f4!important;border-color:#a7a7a7!important}
+body.fv-theme-dark #fervor-home .fv-drawer-header,body.fv-theme-dark #fervor-home .fv-drawer-header *{background:#191919!important;color:#f3f3f3!important;-webkit-text-fill-color:#f3f3f3!important}
+body.fv-theme-dark #fervor-home .fv-drawer-header{border-bottom:1px solid #787878!important}
+body.fv-theme-dark #fervor-home .fv-close{background:#111!important;color:#fff!important;border:1px solid #aaa!important}
+body.fv-theme-dark #fervor-home .fv-drawer-note,body.fv-theme-dark #fervor-home .fv-home-drawer p,body.fv-theme-dark #fervor-home .fv-home-drawer summary{color:#d3d3d3!important}
+body.fv-theme-dark #fervor-home .fv-home-drawer a,body.fv-theme-dark #fervor-home .fv-home-drawer button{border-color:#9d9d9d!important;color:#f4f4f4!important}
+/* Compose and Radar share the same 66px header / 37px document strip / 41px workflow navigation. */
+#fervor-compose .fvc-header{height:66px!important;min-height:66px!important}
+#fervor-compose .fvc-project{height:37px!important;min-height:37px!important}
+#fervor-compose .fvc-stagebar{height:41px!important;min-height:41px!important}
+#fervor-compose .fvc-header-actions button{min-height:35px;white-space:nowrap}
+#fervor-compose .fvc-logo{width:49px!important;height:49px!important;min-width:49px!important;border:0!important;background:none!important;padding:0!important}
+#fervor-compose .fvc-logo img{width:100%;height:100%;display:block;object-fit:contain}
+
+#fervor-compose .fvc-brand strong{font:700 15px var(--fx-mono)!important}
+
+#fervor-compose .fvc-panel-title strong{font-family:var(--fx-mono)!important}
+#fervor-compose .fvc-panel-title{border-color:var(--c-line,var(--rline,#b9b9b9))}
+#fervor-compose .fvc-project-tab{border-top-width:3px}
+/* The acoustic piano keyboard remains visually recognizable regardless of surrounding theme. */
+#fervor-compose .fvc-piano,body.fv-theme-dark #fervor-compose .fvc-piano{--white-key:#f7f7f7;--black-key:#101010}
+body.fv-theme-dark #fervor-compose .fvc-white-key{background:var(--white-key)!important;color:#151515!important;border-color:#333!important}
+body.fv-theme-dark #fervor-compose .fvc-white-key .fvc-note-label{color:#656565!important}
+body.fv-theme-dark #fervor-compose .fvc-black-key{background:var(--black-key)!important;color:#f5f5f5!important;border:1px solid #c4c4c4!important}
+body.fv-theme-dark #fervor-compose .fvc-key-on.fvc-white-key{background:#d5d5d5!important;color:#151515!important}
+body.fv-theme-dark #fervor-compose .fvc-key-on.fvc-black-key{background:#6f6f6f!important;color:#fff!important}
+/* Compose keeps its controls legible in the global theme's aggressive !important cascade. */
+body.fv-theme-dark #fervor-compose{--c-ink:#f5f5f5!important;--c-muted:#c0c0c0!important;--c-line:#727272!important;--c-paper:#080808!important;--c-panel:#111!important;--c-surface:#1d1d1d!important;--c-grid:rgba(255,255,255,.16)!important;background:#080808!important;color:#f4f4f4!important}
+body.fv-theme-dark #fervor-compose .fvc-header{background-color:#080808!important;background-image:linear-gradient(rgba(255,255,255,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.17) 1px,transparent 1px)!important;background-size:25px 25px!important}
+body.fv-theme-dark #fervor-compose .fvc-main{background-color:#080808!important}
+body.fv-theme-dark #fervor-compose .fvc-project,body.fv-theme-dark #fervor-compose .fvc-stagebar,body.fv-theme-dark #fervor-compose .fvc-inspector,body.fv-theme-dark #fervor-compose .fvc-editor-frame,body.fv-theme-dark #fervor-compose .fvc-transport,body.fv-theme-dark #fervor-compose .fvc-lesson,body.fv-theme-dark #fervor-compose .fvc-note-editor{background-color:#111!important;color:#f5f5f5!important;border-color:#777!important}
+body.fv-theme-dark #fervor-compose button,body.fv-theme-dark #fervor-compose input:not([type="checkbox"]),body.fv-theme-dark #fervor-compose select{background:#171717!important;border-color:#8e8e8e!important;color:#f3f3f3!important;-webkit-text-fill-color:#f3f3f3!important}
+body.fv-theme-dark #fervor-compose .fvc-header-actions .fvc-solid,body.fv-theme-dark #fervor-compose .fvc-transport-buttons .fvc-record[aria-pressed=true]{background:#f4f4f4!important;color:#080808!important;-webkit-text-fill-color:#080808!important;border-color:#fff!important}
+body.fv-theme-dark #fervor-compose .fvc-stages button,body.fv-theme-dark #fervor-compose .fvc-inspector-tabs button{background:transparent!important}
+body.fv-theme-dark #fervor-compose .fvc-stages button.active,body.fv-theme-dark #fervor-compose .fvc-inspector-tabs button.active{color:#fff!important;-webkit-text-fill-color:#fff!important;border-bottom-color:#fff!important}
+body.fv-theme-dark #fervor-compose .fvc-sheet-scroller{background-color:#0e0e0e!important}
+body.fv-theme-dark #fervor-compose .fvc-waveform-box{background:#161616!important;border-color:#777!important}
+body.fv-theme-dark #fervor-compose .fvc-transport-buttons .fvc-record span{color:#ff9ba0!important;-webkit-text-fill-color:#ff9ba0!important}
+body.fv-theme-dark #fervor-compose #fvc-record[aria-pressed=true] span{color:#a41518!important;-webkit-text-fill-color:#a41518!important}
+body.fv-theme-dark #fervor-compose .fvc-keyboard-footer{color:#c2c2c2!important}
+body.fv-theme-dark #fervor-compose .fvc-keyboard-footer button{background:#191919!important;color:#efefef!important}
+body.fv-theme-dark #fervor-compose .fvc-note-list button[aria-pressed="true"]{background:#fff!important;color:#111!important;-webkit-text-fill-color:#111!important}
+
+
+
+
+
+/* Musical performance features: compact editorial controls, not separate app chrome. */
+#fervor-compose .fvc-note-editor{border:1px solid var(--c-line);border-radius:var(--fv30-radius);background:var(--c-panel);padding:12px 16px;display:flex;flex-direction:column;gap:9px}
+#fervor-compose .fvc-note-editor[hidden]{display:none!important}
+#fervor-compose .fvc-edit-heading{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center;font:700 12px var(--fx-mono)}
+#fervor-compose #fvc-edit-selection{font:400 12px var(--fx-sans);color:var(--c-muted)}
+#fervor-compose .fvc-note-list{display:flex;align-items:center;gap:5px;overflow-x:auto;padding:3px 0;max-height:46px}
+#fervor-compose .fvc-note-list button{flex:0 0 auto;min-height:30px;padding:5px 9px;font:600 12px var(--fx-mono);border-radius:4px}
+#fervor-compose .fvc-note-list button[aria-pressed="true"]{background:var(--c-ink);color:var(--c-panel)}
+#fervor-compose .fvc-note-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+#fervor-compose .fvc-note-actions button{padding:7px 10px;min-height:32px}
+#fervor-compose .fvc-note-editor p{font:12px/1.5 var(--fx-sans);color:var(--c-muted);margin:0}
+#fervor-compose #fvc-score [data-fvc-note]{cursor:pointer}
+#fervor-compose #fvc-score [data-fvc-note]:hover{stroke-width:3.5;opacity:.76}
+#fervor-compose .fvc-check-row{display:flex;flex-direction:row;align-items:center;gap:8px;margin:8px 0 15px;line-height:1.4;color:var(--c-muted)}
+#fervor-compose .fvc-check-row input{width:auto;margin:0;accent-color:var(--c-ink)}
+#fervor-compose #fvc-autosave{opacity:.8}
+#fervor-compose #fvc-metronome[aria-pressed="true"],#fervor-compose #fvc-loop[aria-pressed="true"],#fervor-compose #fvc-sustain[aria-pressed="true"]{border-color:var(--c-ink)!important;font-weight:800}
+#fervor-compose .fvc-keyboard-footer button{padding:4px 8px!important;font-size:12px!important;min-height:26px;align-self:center;margin-top:-3px}
+#fervor-compose .fvc-small-actions{flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:760px){
+#fervor-compose .fvc-header{height:auto!important;min-height:66px!important}
+#fervor-compose .fvc-note-actions button{padding:6px 7px!important}
+#fervor-compose .fvc-transport-stats{flex-wrap:wrap}
+#fervor-compose .fvc-sheet-scroller{min-height:222px}
+#fervor-compose .fvc-main{overflow:auto}
+#fervor-compose .fvc-editor{padding:8px;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){
+.fv30-suite-nav button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),#fervor-compose .fvc-note-editor button{transition:none!important}
+}
+/* 3.0.1 review fixes ------------------------------------------------------ */
+/* The suite switcher replaces the legacy Vector header shortcut. An older id rule forced it visible. */
+/* Vector: a visible artboard so people can see the 960 × 640 drawing and export area. */
+#fervor-vector .fvv-artboard{fill:rgba(255,255,255,.55);stroke:#9fb3a5;stroke-width:1;stroke-dasharray:6 5;vector-effect:non-scaling-stroke}
+body.fv-theme-dark #fervor-vector .fvv-artboard{fill:rgba(255,255,255,.035);stroke:#5d655f}
+#fervor-vector .fvv-mask-preview{filter:drop-shadow(0 0 1.5px #2f7d50) drop-shadow(0 0 1.5px #2f7d50)}
+#fervor-vector .fvv-layer-row .fvv-layer-lock{opacity:.45}
+#fervor-vector .fvv-layer-row .fvv-layer-lock.on{opacity:1}
+#fervor-vector .fvv-layer-row .fvv-layer-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
+#fervor-vector #fvv-trace[aria-busy="true"]{opacity:.65;cursor:progress}
+#fervor-vector #fvv-export-mm{width:100%}
+/* Phones: keep every header action reachable. Theme becomes an icon, the wordmark and the
+   duplicate Save button (also in More) step aside, and long primary labels shorten. */
+@media (max-width:520px){
+html #fervor-vector .fvv-brand .fvv-brand-label{display:none!important}
+body>.topbar .top-actions,#fervor-vector .fvv-header-actions{min-width:0;gap:5px!important}
+body>.topbar .top-actions .fv30-suite-select,#fervor-vector .fvv-header-actions .fv30-suite-select{max-width:96px}
+html body #fv-editor-theme-toggle#fv-editor-theme-toggle:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),html body #fervor-vector #fvv-theme#fvv-theme{font-size:0!important;color:transparent!important;width:36px!important;min-width:36px!important;padding:0!important;letter-spacing:0!important}
+html body #fv-editor-theme-toggle#fv-editor-theme-toggle:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *))::before,html body #fervor-vector #fvv-theme#fvv-theme::before{content:"◐";font-size:16px;line-height:1;color:var(--vv-ink,#111)}
+body.fv-theme-dark #fv-editor-theme-toggle:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *))::before,body.fv-theme-dark #fvv-theme::before{color:#f2f2f2}
+#fervor-vector #fvv-send{font-size:0!important;padding-inline:12px!important;white-space:nowrap}
+#fervor-vector #fvv-send::before{content:"Send ↗";font-size:12px}
+#fervor-vector #fvv-save{display:none!important}
+}
+@media (max-width:780px){
+#fervor-vector .fvv-tools{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+#fervor-vector .fvv-tools::-webkit-scrollbar{display:none}
+}
+/* Dark theme: the primary export action and hoop status stay legible on the black header. */
+html body.fv-theme-dark:not(.fervor-home-open) .topbar .top-actions #export-jef#export-jef{background:#f4f4f4!important;color:#111!important;border-color:#f4f4f4!important;opacity:1!important}
+html body.fv-theme-dark:not(.fervor-home-open) .topbar .top-actions #export-jef#export-jef:disabled{background:transparent!important;color:#8d8d8d!important;border:1px solid #444!important}
+/* Vector dark theme: artwork sits on light paper so its real colours (often black) stay visible. */
+html body.fv-theme-dark #fervor-vector .fvv-artboard{fill:#eef0ec;fill-opacity:.94;stroke:#8c958e}
+/* Selection and node handles carry a green outline so they read on light paper and dark canvas alike. */
+html body #fervor-vector #fvv-svg .fvv-selection-box.fvv-selection-box{fill:none!important;stroke:#2f7d50!important;stroke-width:1.2px!important;stroke-dasharray:5 4;vector-effect:non-scaling-stroke}
+html body #fervor-vector #fvv-svg .fvv-anchor.fvv-anchor{fill:#fff!important;stroke:#2f7d50!important;stroke-width:1.5px!important;vector-effect:non-scaling-stroke}
+html body #fervor-vector #fvv-svg .fvv-anchor.fvv-anchor.chosen{fill:#2f7d50!important;stroke:#fff!important}
+html body #fervor-vector #fvv-svg .fvv-control.fvv-control{fill:#2f7d50!important;stroke:#fff!important;stroke-width:1px!important;vector-effect:non-scaling-stroke}
+html body #fervor-vector #fvv-svg .fvv-handle-line.fvv-handle-line{stroke:#2f7d50!important;stroke-width:1px!important;vector-effect:non-scaling-stroke}
+/* Stitch Lab: "How should this sew?" tray */
+/* Ready to Sew card (mirrors the 500E's Ready to Sew screen) */
+/* The machine-check dialog re-homes the readiness row; older rules hid that row everywhere outside Home. */

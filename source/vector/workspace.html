@@ -1,0 +1,165 @@
+<section id="fervor-vector" class="fvv-workspace" hidden role="region" aria-label="FERVOR Vector workspace">
+  <header class="fvv-header" aria-label="FERVOR Vector header">
+    <div class="fvv-brand fv22-brand"><button type="button" id="fvv-logo-home" class="fvv-logo" aria-label="FERVOR home"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+CjxkZWZzPjxjbGlwUGF0aCBpZD0icm91bmQiPjxjaXJjbGUgY3g9IjY0IiBjeT0iNjQiIHI9IjUyIi8+PC9jbGlwUGF0aD48cGF0dGVybiBpZD0ibGluZXMiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMSAwVjgiIHN0cm9rZT0iIzE1MTUxNSIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48L3BhdHRlcm4+PC9kZWZzPgo8Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSI1OCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjUiLz4KPGcgY2xpcC1wYXRoPSJ1cmwoI3JvdW5kKSI+PHJlY3QgeD0iNyIgeT0iNyIgd2lkdGg9IjExNCIgaGVpZ2h0PSIxMTQiIGZpbGw9InVybCgjbGluZXMpIi8+PC9nPgo8dGV4dCB4PSI2MyIgeT0iOTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI4NiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UgZmlsbCI+RjwvdGV4dD4KPC9zdmc+" alt="FERVOR emblem"></button><span class="fvv-brand-chevron" aria-hidden="true">⌄</span><div class="fvv-brand-label"><strong>Vector</strong><small>VECTOR / EDITOR</small></div></div>
+    <div class="fvv-header-actions">
+      <button type="button" id="fvv-theme" class="fvv-theme-button">THEME · AUTO</button>
+      <button type="button" id="fvv-to-stitch" class="fvv-switch">Stitch Lab</button>
+      <button type="button" id="fvv-save" class="fvv-action">Save</button>
+      <button type="button" id="fvv-send" class="fvv-primary" aria-label="Send to Stitch Lab"><span class="fvv-send-full">Send to Stitch Lab</span><span class="fvv-send-short" aria-hidden="true">Send</span></button>
+      <button type="button" id="fvv-more-toggle" class="fvv-action" aria-label="More" title="More" aria-expanded="false" aria-controls="fvv-more-menu">···</button>
+      <button type="button" id="fvv-settings-button" class="fvv-settings-button" aria-expanded="false" aria-controls="fvv-inspector" title="Show settings"><span class="sl-sr">Show settings</span></button>
+    </div>
+    <div id="fvv-more-menu" class="fvv-more-menu" hidden>
+      <button type="button" id="fvv-more-save">Save</button>
+      <button type="button" id="fvv-rename-project">Rename design…</button>
+      <button type="button" id="fvv-copy-project">Duplicate design</button>
+      <button type="button" id="fvv-open">Project Files</button>
+      <button type="button" id="fvv-home">Home</button>
+      <button type="button" id="fvv-export-svg">Export SVG</button>
+      <button type="button" id="fvv-export-project">Save .fvector file</button>
+    </div>
+  </header>
+  <div class="fvv-project-bar" role="group" aria-label="Open vector projects">
+    <div id="fvv-project-list" class="fvv-project-list"></div>
+    <button id="fvv-new" class="fvv-new-project" type="button" title="New Vector project" aria-label="New Vector project">+</button>
+  </div>
+  <div class="fvv-main">
+    <nav class="fvv-tools" aria-label="Vector tools">
+      <button type="button" class="active" data-fvv-tool="select" title="Select shape (V)"><span class="fvv-icon">↖</span><small>Select</small></button>
+      <button type="button" data-fvv-tool="hand" title="Pan (H) · or hold Space and drag · scroll to pan, ⌘/Ctrl + scroll to zoom"><span class="fvv-icon">✋</span><small>Hand</small></button>
+      <button type="button" data-fvv-tool="node" title="Edit nodes (N): drag anchors and handles · Alt-drag a handle for a sharp corner"><span class="fvv-icon">⌁</span><small>Nodes</small></button>
+      <button type="button" data-fvv-tool="pen" title="Pen (P): click for corners, drag for curves, click the first point to close, Enter or Esc to finish"><span class="fvv-icon">✒</span><small>Path</small></button>
+      <button type="button" data-fvv-tool="rect" title="Draw a rectangle (R) · hold Shift for a square"><span class="fvv-icon">▭</span><small>Shape</small></button>
+      <button type="button" data-fvv-tool="ellipse" title="Draw an ellipse (E) · hold Shift for a circle"><span class="fvv-icon">◯</span><small>Ellipse</small></button>
+      <div class="fvv-tool-separator"></div>
+      <button type="button" data-fvv-tool="crop" title="Magnetic Crop (M): click around an edge to outline it"><span class="fvv-icon" aria-hidden="true"></span><small>Crop</small></button>
+      <button type="button" data-fvv-tool="magic" title="Flood (W): select a connected area of similar color"><span class="fvv-icon" aria-hidden="true"></span><small>Flood</small></button>
+      <button type="button" data-fvv-tool="brush-add" title="Add area to a mask"><span class="fvv-icon">⊕</span><small>Add</small></button>
+      <button type="button" data-fvv-tool="brush-remove" title="Remove area from a mask"><span class="fvv-icon">⊖</span><small>Erase</small></button>
+      <div class="fvv-tool-separator"></div>
+      <button type="button" data-fvv-command="duplicate" title="Duplicate shape (⌘/Ctrl+D)"><span class="fvv-icon">⧉</span><small>Copy</small></button>
+      <button type="button" data-fvv-command="delete" title="Delete shape (Delete)"><span class="fvv-icon">×</span><small>Delete</small></button>
+      <div class="fvv-tool-bottom">
+        <button type="button" data-fvv-quick="layers" title="Show layers"><span class="fvv-icon">▤</span><small>Parts</small></button>
+        <button type="button" data-fvv-quick="import" title="Import artwork"><span class="fvv-icon">▧</span><small>Import</small></button>
+        <button type="button" data-fvv-quick="fit" title="Fit the design in view"><span class="fvv-icon">⛶</span><small>Fit design</small></button>
+        <button type="button" data-fvv-quick="zoom-in" title="Zoom in"><span class="fvv-icon">⊕</span><small>Zoom in</small></button>
+        <button type="button" data-fvv-quick="zoom-out" title="Zoom out"><span class="fvv-icon">⊖</span><small>Zoom out</small></button>
+      </div>
+    </nav>
+    <main class="fvv-canvas-area" id="fvv-canvas-area" aria-label="Vector drawing workspace">
+  <div class="fvv-stage-bar"><span class="fvv-stage-mark">VECTOR / EDITOR</span>
+    <nav class="fvv-stages" aria-label="Vector workflow stages">
+      <button type="button" class="fvv-stage active" data-fvv-stage="artwork" aria-current="step">Artwork</button>
+      <button type="button" class="fvv-stage" data-fvv-stage="trace">Trace</button>
+      <button type="button" class="fvv-stage" data-fvv-stage="paths">Paths</button>
+      <button type="button" class="fvv-stage" data-fvv-stage="export">Export</button>
+    </nav>
+  </div>
+      <div class="fvv-preview-shell">
+        <div class="fvv-preview-tools">
+          <div class="fvv-view-tabs" role="group" aria-label="Vector canvas appearance">
+            <button type="button" class="fvv-view-btn" data-fvv-view="source">Source artwork</button>
+            <button type="button" class="fvv-view-btn active" data-fvv-view="result">Vector paths</button>
+            <button type="button" class="fvv-view-btn" data-fvv-view="split">Trace preview</button>
+          </div>
+          <div class="fvv-preview-actions">
+            <button type="button" id="fvv-undo" title="Undo (⌘Z)">↶ Undo</button><button type="button" id="fvv-redo" title="Redo (⌘⇧Z)">↷ Redo</button>
+            <button type="button" id="fvv-appearance-toggle">Appearance ⌄</button>
+          </div>
+        </div>
+        <div class="fvv-canvas-top"><span class="fvv-canvas-badge">LIVE VECTOR CANVAS</span><span>ARTBOARD · 960 × 640</span><span id="fvv-tool-label">SELECT</span></div>
+        <div id="fvv-svg-frame" class="fvv-svg-frame"><svg id="fvv-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" preserveAspectRatio="xMidYMid meet" tabindex="0" aria-label="Editable vector artboard">
+        <defs><pattern id="fvv-checker" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#fafbf9"/><rect width="12" height="12" fill="#edf1eb"/><rect x="12" y="12" width="12" height="12" fill="#edf1eb"/></pattern></defs>
+        <rect id="fvv-paper" class="fvv-artboard" width="960" height="640"/>
+        <g id="fvv-drafting-grid" pointer-events="none" opacity="0"><defs><pattern id="fvv-art-grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M25 0 V100 M50 0 V100 M75 0 V100 M0 25 H100 M0 50 H100 M0 75 H100" fill="none" stroke="var(--vv-canvas-line,#edf0ed)" stroke-width=".8"/><path d="M0 0 H100 V100 H0 Z" fill="none" stroke="var(--vv-canvas-major,#e0e6e0)" stroke-width="1"/></pattern></defs><rect width="960" height="640" fill="url(#fvv-art-grid)"/></g>
+        <g id="fvv-raster-layer"></g><g id="fvv-trace-layer"></g><g id="fvv-path-layer"></g><g id="fvv-editor-gizmos"></g><g id="fvv-crop-layer"></g>
+      </svg>
+        <div class="fvv-empty" id="fvv-empty"><div class="sl-empty-card fvv-empty-card">
+          <h2 id="fvv-start-title" tabindex="-1">Start a vector design</h2><p>Drop an image, SVG, or saved Vector project on the artboard.</p>
+          <div class="sl-empty-actions">
+            <button class="sl-pill primary" id="fvv-empty-open" type="button">Open file</button>
+            <button class="sl-pill" id="fvv-empty-draw" type="button">Draw a path</button>
+            <button class="sl-pill" id="fvv-empty-sample" type="button">Try the sample</button>
+          </div>
+        </div></div>
+        <div id="fvv-drop-cue" class="fvv-drop-cue" hidden>Drop to open in Vector</div>
+        </div>
+        <div class="fvv-bottom-bar"><span class="fvv-canvas-status"><span class="fvv-canvas-dot"></span><span id="fvv-message" role="status" aria-live="polite">Blank vector canvas · ready to draw.</span></span><span id="fvv-coordinates">X 0 · Y 0</span><div class="fvv-zoom-group"><button type="button" id="fvv-zoom-design">Fit design</button><button type="button" id="fvv-zoom-fit">Fit artboard</button><i></i><button id="fvv-zoom-minus" type="button" aria-label="Zoom out">−</button><span id="fvv-zoom-display">100%</span><button id="fvv-zoom-plus" type="button" aria-label="Zoom in">+</button><i></i><button type="button" id="fvv-focus">Focus</button></div></div>
+      </div>
+    </main>
+    <aside class="fvv-inspector" id="fvv-inspector" aria-label="Vector settings for the selected workflow stage">
+      <div class="fvv-panel active" data-fvv-panel-content="artwork">
+        <header class="fvv-panel-header"><strong>ARTWORK</strong><small>IMPORT &amp; PREPARE</small></header>
+        <p class="fvv-help">Create vector shapes on the artboard, or import artwork to isolate and trace.</p>
+        <button type="button" id="fvv-artwork-import" class="fvv-primary fvv-wide">Add image or SVG</button>
+        <div class="fvv-divider"></div>
+        <header class="fvv-panel-header"><strong>DOCUMENT</strong><small>VECTOR WORKSPACE</small></header>
+        <p class="fvv-help">SVG contours, editable nodes, fill and outline styles, and layers stay in your Vector document. Use Trace for a raster image or Paths to refine an individual shape.</p>
+        <p class="fvv-help"><b>Pen:</b> click for corners, drag for curves, click the first point to close, Enter or Esc to finish, Backspace removes the last point.<br><b>View:</b> scroll to pan, ⌘/Ctrl + scroll to zoom, hold Space and drag to move.<br><b>Edit:</b> arrow keys nudge (Shift = 10 px), ⌘/Ctrl+D duplicates, double-click a name in Objects to rename it.</p>
+      </div>
+      <div class="fvv-panel" data-fvv-panel-content="trace">
+        <header class="fvv-panel-header"><strong>IMAGE TRACE</strong><small>RASTER → PATHS</small></header>
+        <div class="fvv-section"><label for="fvv-preset">Preset</label><select id="fvv-preset"><option value="bw">Black and White Logo</option><option value="silhouette">Silhouettes</option><option value="line">Line Art</option><option value="sketch">Sketched Art</option><option value="technical">Technical Drawing</option><option value="3">3 Colors</option><option value="6">6 Colors</option><option value="16">16 Colors</option></select></div>
+        <div class="fvv-section"><label for="fvv-trace-view">View</label><select id="fvv-trace-view"><option value="source">Source image</option><option value="result">Tracing result</option><option value="split">Source + result</option></select></div>
+        <div class="fvv-section"><label for="fvv-trace-mode">Mode</label><select id="fvv-trace-mode"><option value="bw">Black and White</option><option value="color">Color</option></select></div>
+        <div class="fvv-section fvv-range"><div><label for="fvv-threshold">Threshold</label><output id="fvv-threshold-out">128</output></div><input id="fvv-threshold" type="range" min="1" max="254" value="128"></div>
+        <details class="fvv-details" open><summary>Advanced</summary>
+          <div class="fvv-section fvv-range"><div><label for="fvv-paths">Paths</label><output id="fvv-paths-out">70%</output></div><input id="fvv-paths" type="range" min="10" max="100" value="70"></div>
+          <div class="fvv-section fvv-range"><div><label for="fvv-corners">Corners</label><output id="fvv-corners-out">75%</output></div><input id="fvv-corners" type="range" min="0" max="100" value="75"></div>
+          <div class="fvv-section fvv-range"><div><label for="fvv-noise">Noise</label><output id="fvv-noise-out">8 px</output></div><input id="fvv-noise" type="range" min="1" max="100" value="8"></div>
+          <div class="fvv-check-row"><label><input id="fvv-trace-fills" type="checkbox" checked> Fills</label><label><input id="fvv-trace-strokes" type="checkbox"> Strokes</label></div>
+          <label class="fvv-check"><input id="fvv-ignore-white" type="checkbox" checked> Ignore white / transparent</label>
+        </details>
+        <div class="fvv-panel-buttons"><button id="fvv-trace" type="button" class="fvv-primary">Trace image</button><button id="fvv-expand" type="button">Expand to paths</button></div>
+        <div class="fvv-divider"></div>
+        <header class="fvv-panel-header"><strong>RASTER SELECTION</strong></header>
+        <div class="fvv-panel-buttons"><button type="button" id="fvv-start-crop">Magnetic Crop</button></div>
+        <div class="fvv-help">Flood selects connected colors. Shift-click adds to the mask and Option-click removes. Use the Add and Erase brushes to refine it.</div>
+        <div class="fvv-section fvv-range"><div><label for="fvv-tolerance">Selection tolerance</label><output id="fvv-tolerance-out">38</output></div><input id="fvv-tolerance" type="range" min="2" max="120" value="38"></div>
+        <div class="fvv-section fvv-range"><div><label for="fvv-brush-size">Brush diameter</label><output id="fvv-brush-size-out">18</output></div><input id="fvv-brush-size" type="range" min="4" max="75" value="18"></div>
+        <div class="fvv-panel-buttons"><button type="button" id="fvv-mask-apply">Isolate selection</button><button type="button" id="fvv-mask-clear">Clear mask</button></div>
+        <p class="fvv-info" id="fvv-trace-info">Open a PNG, JPG or SVG to prepare vector artwork.</p>
+      </div>
+      <div class="fvv-panel" data-fvv-panel-content="crop">
+        <header class="fvv-panel-header"><strong>MAGNETIC CROP</strong></header>
+        <p class="fvv-info" id="fvv-crop-status" role="status"></p>
+        <div class="fvv-panel-buttons"><button type="button" id="fvv-crop-magnet" aria-pressed="true">Magnet on</button><button type="button" id="fvv-crop-close">Close outline</button></div>
+        <div class="fvv-section fvv-range"><div><label for="fvv-crop-strength">Magnet strength</label><output id="fvv-crop-strength-value" for="fvv-crop-strength">65%</output></div><input id="fvv-crop-strength" min="0" max="100" type="range" value="65"></div>
+        <p class="fvv-help">Place anchors close to the edge. Turn Magnet off for straight segments, or hold Option/Alt to place a square exactly where you click. Use Tab and the arrow keys on the canvas to adjust anchors.</p>
+        <div class="fvv-panel-buttons"><button type="button" id="fvv-crop-undo">Undo crop edit</button><button type="button" id="fvv-crop-redo">Redo crop edit</button><button type="button" id="fvv-crop-remove">Delete anchor</button><button type="button" id="fvv-crop-reset">Clear crop</button></div>
+        <div class="fvv-divider"></div>
+        <div class="fvv-panel-buttons"><button class="fvv-primary" type="button" id="fvv-crop-trace">Trace crop</button><button type="button" id="fvv-crop-png">Export PNG</button></div>
+      </div>
+      <div class="fvv-panel" data-fvv-panel-content="appearance">
+        <header class="fvv-panel-header"><strong>APPEARANCE</strong><small>SELECTED OBJECT</small></header>
+        <div class="fvv-section"><label for="fvv-shape-mode">Shape style</label><select id="fvv-shape-mode"><option value="fill">Fill only</option><option value="stroke">Outline only</option><option value="both">Fill + outline</option></select></div>
+        <div class="fvv-section"><label for="fvv-fill">Fill color</label><input id="fvv-fill" type="color" value="#a3cda7"></div>
+        <div class="fvv-section"><label for="fvv-stroke">Outline color</label><input id="fvv-stroke" type="color" value="#283b30"></div>
+        <div class="fvv-section fvv-range"><div><label for="fvv-stroke-width">Stroke width</label><output id="fvv-stroke-width-out">3 px</output></div><input id="fvv-stroke-width" type="range" min="0.5" max="40" step="0.5" value="3"></div>
+        <div class="fvv-divider"></div>
+        <header class="fvv-panel-header"><strong>PATH OPERATIONS</strong><small>GEOMETRY</small></header>
+        <div class="fvv-panel-buttons"><button type="button" id="fvv-node-smooth">Smooth node</button><button type="button" id="fvv-node-sharp">Corner node</button><button type="button" id="fvv-node-add">Add midpoint</button><button type="button" id="fvv-node-delete">Delete node</button><button type="button" id="fvv-break-apart">Break apart</button><button type="button" id="fvv-shape-duplicate">Duplicate</button></div>
+        <div class="fvv-divider"></div>
+        <header class="fvv-panel-header"><strong>EMBROIDERY HANDOFF</strong><small>KEEP PATH GEOMETRY</small></header>
+        <div class="fvv-section"><label for="fvv-design-mm">Design width (mm)</label><input id="fvv-design-mm" type="number" min="10" max="250" value="100"></div>
+        <div class="fvv-help" id="fvv-handoff-help">Filled shapes become tatami fills with underlay. Outlines become running stitches, or satin columns when wider than about 1 mm. Each color becomes its own thread, and the design opens in a new Stitch Lab tab.</div>
+        <button type="button" id="fvv-send-side" class="fvv-primary fvv-wide">Send to Stitch Lab ↗</button>
+      </div>
+      <div class="fvv-panel" data-fvv-panel-content="layers">
+        <header class="fvv-panel-header"><strong>OBJECTS</strong><small id="fvv-layer-count">0 SHAPES</small></header>
+        <div id="fvv-layer-list" class="fvv-layer-list" role="list"></div>
+        <div class="fvv-panel-buttons"><button type="button" id="fvv-layer-up">Move up</button><button type="button" id="fvv-layer-down">Move down</button><button type="button" id="fvv-layer-delete">Delete</button></div>
+      </div>
+      <div class="fvv-panel" data-fvv-panel-content="export">
+        <header class="fvv-panel-header"><strong>EXPORT</strong><small>VECTOR → EMBROIDERY</small></header>
+        <p class="fvv-help">Keep paths and colors editable when sending your document to Stitch Lab.</p>
+        <div class="fvv-section"><label for="fvv-export-mm">Design width (mm)</label><input id="fvv-export-mm" type="number" min="10" max="250" value="100"></div>
+        <p class="fvv-help" id="fvv-export-size">The visible shapes are scaled so their combined width matches this value.</p>
+        <div class="fvv-panel-buttons"><button type="button" id="fvv-export-svg-side">Export SVG</button><button type="button" id="fvv-export-native-side">Save editable file</button></div>
+        <button type="button" id="fvv-export-send" class="fvv-primary fvv-wide">Send to Stitch Lab ↗</button>
+      </div>
+    </aside>
+  </div>
+  <input id="fvv-file-input" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.fvector,.json,image/*" hidden>
+</section>

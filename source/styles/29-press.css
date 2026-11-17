@@ -1,0 +1,33 @@
+/* Shared contact shadows. Motion changes only a control's paint, never its layout. */
+body{
+ --fv-control-top:#ffffff80;
+ --fv-control-edge:#00000033;
+ --fv-control-floor:#00000013;
+ --fv-control-contact:#00000024;
+}
+body:is(.fv-theme-dark,.fv-theme-art){
+ --fv-control-top:#ffffff29;
+ --fv-control-edge:#ffffff20;
+ --fv-control-floor:#00000055;
+ --fv-control-contact:#00000072;
+}
+:is(.sl-pill,.sl-iconbtn,.sl-btn,.fv-stitch-sample,.fvc-header-actions button,.fvc-transport-buttons button,
+ .fv-extension-tile,#fv-workspace-choice .fv-home-pill,.fv-arcade-actions button,.fv-arcade-touch button,
+ #fervor-radar button:not(.fvr-row)):not(:disabled,[aria-disabled="true"]) {
+ box-shadow:inset 0 1px var(--fv-control-top),0 1px var(--fv-control-edge),0 2px 2px var(--fv-control-floor);
+}
+:is(button,summary,a[href],input,[role="button"],[role="tab"])[data-fv-contact]{
+ box-shadow:inset 0 2px 4px var(--fv-control-contact),inset 0 1px var(--fv-control-edge);
+}
+:is(button,summary,a[href],input,[role="button"],[role="tab"])[data-fv-contact]:focus-visible{
+ outline-offset:3px;
+}
+body.fervor-home-open #fervor-home #fv-home-continue[data-fv-contact]:not(.fv-entering){
+ box-shadow:inset 0 3px 5px #0004,0 0 14px #fff3!important;
+ transform:none!important;
+}
+@media (prefers-reduced-motion:reduce){
+ :where(button,summary,a[href],input,[role="button"],[role="tab"])[data-fv-contact]:not(:focus-visible){
+  outline:1px solid var(--fv-control-edge);
+ }
+}

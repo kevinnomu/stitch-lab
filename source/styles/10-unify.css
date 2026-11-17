@@ -1,0 +1,98 @@
+/* FERVOR 5 · One interface across Stitch Lab, Vector, Compose and Radar.
+   Stitch Lab is the reference: the same palette, 52px header, centred workspace switcher,
+   round theme button, pill buttons and monochrome accents in both themes.
+   Color is kept for meaning only: Radar match ratings, thread colors and status.
+   Loaded last, so it wins over the older per-workspace cascades without editing them. */
+
+/* Each workspace's own palette now points at the shared tokens. */
+html body #fervor-vector{--vv-paper:var(--fx-bg)!important;--vv-panel:var(--fx-bg)!important;--vv-surface:var(--fx-raise)!important;--vv-ink:var(--fx-text)!important;--vv-muted:var(--fx-muted)!important;--vv-line:var(--fx-line-2)!important;--vv-accent:var(--fx-strong)!important}
+html body #fervor-compose{--c-ink:var(--fx-text)!important;--c-muted:var(--fx-muted)!important;--c-line:var(--fx-line-2)!important;--c-paper:var(--fx-bg)!important;--c-panel:var(--fx-bg)!important;--c-surface:var(--fx-raise)!important;background:var(--fx-bg)!important;color:var(--fx-text)!important}
+
+/* ---- Header: 52px, logo + workspace name, centred switcher, actions on the right ---- */
+html body :is(#fervor-vector .fvv-header,#fervor-compose .fvc-header,#fervor-radar .fvr-header):not(#fx-none){
+ position:relative;display:flex!important;align-items:center!important;gap:16px!important;
+ height:52px!important;min-height:52px!important;padding:0 14px 0 12px!important;
+ background:var(--fx-bg)!important;background-image:none!important;border:0!important;border-bottom:1px solid var(--fx-line)!important;
+ box-shadow:none!important;color:var(--fx-text)!important;font:13px/1.45 var(--fx-mono)!important;flex-wrap:nowrap!important;justify-content:flex-start!important}
+html body :is(.fvv-editor-ambient,.fvv-status-local,.fvv-brand-chevron,.fvc-header-badge,.fvr-local){display:none!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-brand,.fvc-brand,.fvr-brand){display:flex!important;align-items:center!important;gap:10px!important;flex:none!important;min-width:0}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(#fvv-logo-home,#fvc-logo,#fvr-logo){width:34px!important;height:34px!important;min-width:34px!important;padding:0!important;border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;overflow:hidden;cursor:pointer}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(#fvv-logo-home,#fvc-logo,#fvr-logo) img{width:34px!important;height:34px!important;border-radius:50%;display:block}
+html body.fv-theme-dark :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(#fvv-logo-home,#fvc-logo,#fvr-logo) img{filter:invert(1)}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-brand-label,.fvc-brand,.fvr-brand) strong{font:900 12px/1 var(--fx-mono)!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:var(--fx-text)!important;-webkit-text-fill-color:currentColor!important;white-space:nowrap}
+html body :is(.fvv-brand-label,.fvc-brand,.fvr-brand) small{display:none!important}
+
+.fx-suite{flex:1 1 auto;display:flex;justify-content:center;min-width:0}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) .fx-suite .fv30-suite-nav:not(#fx-none){display:flex!important;gap:2px!important;padding:3px!important;border:1.5px solid var(--fx-line-2)!important;border-radius:999px!important;background:var(--fx-bg)!important;overflow:visible!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) .fx-suite .fv30-suite-nav button:not(#fx-none){height:28px!important;min-height:28px!important;padding:0 13px!important;border:0!important;border-radius:999px!important;background:transparent!important;color:var(--fx-muted)!important;-webkit-text-fill-color:currentColor!important;font:700 12px/1 var(--fx-mono)!important;box-shadow:none!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) .fx-suite .fv30-suite-nav button:not(#fx-none):hover{color:var(--fx-text)!important;background:transparent!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) .fx-suite .fv30-suite-nav button:not(#fx-none)[aria-current="page"]{background:var(--fx-accent)!important;color:var(--fx-ink)!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) .fx-suite .fv30-suite-select:not(#fx-none){display:none!important;height:32px!important;border-radius:999px!important;border:1.5px solid var(--fx-line-2)!important;background:var(--fx-bg)!important;color:var(--fx-text)!important;font:700 12px var(--fx-mono)!important;padding:0 10px!important}
+
+html body :is(.fvv-header-actions,.fvc-header-actions,.fvr-head-actions){display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;flex:none!important;width:auto!important;margin-left:0!important;position:static!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-header-actions,.fvc-header-actions,.fvr-head-actions)>button{
+ min-height:32px!important;height:32px!important;padding:5px 14px!important;border-radius:999px!important;
+ border:1px solid var(--fx-line-2)!important;background:transparent!important;color:var(--fx-text)!important;-webkit-text-fill-color:currentColor!important;
+ font:700 12px/1.25 var(--fx-mono)!important;letter-spacing:0!important;text-transform:none!important;box-shadow:none!important;white-space:nowrap}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-header-actions,.fvc-header-actions,.fvr-head-actions)>button:hover{border-color:var(--fx-strong)!important;background:transparent!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-header-actions,.fvc-header-actions,.fvr-head-actions)>:is(#fvv-send,#fvc-save,#fvr-scan){background:var(--fx-accent)!important;border-color:var(--fx-accent)!important;color:var(--fx-ink)!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-header-actions,.fvc-header-actions,.fvr-head-actions)>:is(#fvv-send,#fvc-save,#fvr-scan):hover{opacity:.86}
+html body #fvv-more-menu{background:var(--fx-raise)!important;border:1px solid var(--fx-line-2)!important;border-radius:12px!important;color:var(--fx-text)!important;font-family:var(--fx-mono)!important}
+
+/* ---- Document strip and workflow tabs ---- */
+html body :is(#fervor-vector .fvv-project-bar,#fervor-compose .fvc-project,#fervor-radar .fvr-project):not(#fx-none){background:var(--fx-raise)!important;background-image:none!important;border-color:var(--fx-line)!important;color:var(--fx-muted)!important;font-family:var(--fx-mono)!important}
+html body :is(#fervor-compose .fvc-project-tab,#fervor-radar .fvr-project-tab,#fervor-vector .fvv-project-list>*){background:var(--fx-bg)!important;color:var(--fx-text)!important;-webkit-text-fill-color:currentColor!important;border-color:var(--fx-line)!important;border-top:2px solid var(--fx-strong)!important;font-family:var(--fx-mono)!important}
+html body :is(#fervor-vector .fvv-stage-bar,#fervor-compose .fvc-stagebar,#fervor-radar .fvr-stagebar):not(#fx-none){background:var(--fx-bg)!important;background-image:none!important;border-color:var(--fx-line)!important;color:var(--fx-muted)!important;font-family:var(--fx-mono)!important}
+html body :is(.fvv-stage-mark,.fvc-stagebar>span,.fvr-stagebar>span){color:var(--fx-faint)!important;font:700 12px var(--fx-mono)!important;letter-spacing:.08em!important}
+html body :is(#fervor-vector .fvv-stage,#fervor-compose .fvc-stages button,#fervor-radar .fvr-stage-buttons button):not(#fx-none){
+ background:transparent!important;border:0!important;border-bottom:2px solid transparent!important;border-radius:0!important;box-shadow:none!important;
+ color:var(--fx-muted)!important;-webkit-text-fill-color:currentColor!important;font:700 12px/1 var(--fx-mono)!important;letter-spacing:.02em!important}
+html body :is(#fervor-vector .fvv-stage,#fervor-compose .fvc-stages button,#fervor-radar .fvr-stage-buttons button):not(#fx-none):hover{color:var(--fx-text)!important}
+html body :is(#fervor-vector .fvv-stage.active,#fervor-compose .fvc-stages button.active,#fervor-radar .fvr-stage-buttons button.active):not(#fx-none){color:var(--fx-text)!important;border-bottom-color:var(--fx-strong)!important}
+html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(#fvv-settings-button,#fvc-settings-toggle){background:transparent!important;border:1px solid var(--fx-line-2)!important;border-radius:999px!important;color:var(--fx-text)!important;-webkit-text-fill-color:currentColor!important;font:700 12px var(--fx-mono)!important;padding:5px 12px!important;box-shadow:none!important}
+
+/* Vector: monochrome active tool and view tabs, like the Stitch Lab rail. */
+html body #fervor-vector .fvv-tools button.active{background:var(--fx-accent)!important;color:var(--fx-ink)!important;-webkit-text-fill-color:currentColor!important;border:1px solid var(--fx-accent)!important;box-shadow:none!important;border-radius:10px!important}
+html body #fervor-vector .fvv-tools button.active svg{color:var(--fx-ink)!important;stroke:currentColor}
+html body #fervor-vector .fvv-view-btn.active{color:var(--fx-text)!important;-webkit-text-fill-color:currentColor!important;border-bottom-color:var(--fx-strong)!important}
+
+/* Compose: key names stay readable on the light keys in dark mode. */
+html body.fv-theme-dark #fervor-compose .fvc-white-key,html body.fv-theme-dark #fervor-compose .fvc-white-key *{color:#2a2a2a!important;-webkit-text-fill-color:#2a2a2a!important}
+html body.fv-theme-dark #fervor-compose .fvc-white-key .fvc-note-label{color:#5a5a5a!important;-webkit-text-fill-color:#5a5a5a!important}
+
+/* ---- Narrow screens: same breakpoints as Stitch Lab ---- */
+@media(max-width:940px){
+ html body :is(#fervor-vector .fvv-header,#fervor-compose .fvc-header,#fervor-radar .fvr-header):not(#fx-none){gap:8px!important;padding:0 8px!important}
+ html body :is(#fervor-vector,#fervor-compose,#fervor-radar) .fx-suite .fv30-suite-nav:not(#fx-none){display:none!important}
+ html body :is(#fervor-vector,#fervor-compose,#fervor-radar) .fx-suite .fv30-suite-select:not(#fx-none){display:block!important}
+}
+@media(max-width:620px){
+ html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-brand-label,.fvc-brand,.fvr-brand) strong{display:none!important}
+ html body :is(#fervor-vector,#fervor-compose,#fervor-radar) :is(.fvv-header-actions,.fvc-header-actions,.fvr-head-actions)>button:not(#fvv-theme,#fvc-theme,#fvr-theme){padding:5px 10px!important;font-size:12px!important}
+ html body #fervor-compose .fvc-header-actions>button#fvc-save:not(#fx-none){font-size:0!important}
+ html body #fervor-compose .fvc-header-actions>#fvc-save::after{content:"Save";font-size:12px}
+ html body #fvv-save{display:none!important}
+ html body #fervor-vector .fvv-header-actions>button#fvv-send:not(#fx-none){font-size:0!important}
+ .fx-suite{justify-content:flex-start}
+}
+
+/* Readable key names on the light piano keys in both themes. */
+html body #fervor-compose .fvc-white-key .fvc-note-label{color:#5a5a5a!important;-webkit-text-fill-color:#5a5a5a!important}
+
+/* ---- Home: a launcher with one equal tile per workspace ---- */
+#fervor-home .fv-launch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;width:min(1010px,calc(100% - 32px));margin:22px auto 6px}
+#fervor-home .fv-launch-tile{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:132px;padding:18px;border:1.5px solid currentColor;border-radius:14px;background:transparent;color:inherit;text-align:left;cursor:pointer;transition:background .15s,color .15s}
+#fervor-home .fv-launch-tile strong{font:800 14px var(--fx-mono);letter-spacing:.12em;text-transform:uppercase}
+#fervor-home .fv-launch-tile span{font:14px/1.45 var(--fx-sans);opacity:.82}
+#fervor-home .fv-launch-tile em{margin-top:auto;font:700 12px var(--fx-sans);font-style:normal;padding:3px 10px;border-radius:999px;background:var(--fx-strong-soft);color:var(--fx-strong-c)}
+#fervor-home .fv-launch-tile:hover,#fervor-home .fv-launch-tile:focus-visible{background:var(--fx-accent)!important;color:var(--fx-ink)!important}
+#fervor-home .fv-launch-tile:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+/* The tiles replace the older one-off entries. */
+#fervor-home.fv-has-launcher :is(.fv-home-ctas>div:not(:has(#fv-home-open-artwork)),.fv-home-ctas p,.fv-home-description){display:none!important}
+#fervor-home.fv-has-launcher .fv-home-ctas{margin-top:8px!important}
+#fervor-home.fv-has-launcher .fv-home-bottom{grid-template-columns:repeat(3,minmax(0,1fr))!important;max-width:620px!important}
+/* Same round theme button as the workspaces; the text stays as its accessible name. */
+html body #fervor-home #fv-theme-toggle{width:34px!important;height:34px!important;min-width:34px!important;padding:0!important;border:1px solid currentColor!important;border-radius:50%!important;font-size:0!important;letter-spacing:0!important;display:grid!important;place-items:center!important}
+html body #fervor-home #fv-theme-toggle::before{content:"";width:14px;height:14px;border-radius:50%;border:1.5px solid currentColor;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
+@media(max-width:820px){#fervor-home .fv-launch{grid-template-columns:1fr 1fr}#fervor-home .fv-launch-tile{min-height:112px;padding:14px}}
+#fervor-home.fv-has-launcher .fv-home-ctas{display:flex!important;justify-content:center!important}

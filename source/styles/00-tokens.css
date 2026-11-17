@@ -1,0 +1,50 @@
+/* FERVOR 5 · Design tokens shared by every workspace.
+   Components read these names; the dark theme changes the values, not the components.
+   Color is used for meaning only: match ratings, status and thread colors. */
+body{
+ /* Surfaces, from the page up to raised and pressed layers */
+ --fx-bg:#ffffff;--fx-raise:#f6f6f6;--fx-hover:#ececec;
+ /* Lines: quiet dividers and control outlines */
+ --fx-line:#dedede;--fx-line-2:#b4b4b4;
+ /* Text */
+ --fx-text:#141414;--fx-strong:#111111;--fx-muted:#555555;--fx-faint:#6b6b6b;
+ /* The one accent is ink */
+ --fx-accent:#111111;--fx-ink:#ffffff;
+ /* Type: system fonts for reading, monospace for labels and numbers */
+ --fx-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+ --fx-mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+ --fx-t1:12px;--fx-t2:13px;--fx-t3:14px;--fx-t4:16px;--fx-t5:20px;--fx-t6:24px;
+ /* Shape */
+ --fx-r1:8px;--fx-r2:12px;--fx-pill:999px;
+ /* Meaning */
+ --fx-strong-c:#126f35;--fx-strong-soft:#e7f5ec;
+ --fx-good-c:#1d5fc4;--fx-good-soft:#e8f0fc;
+ --fx-stretch-c:#9a5800;--fx-stretch-soft:#fdf1df;
+ --fx-poor-c:#b42318;--fx-poor-soft:#fdeceb;
+}
+body.fv-theme-dark{
+ --fx-bg:#0c0c0c;--fx-raise:#161616;--fx-hover:#222222;
+ --fx-line:#303030;--fx-line-2:#595959;
+ --fx-text:#ededed;--fx-strong:#f5f5f5;--fx-muted:#bdbdbd;--fx-faint:#a0a0a0;
+ --fx-accent:#f2f2f2;--fx-ink:#0c0c0c;
+ --fx-strong-c:#5ed58a;--fx-strong-soft:#12301d;
+ --fx-good-c:#7fb0ff;--fx-good-soft:#14243f;
+ --fx-stretch-c:#f3b94f;--fx-stretch-soft:#33250b;
+ --fx-poor-c:#ff8f84;--fx-poor-soft:#3a1512;
+}
+
+/* Drafting frames and solid reading surfaces shared across the suite. */
+body {
+  --fv-frame-line: #797979;
+  --fv-reading-surface: #fcfcfc;
+  --fv-focus: #225db6;
+  --fv-art-glass:rgba(23,18,17,.76);
+  --fv-art-frost:blur(16px);
+  --fv-art-line:#ead7c180;
+  --fv-screen-gutter: clamp(14px, 3vw, 48px);
+}
+body.fv-theme-dark {
+  --fv-frame-line: #949494;
+  --fv-reading-surface: #151515;
+  --fv-focus: #a4c8ff;
+}

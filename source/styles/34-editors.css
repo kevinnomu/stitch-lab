@@ -1,0 +1,168 @@
+/* Stitch Lab's drafting frame and control measurements are shared by the editors. */
+body {
+ --fv-editor-header:54px;
+ --fv-editor-rail:68px;
+ --fv-editor-tool-height:50px;
+ --fv-editor-tool-width:54px;
+ --fv-editor-control:34px;
+ --fv-draft-line:rgba(0,0,0,.064);
+ --fv-draft-major:rgba(0,0,0,.055);
+ --fv-editor-grid:linear-gradient(var(--fv-draft-line) 1px,transparent 1px),linear-gradient(90deg,var(--fv-draft-line) 1px,transparent 1px),linear-gradient(var(--fv-draft-major) 1px,transparent 1px),linear-gradient(90deg,var(--fv-draft-major) 1px,transparent 1px);
+}
+body.fv-theme-dark{--fv-draft-line:#ffffff1b;--fv-draft-major:#ffffff12}
+body.fv-theme-art{--fv-draft-line:#f4d5c222;--fv-draft-major:#f4d5c215}
+#stitch-lab{--sl-rail:var(--fv-editor-rail)}
+#fervor-vector{--editor-rail:var(--fv-editor-rail)}
+html body :is(#stitch-lab .sl-top,#fervor-vector .fvv-header,#fervor-bay .bay-header):not(#fx-none){
+ color:var(--fx-text)!important;
+ background:linear-gradient(var(--fv-draft-line) 1px,transparent 1px) center/25px 25px,
+            linear-gradient(90deg,var(--fv-draft-line) 1px,transparent 1px) center/25px 25px,
+            var(--fx-bg)!important;
+ border-bottom:1px dotted var(--fv-frame-line)!important;
+}
+@media(min-width:691px){
+ #stitch-lab{--sl-top:var(--fv-editor-header)}
+ html body :is(#fervor-vector .fvv-header,#fervor-bay .bay-header):not(#fx-none){height:var(--fv-editor-header)!important;min-height:var(--fv-editor-header)!important}
+}
+#stitch-lab .sl-rail>.sl-tool,
+html body #fervor-vector .fvv-tools button {
+ width:var(--fv-editor-tool-width)!important;min-height:var(--fv-editor-tool-height)!important;
+}
+html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-nav:not(#fx-none){
+ align-items:center;justify-content:center;flex:none;gap:2px;padding:3px!important;
+ border:1.5px solid var(--fx-line-2)!important;border-radius:999px!important;background:var(--fx-bg)!important;
+}
+html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-nav button:not(#fx-none){
+ display:flex;align-items:center;justify-content:center;gap:5px;height:28px;min-height:28px;padding:0 10px!important;
+ border:1px solid transparent!important;border-radius:999px!important;white-space:nowrap;
+ background:transparent!important;color:var(--fx-muted)!important;font:700 12px var(--fx-mono)!important;box-shadow:none!important;
+}
+html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-nav button:not(#fx-none):hover{
+ background:var(--fx-hover)!important;color:var(--fx-text)!important;
+}
+html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-nav button:not(#fx-none)[aria-current=page]{
+ background:var(--fx-accent)!important;color:var(--fx-ink)!important;
+}
+:is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-nav button svg{width:15px;height:15px;margin:0}
+@media(min-width:1021px){
+ html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-nav:not(#fx-none){display:inline-flex!important}
+ html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-select:not(#fx-none){display:none!important}
+}
+@media(max-width:1020px){
+ html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-nav:not(#fx-none){display:none!important}
+ html body :is(#stitch-lab,#fervor-vector,#fervor-bay) .fv30-suite-select:not(#fx-none){
+  display:block!important;min-height:32px;max-width:108px;padding:0 6px!important;background:var(--fx-bg)!important;
+  border:1px solid var(--fx-line-2)!important;color:var(--fx-text)!important;border-radius:999px!important;font:700 11px var(--fx-mono)!important;
+ }
+}
+html body :is(#stitch-lab #fv-editor-theme-toggle,#fervor-vector #fvv-theme,#fervor-bay #bay-theme):not(#fx-none){
+ height:34px!important;min-height:34px!important;padding:0 10px!important;border-radius:2px!important;border:1px dotted var(--fv-frame-line)!important;
+ color:var(--fx-text)!important;background:var(--fx-bg)!important;font:700 12px var(--fx-mono)!important;
+}
+:is(#stitch-lab #fv-editor-theme-toggle,#fervor-vector #fvv-theme,#fervor-bay #bay-theme)::before{display:none!important}
+:is(#stitch-lab,#fervor-vector,#fervor-bay) .fv-radio-switch button.fv-radio-icon{width:34px!important;height:34px!important;min-height:34px!important;border-radius:50%!important}
+@media(max-width:540px){
+ html body :is(#stitch-lab #fv-editor-theme-toggle,#fervor-vector #fvv-theme,#fervor-bay #bay-theme):not(#fx-none){padding:0 5px!important;font-size:10px!important}
+}
+
+body.fervor-home-open #fervor-home #fv-workspace-choice{
+ width:min(100%,630px)!important;padding:clamp(14px,3.8vw,31px)!important;
+}
+#fervor-home #fv-workspace-choice .fv-choice-buttons{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:clamp(5px,1.6vw,13px)!important}
+body.fervor-home-open #fervor-home #fv-workspace-choice .fv-choice-buttons .fv-choice-launch{
+ display:flex!important;align-items:center;justify-content:center;gap:8px;min-width:0;max-width:100%;
+ min-height:49px;height:auto;width:100%;padding:8px 6px!important;white-space:normal;
+ border:1.5px solid currentColor!important;border-radius:999px!important;box-shadow:none!important;
+ color:inherit!important;background:transparent!important;font:800 clamp(11px,2.1vw,15px)/1.12 var(--fx-mono)!important;
+}
+body.fervor-home-open #fervor-home #fv-workspace-choice .fv-choice-buttons .fv-choice-launch:hover{
+ background:var(--fx-accent)!important;color:var(--fx-ink)!important;border-color:var(--fx-accent)!important;
+}
+#fervor-home :is(.fv-choice-buttons,.fv-choice-secondary,.fv-choice-mold,.fv-home-more-link) svg{vertical-align:middle;filter:none!important;flex:none}
+#fervor-home .fv-home-more-link>svg{margin-right:5px}
+body.fervor-home-open #fervor-home #fv-workspace-choice .fv-choice-secondary button,
+body.fervor-home-open #fervor-home #fv-workspace-choice .fv-choice-mold{
+ display:inline-flex;align-items:center;justify-content:center;gap:6px;color:inherit!important;background:transparent!important;
+ border:1px dotted currentColor!important;border-radius:999px!important;box-shadow:none!important;padding:7px 10px!important;
+}
+body.fervor-home-open #fervor-home #fv-workspace-choice :is(.fv-choice-secondary button,.fv-choice-mold):hover{color:var(--fx-ink)!important;background:var(--fx-accent)!important}
+#fv-workspace-choice .fv-choice-mold{margin:12px auto 0;font:700 12px var(--fx-mono)!important}
+#fv-workspace-choice .fv-choice-mold small{font:11px var(--fx-mono)}
+@media(max-width:500px){
+ body.fervor-home-open #fervor-home #fv-workspace-choice .fv-choice-buttons .fv-choice-launch{flex-direction:column;gap:5px;min-height:57px}
+}
+
+.fv-editor-dialog{
+ width:min(720px,calc(100vw - 24px));max-height:calc(100dvh - 28px);padding:clamp(14px,2.7vw,25px);overflow:auto;
+ color:var(--fx-text);background:var(--fx-bg);border:1px dotted var(--fv-frame-line);border-radius:12px;box-shadow:0 18px 60px #0005;
+ font:13px/1.45 var(--fx-mono);
+}
+.fv-editor-dialog::backdrop{background:#100d0a62;backdrop-filter:blur(4px)}
+.fv-editor-dialog[open]{animation:fv-dialog-arrive .16s ease-out}
+@keyframes fv-dialog-arrive{from{opacity:0;transform:translateY(5px) scale(.99)}}
+.fv-editor-dialog header{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:11px}
+.fv-editor-dialog header small,.fv-editor-dialog article small{display:block;color:var(--fx-muted);font:700 11px var(--fx-mono);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.fv-editor-dialog header small:empty{display:none}
+.fv-editor-dialog h2{margin:0;color:inherit;font:900 clamp(20px,4vw,30px) var(--fx-mono)}
+.fv-editor-dialog :is(button,summary){font:700 12px var(--fx-mono)!important;color:var(--fx-text)!important;cursor:pointer}
+.fv-editor-dialog button{background:var(--fx-bg)!important;border:1px solid var(--fx-line-2)!important;border-radius:8px!important;box-shadow:none!important;padding:7px 10px}
+.fv-editor-dialog button[data-dialog-close]{border-radius:50%!important;width:34px;height:34px;padding:0;font-size:21px!important}
+.fv-editor-dialog button:hover{background:var(--fx-hover)!important}
+.fv-editor-dialog button[aria-pressed=true]{background:var(--fx-accent)!important;color:var(--fx-ink)!important;border-color:var(--fx-accent)!important}
+.fv-editor-dialog svg{color:inherit}
+.fv-editor-dialog :is(figure>svg,.fv-help-intro>svg,#fv-help-cards>button>svg){
+ fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.fv-editor-dialog svg .draft{opacity:.48;stroke-dasharray:3 4}
+#fv-mold-preview{width:min(540px,calc(100vw - 24px))}
+#fv-mold-preview>p{color:var(--fx-muted);margin:0 0 12px}
+.fv-mold-options{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+#fv-mold-preview figure{margin:0;border:1px solid var(--fx-line-2);border-radius:8px;overflow:hidden}
+#fv-mold-preview figure>svg{
+ display:block;width:100%;max-height:32dvh;background:var(--fv-editor-grid),var(--fx-raise);background-size:25px 25px,25px 25px,100px 100px,100px 100px,auto;
+}
+#fv-mold-preview figcaption{padding:10px 13px;border-top:1px dotted var(--fv-frame-line)}
+#fv-mold-preview figcaption p{margin:3px 0;color:var(--fx-muted);font:13px/1.45 var(--fx-sans)}
+.fv-help-search{
+ display:flex;align-items:center;gap:8px;padding:3px 9px;min-height:39px;border:1px dotted var(--fv-frame-line);
+ border-radius:7px;margin-bottom:11px;
+}
+.fv-help-search:focus-within{outline:1px solid var(--fv-focus)}
+.fv-help-search input{flex:1;min-width:0;border:0!important;color:inherit!important;background:transparent!important;box-shadow:none!important;padding:4px 0!important;font:13px var(--fx-mono)!important;outline:none!important}
+.fv-help-search kbd{color:var(--fx-muted);white-space:nowrap}
+#fv-help-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(122px,1fr));gap:8px}
+#fv-help-cards>button{display:grid;grid-template-columns:minmax(0,1fr) auto;text-align:left;align-items:center;gap:4px;padding:7px}
+#fv-help-cards>button svg{width:100%;max-height:88px;grid-column:1/-1;background:var(--fv-editor-grid);background-size:16px 16px,16px 16px,80px 80px,80px 80px;color:var(--fx-text)}
+#fv-help-cards>button strong{min-width:0}
+.fv-help-intro{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;background:var(--fx-raise);border:1px dotted var(--fx-line-2);padding:4px 12px;margin-bottom:6px;border-radius:6px}
+.fv-help-intro svg{height:58px;width:auto}
+#fv-help-results article{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px 2px;border-bottom:1px dotted var(--fx-line-2)}
+#fv-help-results article h3{margin:0;font:800 13px var(--fx-mono)}
+#fv-help-results article p{margin:3px 0 0;color:var(--fx-muted);font:13px/1.45 var(--fx-sans)}
+#fv-help-results article button{white-space:nowrap;flex:none}
+#fv-help-results:empty{display:none}
+#fv-help-results .fv-guide-topic{color:var(--fx-text);border-bottom:1px dotted var(--fx-line-2)}
+#fv-help-results .fv-guide-topic summary{display:flex;justify-content:space-between;gap:8px;padding:9px 4px}
+#fv-help-results .fv-guide-answer{padding:0 7px 9px;color:var(--fx-muted)}
+#fv-help-results .fv-guide-topic summary>strong{margin-right:auto}
+:is(#stitch-lab,#fervor-vector,#fervor-bay,#fervor-compose,#fervor-radar,#fv-arcade,#fv-art-viewer,#fv-art-puzzle) button.fv-editor-help{
+ display:grid!important;place-items:center;flex:none!important;width:var(--fv-editor-control)!important;height:var(--fv-editor-control)!important;
+ min-width:var(--fv-editor-control)!important;min-height:var(--fv-editor-control)!important;padding:0!important;
+ border:1px solid var(--fx-line-2)!important;border-radius:50%!important;color:var(--fx-text)!important;background:var(--fx-bg)!important;
+ font:800 14px var(--fx-mono)!important;box-shadow:none!important;
+}
+:is(#stitch-lab,#fervor-vector,#fervor-bay,#fervor-compose,#fervor-radar,#fv-arcade,#fv-art-viewer,#fv-art-puzzle) button.fv-editor-help:hover{
+ background:var(--fx-accent)!important;color:var(--fx-ink)!important;
+}
+.fv-help-found{outline:2px solid var(--fv-focus)!important;outline-offset:3px;animation:fv-help-ping .55s ease-in-out 2 alternate}
+@keyframes fv-help-ping{to{box-shadow:0 0 0 6px color-mix(in srgb,var(--fv-focus) 36%,transparent)}}
+@media(prefers-reduced-motion:reduce){.fv-editor-dialog[open],.fv-help-found{animation:none}}
+#fervor-vector .fvv-canvas-area>.fvv-stage-bar {
+ margin:-13px clamp(-20px,-1.3vw,-9px) 11px;
+ border-bottom:1px dotted var(--fv-frame-line);
+}
+@media(max-width:760px){#fervor-vector .fvv-canvas-area>.fvv-stage-bar{margin:-6px -6px 6px}}
+#fv-suite-guide.fv-help-anchored{
+ position:fixed;inset:var(--fv-help-top,62px) 12px auto auto;margin:0;
+ width:min(505px,calc(100vw - 24px));max-height:calc(100dvh - var(--fv-help-top,62px) - 12px);
+}

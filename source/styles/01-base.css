@@ -1,0 +1,625 @@
+/* FERVOR 4.0 · Shared base styles and the home screen.
+   Rules keep their original order; legacy selectors are scoped away from Stitch Lab. */
+:root{color-scheme:light;--bg:#f7f8f5;--paper:#fff;--ink:#17251e;--sub:#708178;--stroke:#dde4dc;--accent:#1e6659;--accent-soft:#edf5ef;--warning:#fff5e7;--shadow:0 3px 18px rgba(26,41,30,.035)}
+*:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){box-sizing:border-box}
+body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),input:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){font:inherit}
+button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){cursor:pointer}
+button:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),input:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),select:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){outline:2px solid #287e70;outline-offset:2px}
+button:disabled:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){opacity:.4;cursor:default}
+.topbar{height:78px;border-bottom:1px solid var(--stroke);padding:0 28px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.86)}
+.symbol{font-size:27px;line-height:1;letter-spacing:-3px;font-weight:850;width:43px;height:43px;display:grid;place-items:center;border:1px solid #bfcfc5;border-radius:12px}
+.top-actions{display:flex;align-items:center;gap:8px}
+.top-actions .version{font-size:12px;color:var(--sub);margin-right:14px}
+.workspace{padding:25px 28px;min-width:0}
+.section{padding-bottom:19px;margin-bottom:19px;border-bottom:1px solid var(--stroke)}
+.section:last-child{border-bottom:0}
+.section h2{margin:0 0 7px;font-size:15px;font-weight:750}
+.hint{color:var(--sub);font-size:12px;margin:5px 0 12px}
+.btn:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid #d4ded6;background:#fff;color:var(--ink);border-radius:9px;min-height:37px;padding:8px 12px;font-size:12px;font-weight:650;text-decoration:none;white-space:nowrap}
+.btn:hover:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#f5f8f5}
+.btn.primary{background:#1b4536;border-color:#1b4536;color:#fff}
+.btn.primary:hover{background:#24604b}
+.btn.full{width:100%}
+.btn.muted{color:var(--sub)}
+.btn:active:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){transform:translateY(1px)}
+.field{margin:12px 0}
+.field label{font-size:12px;font-weight:600}
+.value{font-size:12px;font-variant-numeric:tabular-nums;color:var(--accent);font-weight:700}
+.field input[type=range]{display:block;width:100%;margin:4px 0;accent-color:var(--accent)}
+input[type=number]:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){appearance:textfield}
+.field select,.field input[type=number]:not(.small){width:100%;min-height:34px;border:1px solid var(--stroke);border-radius:8px;padding:6px 9px;background:#fff; color:var(--ink)}
+.field select{font-size:12px}
+.offsets{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.offsets .field{margin:5px 0}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-bottom:17px}
+.tool{border:1px solid #d9e3db;color:#456258;background:#fff;border-radius:8px;min-width:65px;height:32px;padding:4px 10px;font-size:12px;font-weight:600}
+.tool.chosen{color:#fff;background:var(--accent);border-color:var(--accent)}
+.status{display:flex;align-items:center;gap:8px;font-weight:600}
+
+.notice:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){margin-bottom:14px;background:#eef6ef;border:1px solid #cdded1;border-radius:9px;color:#276448;padding:11px 36px 11px 13px;font-size:12px;position:relative}
+.notice button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){position:absolute;right:9px;top:7px;background:none;border:0;font-size:18px;color:inherit}
+.modal{max-width:600px;width:calc(100vw - 32px);border:1px solid var(--stroke);border-radius:13px;padding:25px;color:var(--ink);box-shadow:0 20px 90px rgba(0,0,0,.2)}
+.modal::backdrop{background:rgba(15,26,20,.55)}
+.modal h2{margin:0 0 10px}
+.modal p,.modal li{font-size:13px;line-height:1.7}
+.modal ul{padding-left:20px}
+.modal .btn{margin-top:5px}
+@media(max-width:970px){
+.workspace{padding:19px 17px}
+.stats{gap:7px}
+}
+@media(max-width:690px){
+.topbar{height:67px;padding:0 13px}
+.top-actions .version{display:none}
+.workspace{padding:15px}
+}
+@media(max-width:470px){
+.stats{grid-template-columns:1fr 1fr}
+.top-actions .btn{font-size:12px}
+}
+.field select:disabled{background:#f3f5f2}
+.field input[type=text]{width:100%;min-height:36px;border:1px solid var(--stroke);border-radius:8px;padding:7px 10px;background:#fff;color:var(--ink)}
+/* Tabbed adjustment sidebar */
+
+
+
+
+
+
+
+
+@keyframes tabReveal{from{opacity:.65}to{opacity:1}}
+
+
+/* Realistic stitch preview v0.9 */
+/* AI visualization: keeps the existing stitch design as the edit source */
+/* Janome 500E LE timing and stitch-by-stitch sew-out simulator */
+/* Editable layers */
+:root{color-scheme:light;--bg:#f6f7f7;--paper:#fff;--ink:#171a18;--sub:#666d69;--stroke:#dfe4e1;--accent:#17764b;--accent-soft:#edf7f1;--warning:#fff5f4;--shadow:0 6px 30px rgba(15,22,17,.045)}
+*:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),*:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *))::before,*:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *))::after{box-sizing:border-box}
+body,button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),input:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),textarea:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){font-family:var(--fx-sans)!important}
+body{background:var(--bg)!important;color:var(--ink)!important}
+.topbar{background:#fff!important;border-bottom:1px solid #e2e6e3!important}
+.symbol{background:#151817;color:#fff;border-color:#151817;border-radius:11px}
+.workspace{background:#f7f8f7}
+.hint{color:#6c7570}
+
+
+
+
+
+
+.btn:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),.tool{background:#fff!important;color:#252b26!important;border:1px solid #d9e0db!important;border-radius:8px!important}
+.btn:hover:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),.tool:hover{background:#f3f6f4!important}
+.btn.primary,.tool.chosen{background:#171b18!important;border-color:#171b18!important;color:#fff!important}
+.field input[type=range]{accent-color:#18774a}
+.field input[type=text],.field select,.field input[type=number]{color:#171a17!important;background:#fff!important;border-color:#dce2dd!important}
+.field select:disabled{background:#f2f5f2!important}
+
+
+/* NOMU Studio Grid: a white technical drafting interface inspired by the user-provided Fervor site. */
+:root{color-scheme:light;--bg:#fff;--paper:#fff;--ink:#111;--sub:#656565;--stroke:#222;--accent:#306d47;--accent-soft:#e7eee4;--warning:#fff6f5;--shadow:none}
+*:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){box-sizing:border-box}
+html{background:#fff}
+body{margin:0;color:#101010!important;background-color:#fff!important;
+ background-image:linear-gradient(to right,rgba(5,5,5,.082) 1px,transparent 1px),linear-gradient(to bottom,rgba(5,5,5,.082) 1px,transparent 1px),linear-gradient(to right,rgba(5,5,5,.09) 1px,transparent 1px),linear-gradient(to bottom,rgba(5,5,5,.09) 1px,transparent 1px)!important;
+ background-size:25px 25px,25px 25px,125px 125px,125px 125px!important;
+ background-position:center top!important;
+ font-family:var(--fx-sans)!important}
+button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),input:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),textarea:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){font-family:var(--fx-sans)!important}
+button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){transition:background .12s ease,border-color .12s ease,transform .12s ease}
+button:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),input:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),select:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),textarea:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),[tabindex]:focus-visible:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){outline:3px solid #4a936a!important;outline-offset:2px!important}
+.topbar{height:76px;padding:0 clamp(14px,3vw,48px);background:#fff!important;border-bottom:2px solid #141414!important;position:relative;z-index:5;gap:16px}
+.topbar .symbol{width:47px;height:47px;border:2px solid #111!important;border-radius:50%!important;color:#111!important;background:repeating-linear-gradient(90deg,#fff 0,#fff 3px,#111 3px,#111 4px)!important;text-shadow:1px 1px #fff,-1px -1px #fff,-1px 1px #fff,1px -1px #fff;box-shadow:inset 0 0 0 4px #fff;font-size:24px}
+.top-actions{gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.top-actions .version{font:700 12px var(--fx-mono)!important;color:#5f5f5f!important;white-space:nowrap;margin-right:6px}
+.workspace{background:#fff!important;border:3px dotted #151515!important;min-width:0;box-shadow:none!important}
+.workspace{padding:22px clamp(14px,2vw,30px) 30px!important}
+.section h2{font:900 15px var(--fx-mono)!important;letter-spacing:-.035em!important;color:#111!important}
+.hint{color:#626262!important;line-height:1.55}
+
+
+
+
+.section+.section{border-color:#dedede!important}
+.btn:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#fff!important;color:#101010!important;border:2px solid #111!important;border-radius:999px!important;min-height:36px;font-weight:800!important;padding:6px 12px!important;box-shadow:1px 2px 0 rgba(0,0,0,.07)!important}
+.btn:hover:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#efefef!important}
+.btn.primary,.btn.primary:hover,.tool.chosen{background:#111!important;color:#fff!important;border-color:#111!important}
+.btn.primary:hover{background:#303030!important}
+.btn:disabled,.tool:disabled{opacity:.35}
+.field label{color:#171717!important;font-weight:700}
+.field input[type=range]{accent-color:#111!important}
+.field select,.field input[type=text],.field input[type=number],textarea:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#fff!important;color:#111!important;border:1.5px solid #111!important;border-radius:3px!important;box-shadow:none!important}
+.field select:disabled{background:#f1f1f1!important}
+.value{color:#215d40!important;font:800 12px var(--fx-mono)!important}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.tool{border:1.5px solid #141414!important;border-radius:3px!important;background:#fff!important;color:#111!important;font:700 12px var(--fx-mono)!important;min-width:47px;height:32px;padding:3px 9px}
+.tool:hover{background:#f1f1f1!important}
+.tool.chosen{background:#111!important;color:#fff!important}
+.status{font-family:var(--fx-mono)!important;font-size:12px!important}
+.notice:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){background:#fff!important;border:2px solid #111!important;border-radius:4px!important;color:#111!important}
+.modal{background:#fff!important;color:#111!important;border:3px dotted #111!important;border-radius:4px!important}
+@media(max-width:1200px){
+.workspace{padding:20px 16px 26px!important}
+.top-actions .version{display:none}
+}
+@media(max-width:920px){
+
+.workspace{padding:18px!important}
+}
+@media(max-width:690px){
+.topbar{height:auto;min-height:78px;padding:10px 14px;align-items:flex-start;flex-wrap:wrap}
+.top-actions{justify-content:flex-start}
+
+.stats{gap:6px}
+}
+@media(prefers-reduced-motion:reduce){
+button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){transition:none!important;animation:none!important}
+}
+/* Studio identity: keep dotted architecture, striped wordmark and drafting grid. */
+:root{--ink:#121212;--sub:#565656;--paper:#fff;--stroke:#171717;--accent:#326f4f}
+html{scroll-behavior:smooth}
+body{font-size:14px!important;background-size:30px 30px,30px 30px,150px 150px,150px 150px!important;
+ background-image:linear-gradient(to right,rgba(0,0,0,.047) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.047) 1px,transparent 1px),linear-gradient(to right,rgba(0,0,0,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.07) 1px,transparent 1px)!important}
+.topbar{height:66px!important;position:sticky;top:0;z-index:20;background:#fff!important}
+.topbar .symbol{height:40px!important;width:40px!important;font-size:20px!important}
+.workspace{border:2px dotted #111!important}
+.workspace{padding:20px clamp(14px,1.7vw,26px) 25px!important}
+
+
+[hidden]:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){display:none!important}
+
+
+.section h2{font-size:15px!important;line-height:1.4}
+.section h2{margin-top:4px!important}
+.field{margin:12px 0!important}
+.field label{font-size:12px!important}
+.field select,.field input[type=number],.field input[type=text]{min-height:39px!important;padding:8px 9px!important}
+.hint{line-height:1.55!important}
+.btn:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){min-height:40px!important;line-height:1.2!important}
+.btn:disabled{cursor:not-allowed!important}
+.stats{gap:9px!important;margin-bottom:12px!important}
+.tool{font-size:12px!important;min-width:39px!important;min-height:34px!important}
+@media(max-width:690px){
+.topbar{position:relative!important}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.workspace{padding:15px!important}
+
+}
+@media(max-width:430px){
+.top-actions{width:100%;justify-content:space-between}
+}
+@media(max-width:690px){
+.topbar{height:auto!important;min-height:112px!important;padding:9px 14px!important;gap:4px!important;align-content:center!important}
+.top-actions{width:100%!important;justify-content:flex-start!important;gap:8px!important}
+.top-actions .version{display:none!important}
+.top-actions .btn{min-height:32px!important;padding:4px 11px!important;font-size:12px!important}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto!important}
+}
+@keyframes nomuAmbient{0%,100%{opacity:.16}35%{opacity:.51}62%{opacity:.24}83%{opacity:.43}}
+/* Selected navigation = white surface with colored text, not a black filled box. */
+
+.tool.chosen{background:#fff!important;color:#167345!important;border:1.5px solid #167345!important;box-shadow:inset 0 -2px 0 #167345!important}
+/* FERVOR product home: visual system follows the creator's original drafting-grid site. */
+.fv-home[hidden],.fv-home-drawer[hidden]{display:none!important}
+body.fervor-home-open>.topbar{display:none!important}
+.fv-home{position:relative;isolation:isolate;min-height:100dvh;padding:22px clamp(20px,3vw,55px) 28px;background-color:#fff;background-image:linear-gradient(to right,rgba(20,20,20,.10) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,20,20,.10) 1px,transparent 1px),linear-gradient(to right,rgba(20,20,20,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,20,20,.06) 1px,transparent 1px);background-size:25px 25px,25px 25px,125px 125px,125px 125px;font-family:var(--fx-mono);color:#111}
+.fv-landing-wrap{width:min(100%,1200px);margin:0 auto;position:relative;z-index:1}
+/* Grid-aligned ambient artwork: one full 25px drafting-grid cell per tile. */
+.fv-home-ambient{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+@media(prefers-reduced-motion:reduce){
+.fv-home-color{animation:none!important;opacity:.22!important;transition:none!important;filter:none!important}
+}
+.fv-home-color{position:absolute;z-index:0;width:25px;height:25px;pointer-events:none;opacity:0;left:0;top:0;
+  animation:fvGridGlow var(--fv-glow-duration,16s) ease-in-out var(--fv-glow-delay,0s) infinite;
+  filter:brightness(var(--fv-brightness,1));transition:filter 850ms ease,left 420ms cubic-bezier(.2,.72,.22,1),top 420ms cubic-bezier(.2,.72,.22,1),transform 420ms cubic-bezier(.2,.72,.22,1),opacity 420ms ease;
+  will-change:opacity,left,top,transform;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.26),0 0 0 1px rgba(17,17,17,.04)}
+.fv-c1,.fv-c5,.fv-c10{background:#eda8a8}
+.fv-c2,.fv-c8{background:#e9c77b}
+.fv-c3,.fv-c9{background:#a3d4d8}
+.fv-c4,.fv-c7{background:#9bc39e}
+.fv-c6{background:#cdbcb0}
+@keyframes fvGridGlow{0%,14%,82%,100%{opacity:0}37%{opacity:.23}52%{opacity:.40}65%{opacity:.28}}
+/* Cursor-following ambient tiles form a soft, slightly randomized constellation on the home screen. */
+.fv-home-color.fv-follow{animation:fvFollowGlow 4.8s ease-in-out infinite!important;will-change:left,top,opacity,transform}
+@keyframes fvFollowGlow{0%,100%{opacity:.10;transform:scale(1)}33%{opacity:.22;transform:scale(1.04)}58%{opacity:.34;transform:scale(1.08)}72%{opacity:.24;transform:scale(1.03)}}
+@media(prefers-reduced-motion:reduce){
+.fv-home-color.fv-follow{animation:none!important;transition:none!important}
+}
+.fv-home-header{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:54px}
+.fv-home-mark{display:grid;place-items:center;width:47px;height:47px;flex:none;border:2px solid #111;border-radius:50%;font-size:33px;font-weight:900;background:repeating-linear-gradient(90deg,white 0,white 4px,#111 4px,#111 5px);color:#111;text-shadow:1px 1px #fff,-1px -1px #fff;box-shadow:inset 0 0 0 4px white}
+.fv-local-status{margin-left:auto;font:700 12px var(--fx-mono);letter-spacing:.02em;color:#656565}
+.fv-local-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3c945f;margin-right:5px}
+.fv-home-utility{border:1.7px solid #111!important;background:white!important;border-radius:999px!important;padding:9px 17px;font:800 12px var(--fx-mono)!important;color:#111!important;white-space:nowrap}
+.fv-home-lede{text-align:center;margin:22px 0 24px;font:900 clamp(14px,1.5vw,19px) var(--fx-mono);letter-spacing:.02em}
+.fv-home-main{border:3px dotted #151515;background:#fff;max-width:850px;margin:0 auto;padding:20px clamp(16px,4vw,56px) 24px;text-align:center}
+.fv-home-label{font:900 16px var(--fx-mono);letter-spacing:.04em;margin-bottom:14px}
+.fv-home-wordmark{border:5px solid #111;background:repeating-linear-gradient(90deg,#111 0px,#111 2px,#fff 2px,#fff 7px);min-height:150px;display:grid;place-items:center;border-radius:4px;box-shadow:3px 4px 0 #d9d9d9;overflow:hidden}
+.fv-home-wordmark strong{font:900 clamp(50px,9.5vw,128px)/1 "Arial Black",Arial,sans-serif!important;-webkit-text-stroke:clamp(2px,.4vw,5px) #111;paint-order:stroke fill;color:#fff;letter-spacing:.03em;text-shadow:2px 2px 0 #111,-1px -1px 0 #111}
+.fv-home-tagline{font:700 12px var(--fx-mono);margin-top:16px;color:#555}
+.fv-home-ctas{display:flex;align-items:start;justify-content:center;gap:clamp(35px,8vw,110px);margin:26px auto 21px;text-align:center}
+.fv-home-ctas>div{width:245px;max-width:47%}
+.fv-home-pill{font:900 15px var(--fx-mono)!important;color:#111!important;background:#fff!important;border:3px solid #111!important;border-radius:999px!important;padding:12px 19px!important;box-shadow:2px 3px 0 #eee!important;min-width:160px;max-width:100%;white-space:normal}
+.fv-home-pill.primary{background:#111!important;color:#fff!important}
+.fv-home-pill:hover,.fv-home-utility:hover{transform:translateY(-1px);box-shadow:2px 4px 0 #ddd!important}
+.fv-home-ctas p{margin:10px auto 0;color:#777;font:12px/1.4 var(--fx-mono);max-width:195px}
+.fv-home-description{text-align:center;margin:25px auto 23px;max-width:780px}
+.fv-home-description strong{font:900 clamp(14px,1.6vw,18px) var(--fx-mono)}
+.fv-home-description p{font:13px/1.7 var(--fx-mono);color:#7a7a7a;margin:6px 0}
+.fv-home-bottom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;max-width:840px;margin:30px auto 10px}
+.fv-home-link{display:flex;align-items:center;flex-direction:column;gap:5px;border:0!important;background:transparent!important;color:#111!important;padding:9px!important;font:900 13px var(--fx-mono)!important;cursor:pointer}
+.fv-home-link svg{height:50px;width:50px;stroke:currentColor;stroke-width:2.7;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s ease}
+.fv-home-link:hover svg{transform:translateY(-3px)}
+.fv-home-link:hover span{text-decoration:underline;text-underline-offset:4px}
+.fv-home-drawer{background:#fff;border:3px dotted #111;padding:20px;max-width:850px;margin:16px auto 0;box-shadow:4px 4px 0 #ececec}
+.fv-drawer-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.fv-drawer-header small{font:900 12px var(--fx-mono);color:#777}
+.fv-drawer-header h2{font:900 20px var(--fx-mono);margin:4px 0 9px}
+.fv-close{font:900 24px var(--fx-mono);color:#111;background:white;border:2px solid #111;width:38px;height:38px;line-height:1;cursor:pointer}
+.fv-drawer-note{color:#777;font:12px/1.6 var(--fx-mono);margin:5px 0 13px}
+.fv-home-recent-list{display:grid;gap:7px;max-height:340px;overflow-y:auto;margin-bottom:14px}
+.fv-recent-row{display:flex;align-items:center;gap:7px;border:1px solid #cfcfcf;background:#fafafa;min-width:0}
+.fv-recent-open{flex:1;min-width:0;border:0!important;background:transparent!important;text-align:left;padding:12px 14px!important;color:#111!important;cursor:pointer}
+.fv-recent-open strong{display:block;font:900 13px var(--fx-mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fv-recent-open small{display:block;font:12px var(--fx-mono);color:#666;margin-top:4px}
+.fv-recent-delete{border:0!important;background:white!important;color:#9d2727!important;padding:12px!important;font-size:18px;min-height:42px;cursor:pointer}
+.fv-drawer-link{font:900 12px var(--fx-mono);background:#111!important;color:#fff!important;border:2px solid #111!important;border-radius:999px!important;padding:11px 16px!important}
+.fv-drawer-empty{font:12px/1.65 var(--fx-mono);color:#666;margin:6px 0 12px}
+#fv-header-home:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),#fv-header-files:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){border-radius:3px!important;font-family:var(--fx-mono)!important}
+@media(max-width:760px){
+.fv-home{padding:17px 14px}
+.fv-local-status{display:none}
+.fv-home-lede{margin:30px 0 23px}
+.fv-home-main{padding:17px 12px}
+.fv-home-wordmark{min-height:106px;border-width:3px}
+.fv-home-wordmark strong{font-size:clamp(43px,12vw,80px)}
+.fv-home-ctas{gap:15px}
+.fv-home-ctas>div{width:50%}
+.fv-home-pill{font-size:12px!important;min-width:0;padding:12px 9px!important}
+.fv-home-bottom{gap:10px;margin-top:18px}
+.fv-home-link svg{width:42px;height:42px}
+.fv-home-description{margin-top:26px}
+.fv-home-drawer{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){
+.fv-home-color{animation:none!important;opacity:.22!important;filter:none!important}
+.fv-home-link svg{transition:none!important}
+}
+/* FERVOR v2.1 — hierarchy, progressive disclosure, canvas-first controls.
+   The original drafting grid, dotted borders and mono typographic system remain. */
+body:not(.fervor-home-open){--fv-green:#176b47;--fv-grey:#777}
+body:not(.fervor-home-open) .topbar{height:62px!important;min-height:62px!important;position:sticky!important;top:0!important;padding:7px clamp(13px,2vw,34px)!important;border-bottom:1.5px solid #111!important;gap:8px!important;z-index:80!important}
+body:not(.fervor-home-open) .topbar .top-actions{display:flex!important;align-items:center!important;gap:6px!important;flex:0 1 auto!important;width:auto!important;justify-content:flex-end!important}
+body:not(.fervor-home-open) .topbar .version{display:none!important}
+body:not(.fervor-home-open) .topbar .top-actions .btn{min-height:34px!important;padding:7px 11px!important;font:800 12px var(--fx-sans)!important;border-radius:99px!important;box-shadow:none!important}
+body:not(.fervor-home-open) .topbar .top-actions #guide{display:none!important}
+body:not(.fervor-home-open) .topbar .top-actions #fv-header-home,body:not(.fervor-home-open) .topbar .top-actions #fv-header-files{border:0!important;background:transparent!important;color:#222!important}
+body:not(.fervor-home-open) .topbar .top-actions #export-jef{background:#111!important;border:1.5px solid #111!important;color:#fff!important}
+body:not(.fervor-home-open) .workspace{padding:14px clamp(14px,2.3vw,28px) 24px!important;background:#fff!important;border:2px dotted #151515!important;min-width:0!important}
+
+
+
+
+
+
+body:not(.fervor-home-open) .section h2{font:900 14px var(--fx-mono)!important;line-height:1.25!important;margin:0 0 11px!important;letter-spacing:-.04em!important;color:#111!important}
+body:not(.fervor-home-open) .section .field{margin:11px 0!important}
+body:not(.fervor-home-open) .section .field label{font-size:12px!important}
+body:not(.fervor-home-open) .section select,body:not(.fervor-home-open) .section input[type=number]{min-height:34px!important;padding:5px 8px!important}
+body:not(.fervor-home-open) .section .btn{min-height:34px!important;font-size:12px!important;padding:7px 8px!important}
+body:not(.fervor-home-open) .stats{display:flex!important;align-items:center!important;gap:0!important;margin:0 0 12px!important;border:1px solid #dedede!important;border-radius:0!important;background:#fafafa!important}
+@media(max-width:930px){
+body:not(.fervor-home-open) .workspace{padding:10px 12px 20px!important}
+body:not(.fervor-home-open) .topbar .top-actions{gap:4px!important}
+body:not(.fervor-home-open) .topbar .top-actions .btn{padding:6px 8px!important}
+body:not(.fervor-home-open) .stats{flex-wrap:wrap!important}
+}
+@media(max-width:600px){
+body:not(.fervor-home-open) .topbar{min-height:56px!important;height:auto!important;flex-wrap:wrap!important}
+body:not(.fervor-home-open) .topbar .top-actions{justify-content:space-between!important;flex:1 1 100%!important}
+body:not(.fervor-home-open) .topbar .top-actions #fv-header-home{display:none!important}
+}
+/* FERVOR v2.2: canvas-first structure, stable controls, no mystery pills */
+:root{--fv22-ink:#101010;--fv22-green:#25834b;--fv22-border:#d9d9d9;--fv22-gray:#777}
+body:not(.fervor-home-open)>.topbar{height:58px!important;min-height:58px!important;padding:0 20px!important;box-shadow:none!important;position:sticky!important;top:0!important;z-index:60!important;gap:15px!important;background:#fff!important}
+body:not(.fervor-home-open) .fv22-brand{display:flex;flex:0 0 auto!important;min-width:0!important;align-items:center;gap:8px!important}
+body:not(.fervor-home-open) .topbar .top-actions{margin-left:auto!important;gap:7px!important;display:flex!important;flex-wrap:nowrap!important}
+body:not(.fervor-home-open) .topbar .top-actions>.btn:not(#fv21-save):not(#export-jef),body:not(.fervor-home-open) .topbar .top-actions .version{display:none!important}
+body:not(.fervor-home-open) .topbar .top-actions #export-jef{display:inline-flex!important;align-items:center!important;justify-content:center!important;background:#111!important;color:#fff!important;border:1px solid #111!important;border-radius:5px!important;min-height:34px!important;padding:5px 14px!important;font:800 12px var(--fx-sans)!important}
+/* One workflow navigation only. Keep the per-stage subpanels reachable. */
+/* Button text: explicit contrast, including when inherited selectors mark controls selected */
+@media(max-width:600px){
+body:not(.fervor-home-open)>.topbar{height:54px!important;min-height:54px!important;flex-wrap:nowrap!important;padding:0 10px!important}
+body:not(.fervor-home-open) .topbar .top-actions #export-jef{padding:5px 9px!important;font-size:12px!important}
+}
+/* Refinement: one fixed-height control drawer, no redundant permanent guidance */
+body:not(.fervor-home-open)>.topbar{background:#fff!important;border-bottom:2px solid #141414!important;box-shadow:0 2px 0 #f3f3f3!important}
+/* Canvas prioritized over large text blocks */
+body:not(.fervor-home-open) .workspace .stats{margin-top:7px!important;margin-bottom:10px!important}
+/* FERVOR / Home and editor share a single drafting-paper identity. */
+body:not(.fervor-home-open)>.topbar{position:sticky!important;top:0!important;z-index:85!important;
+ height:72px!important;min-height:72px!important;padding:0 clamp(13px,2.4vw,37px)!important;
+ background-color:#fff!important;
+ background-image:linear-gradient(to right,rgba(45,45,45,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(45,45,45,.06) 1px,transparent 1px)!important;
+ background-size:44px 44px!important;
+ border:0!important;border-bottom:1px solid #b9b9b9!important;box-shadow:none!important;
+ gap:12px!important;}
+body:not(.fervor-home-open)>.topbar:before{content:"";position:absolute;pointer-events:none;width:17px;height:17px;left:37%;top:17px;background:#f7d6d5;opacity:.68}
+body:not(.fervor-home-open) .topbar .top-actions{margin-left:0!important;gap:7px!important}
+body:not(.fervor-home-open) .topbar .top-actions #fv-header-files{display:inline-flex!important;border:2px solid #111!important;border-radius:999px!important;background:#fff!important;color:#111!important;min-height:35px!important;font:900 12px var(--fx-mono)!important;padding:7px 15px!important}
+body:not(.fervor-home-open) .topbar .top-actions #export-jef{display:inline-flex!important;border-radius:999px!important;min-height:36px!important;font:900 12px var(--fx-mono)!important;padding:7px 18px!important}
+/* Non-collapsible primary settings, one active settings page at a time, scrolling within the sidebar. */
+/* Preview switch uses active green typography, never a black text plate. */
+/* Machine preflight is in the on-demand machine dialog, not permanently on canvas. */
+@media(max-width:600px){
+body:not(.fervor-home-open)>.topbar{height:62px!important;min-height:62px!important;padding:4px 9px!important;flex-wrap:nowrap!important;gap:5px!important}
+body:not(.fervor-home-open) .topbar .top-actions #fv-header-files{padding:6px 8px!important;font-size:12px!important}
+body:not(.fervor-home-open) .topbar .top-actions #export-jef{padding:6px 10px!important;font-size:12px!important}
+}
+/* The v2.4 editor retained a two-column grid after the sidebar was hidden.
+   The remaining canvas was auto-placed in the 300px column, causing a huge
+   blank region. Collapse the grid track as well as the sidebar. */
+/* Home/editor isolation. The v2.4 legacy selector only hid direct main.app,
+   while v2.2 moved that app inside .fv22-editor-layout. */
+body.fervor-home-open{overflow-x:hidden}
+/* Give the navigation rail enough width to show short, legible labels. */
+/* Keep footprint and stitch metrics readable on a phone without horizontal scrolling. */
+
+
+/* Shared overview and help presentation: compact, navigable, consistent with Files. */
+.fv-drawer-intro{font:12px/1.55 var(--fx-mono);color:#616161;margin:4px 0 14px}
+.fv-stage-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.fv-stage-card{display:flex;position:relative;align-items:start;min-width:0;gap:12px;min-height:92px;padding:14px 13px!important;background:#fff!important;color:#111!important;border:1.5px solid #b7b7b7!important;border-radius:0!important;text-align:left;cursor:pointer;transition:background-color .16s,border-color .16s,transform .16s}
+.fv-stage-card:hover,.fv-stage-card:focus-visible{background:#f6faf7!important;border-color:#237b4b!important}
+.fv-stage-card:focus-visible{outline:2px solid #237b4b;outline-offset:2px}
+.fv-stage-index{font:900 13px var(--fx-mono);color:#2c8e5b;flex:none;padding-top:1px}
+.fv-stage-copy{display:grid;gap:7px;flex:1;min-width:0}
+.fv-stage-copy strong{font:900 15px var(--fx-mono);color:#111}
+.fv-stage-copy small{font:12px/1.5 var(--fx-sans);color:#5a5a5a}
+.fv-stage-arrow{font:900 16px var(--fx-mono);color:#737373}
+.fv-overview-note{display:flex;align-items:start;gap:9px;border-top:1px dashed #bbb;padding:14px 0 0;margin:16px 0 0;font:12px/1.5 var(--fx-mono);color:#777}
+.fv-overview-note span{font-size:13px;color:#298c53;line-height:1}
+.fv-guide-intro{margin:4px 0 14px;font:12px/1.55 var(--fx-mono);color:#626262}
+.fv-home-guide-drawer{max-height:min(65dvh,560px);overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.fv-home-guide-drawer .fv-drawer-header{position:sticky;top:-20px;padding:10px 0 10px;margin:-10px 0 0;background:#fff;z-index:2;border-bottom:1px dashed #ddd}
+.fv-guide-topics{border-top:1px solid #d5d5d5}
+.fv-guide-topic{border-bottom:1px solid #d5d5d5}
+.fv-guide-topic>summary{display:flex;align-items:center;gap:13px;list-style:none;cursor:pointer;padding:15px 7px;min-height:54px;color:#161616;font:900 13px var(--fx-mono)}
+.fv-guide-topic>summary::-webkit-details-marker{display:none}
+.fv-guide-topic[open]>summary{background:var(--fv-guide-open,#f6f6f6)}
+.fv-guide-topic>summary:hover,.fv-guide-topic>summary:focus-visible{background:var(--fv-guide-highlight,#ececec)}
+.fv-guide-topic>summary:focus-visible{outline:2px solid var(--fv-focus);outline-offset:-2px}
+body.fv-theme-dark #fv-home-guide-drawer{
+ --fv-guide-open:var(--fx-raise);
+ --fv-guide-highlight:var(--fx-hover);
+}
+.fv-guide-topic>summary>span:first-child{color:#21824b;flex:none}
+.fv-guide-topic>summary strong{flex:1;font-weight:900}
+.fv-guide-chevron{flex:none;font:900 22px var(--fx-mono);color:#515151;transition:transform .16s ease}
+.fv-guide-topic[open] .fv-guide-chevron{transform:rotate(45deg);color:#21824b}
+.fv-guide-answer{padding:0 31px 16px;color:#424242;font:13px/1.65 var(--fx-sans)}
+.fv-guide-answer strong{color:#111}
+.fv-guide-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:9px;padding-top:15px}
+.fv-guide-footer span{font:800 12px var(--fx-mono);color:#555}
+.fv-guide-footer span i{display:inline-block;width:7px;height:7px;background:#31945c;border-radius:50%;vertical-align:middle;margin-right:6px}
+.fv-guide-footer p{font:12px/1.5 var(--fx-sans);color:#777;margin:0}
+.fv-guide-dialog{width:min(740px,calc(100vw - 32px))!important;max-width:740px!important;max-height:min(84dvh,770px)!important;overflow-y:auto!important;overscroll-behavior:contain;border:3px dotted #111!important;border-radius:0!important;background:#fff!important;padding:21px 23px!important;box-shadow:8px 9px 0 rgba(0,0,0,.14)!important}
+.fv-guide-dialog::backdrop{background:rgba(0,0,0,.43)}
+.fv-guide-dialog .fv-dialog-header{position:sticky;top:-21px;background:#fff;z-index:2;border-bottom:1px dashed #c8c8c8;padding:7px 0 11px;margin:-7px 0 0}
+.fv-guide-dialog .fv-drawer-header small{font:900 12px var(--fx-mono);color:#777}
+.fv-guide-dialog .fv-drawer-header h2{font:900 22px var(--fx-mono)!important;color:#111;margin:5px 0}
+.fv-guide-dialog .fv-close{padding:0!important;margin:0!important;min-width:38px!important;min-height:38px!important;border-radius:0!important;background:#fff!important;color:#111!important}
+.fv-guide-dialog .fv-close:hover,.fv-close:hover{background:#f1f7f2!important}
+/* Editor masthead shares the 25-pixel drafting grid from Home. */
+body:not(.fervor-home-open)>.topbar{position:sticky!important;isolation:isolate!important;background-color:#fff!important;
+ background-image:linear-gradient(to right,rgba(20,20,20,.10) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,20,20,.10) 1px,transparent 1px),linear-gradient(to right,rgba(20,20,20,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,20,20,.06) 1px,transparent 1px)!important;
+ background-size:25px 25px,25px 25px,125px 125px,125px 125px!important;
+ box-shadow:none!important}
+body:not(.fervor-home-open)>.topbar:before{content:none!important;display:none!important}
+body:not(.fervor-home-open)>.topbar>.top-actions{position:relative;z-index:2}
+@keyframes fvEditorGlow{0%,17%,85%,100%{opacity:0}38%{opacity:.23}54%{opacity:.37}67%{opacity:.20}}
+@media(max-width:700px){
+.fv-stage-grid{grid-template-columns:1fr}
+.fv-stage-card{min-height:75px}
+.fv-home-guide-drawer{max-height:68dvh}
+.fv-guide-dialog{padding:15px!important}
+.fv-guide-answer{padding-left:25px}
+.fv-guide-dialog .fv-dialog-header{top:-15px}
+}
+@media(prefers-reduced-motion:reduce){
+.fv-stage-card,.fv-guide-chevron{transition:none!important}
+}
+/* FERVOR 2.13 — responsive studio / canvas-first system.
+   Keeps the designer's black/white typography, drafting grid and restrained pastel greens. */
+:root{--fv13-ink:#111614;--fv13-green:#237d4b;--fv13-border:#d8deda;--fv13-chrome:144px;--fv13-rail:68px;--fv13-side:292px}
+body{overflow-x:hidden}
+body:not(.fervor-home-open){background:#f5f7f5!important;color:#17201a!important}
+body:not(.fervor-home-open)>.topbar{height:66px!important;min-height:66px!important;max-height:66px!important;
+  width:100%!important;box-sizing:border-box!important;
+  padding:0 clamp(13px,2.4vw,36px)!important;
+  display:flex!important;flex-wrap:nowrap!important;align-items:center!important;
+  gap:clamp(8px,1vw,17px)!important;overflow:visible!important;
+  z-index:100!important;border-bottom:1.5px solid #1b211d!important;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+body:not(.fervor-home-open)>.topbar .fv22-brand{gap:8px!important;min-width:0!important;white-space:nowrap}
+body:not(.fervor-home-open)>.topbar .top-actions{flex:0 0 auto!important;min-width:0!important;display:flex!important;align-items:center!important;gap:7px!important;margin-left:auto!important}
+body:not(.fervor-home-open)>.topbar .top-actions #export-jef{min-height:35px!important;height:35px!important;border-radius:7px!important;
+ font-family:var(--fx-sans)!important;font-size:12px!important;
+ padding:6px clamp(9px,.9vw,14px)!important;letter-spacing:0!important;
+ box-shadow:none!important}
+body:not(.fervor-home-open)>.topbar .top-actions #export-jef{background:#161a18!important;color:#fff!important;letter-spacing:.01em!important}
+body:not(.fervor-home-open)>.topbar .top-actions #export-jef:hover{background:#1e7544!important;border-color:#1e7544!important}
+/* Rail, controls, and studio canvas: fluid, never a phantom reserved column. */
+body:not(.fervor-home-open) .workspace .stats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ border:1px solid #e0e6e0!important;border-radius:8px!important;overflow:hidden!important;
+ gap:0!important;background:#fbfdfb!important;margin:0 0 11px!important}
+/* The hero is the canvas. No letterboxing or squashing as the viewport changes. */
+/* A clean, separate focused canvas mode. */
+/* Command finder (optional; does not compete with canvas). */
+/* Home adapts to width and height; no horizontal overflow or giant empty margins. */
+.fv-home .fv-landing-wrap{width:min(100%,1200px)!important;min-width:0!important}
+.fv-home .fv-home-main{width:min(100%,880px)!important;max-width:880px!important;box-sizing:border-box!important;padding:clamp(17px,2.5vw,27px) clamp(15px,3.4vw,50px)!important}
+.fv-home .fv-home-wordmark{max-width:100%!important;overflow:visible!important}
+.fv-home .fv-home-lede{font-size:clamp(14px,1.6vw,19px)!important;margin:clamp(17px,2vh,25px) 0!important}
+.fv-home .fv-home-bottom{gap:clamp(8px,2vw,30px)!important;margin-top:clamp(13px,3vh,28px)!important}
+@media(max-width:1360px){
+:root{--fv13-side:265px;--fv13-rail:64px}
+}
+@media(max-width:1100px){
+:root{--fv13-side:245px;--fv13-rail:60px}
+}
+@media(max-width:960px){
+:root{--fv13-rail:58px}
+}
+@media(max-width:720px){
+:root{--fv13-chrome:129px;--fv13-rail:0px}
+body:not(.fervor-home-open)>.topbar{height:55px!important;min-height:55px!important;max-height:55px!important;padding:0 10px!important;gap:6px!important}
+body:not(.fervor-home-open)>.topbar .top-actions{gap:4px!important;margin-left:auto!important}
+body:not(.fervor-home-open)>.topbar .top-actions #export-jef{height:31px!important;min-height:31px!important;font-size:12px!important;padding:5px 9px!important}
+body:not(.fervor-home-open) .workspace .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.fv-home{padding:14px 13px 25px!important}
+.fv-home .fv-home-ctas{gap:12px!important}
+.fv-home .fv-home-ctas>div{max-width:50%!important}
+}
+@media(max-width:400px){
+.fv-home .fv-home-ctas{flex-wrap:wrap!important;gap:8px!important}
+.fv-home .fv-home-ctas>div{width:100%!important;max-width:100%!important}
+}
+/* Final small-screen corrections: preserve the FERVOR name and keep the metrics compact. */
+@media(max-width:400px){
+body:not(.fervor-home-open)>.topbar .fv22-brand{gap:4px!important}
+}
+/* Mobile: keep the canvas control cluster reachable above the fixed tool dock. */
+/* A real page-centered stack: the brand, main actions and three home links stay together. */
+#fervor-home.fv-home{display:flex!important;flex-direction:column!important;min-height:100dvh!important}
+#fervor-home[hidden]{display:none!important}
+#fervor-home .fv-landing-wrap{display:flex!important;flex:1 0 auto!important;flex-direction:column!important;min-width:0!important;width:min(100%,1200px)!important}
+#fervor-home .fv-home-header{flex:0 0 auto!important}
+#fervor-home .fv-home-body{flex:1 0 auto;display:flex;flex-direction:column;min-height:0;width:100%}
+#fervor-home .fv-home-stage{margin-block:auto;min-width:0;padding-block:clamp(12px,2.5vh,32px);will-change:transform}
+#fervor-home .fv-home-panels{width:min(100%,880px);flex:0 0 auto;margin:0 auto}
+#fervor-home .fv-home-panels .fv-home-drawer{max-width:100%;margin:0 auto clamp(10px,2vh,24px)}
+#fervor-home .fv-home-panel-open .fv-home-stage{padding-block:clamp(7px,1.1vh,16px)}
+#fervor-home.fv-home-panel-open .fv-home-stage{padding-block:clamp(7px,1.1vh,16px)}
+#fervor-home.fv-home-panel-open .fv-home-lede{margin-block:clamp(8px,1.3vh,18px)!important}
+#fervor-home.fv-home-panel-open .fv-home-ctas{margin-block:clamp(9px,1.4vh,16px)!important}
+#fervor-home.fv-home-panel-open .fv-home-description{margin-block:clamp(8px,1vh,13px)!important}
+#fervor-home.fv-home-panel-open .fv-home-bottom{margin-block:clamp(8px,1.2vh,14px)!important}
+#fervor-home .fv-home-drawer:not([hidden]){animation:fv215-panel-enter .55s cubic-bezier(.22,1,.36,1) both}
+@keyframes fv215-panel-enter{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* Squares now shift between calm brand colors with long transitions. */
+#fervor-home .fv-home-color{transition:left 460ms cubic-bezier(.22,.75,.22,1),top 460ms cubic-bezier(.22,.75,.22,1),background-color 2200ms ease,filter 900ms ease!important}
+#fervor-home .fv-home-color.fv-follow{animation:fv215-follow-fade var(--fv-follow-duration,6s) ease-in-out var(--fv-follow-delay,0s) infinite!important;opacity:.18}
+@keyframes fv215-follow-fade{0%,100%{opacity:.08;transform:scale(.96)}28%{opacity:.20;transform:scale(1)}58%{opacity:.33;transform:scale(1.06)}76%{opacity:.19;transform:scale(1)}}
+@media(max-width:760px){
+#fervor-home .fv-home-stage{padding-block:clamp(14px,3vh,28px)}
+#fervor-home .fv-home-panels{width:100%}
+#fervor-home .fv-home-main{max-width:100%!important}
+}
+@media(prefers-reduced-motion:reduce){
+#fervor-home .fv-home-color.fv-follow{animation:none!important;transition:none!important;opacity:.19!important;transform:none!important}
+#fervor-home .fv-home-drawer:not([hidden]){animation:none!important}
+}
+/* Original striped live-CSS wordmark with a slightly heavier black letter outline. */
+#fervor-home .fv-home-wordmark{border:5px solid #111!important;border-radius:5px!important;
+ display:grid!important;place-items:center!important;min-height:clamp(94px,12vw,150px)!important;
+ background:repeating-linear-gradient(90deg,#111 0 2px,#fff 2px 7px)!important;
+ box-shadow:3px 4px 0 #d9d9d9!important;padding:7px 5px!important;overflow:hidden!important;line-height:normal!important;}
+#fervor-home .fv-home-wordmark strong{display:block!important;font:900 clamp(38px,9.4vw,126px)/1 "Arial Black",Arial,sans-serif!important;
+ letter-spacing:clamp(.5px,.22vw,3px)!important;color:#fff!important;
+ -webkit-text-stroke:clamp(2.8px,.43vw,5.8px) #111!important;
+ paint-order:stroke fill;text-shadow:2px 2px 0 #111,-1px -1px 0 #111!important;
+ white-space:nowrap;}
+#fervor-home .fv-home-mark{display:grid!important;place-items:center!important;width:48px!important;height:48px!important;min-width:48px!important;
+ border:2px solid #111!important;border-radius:50%!important;box-shadow:inset 0 0 0 4px #fff!important;
+ background:repeating-linear-gradient(90deg,#fff 0 4px,#111 4px 5px)!important;
+ color:#111!important;font:900 31px/1 var(--fx-sans)!important;text-shadow:1px 1px #fff,-1px -1px #fff!important;}
+#fervor-home .fv-home-color{background-color:#C1D8C3;transition:left 560ms cubic-bezier(.22,.75,.22,1),top 560ms cubic-bezier(.22,.75,.22,1),background-color 3400ms ease,filter 900ms ease!important}
+#fervor-home .fv-home-color.fv-follow{animation:fv216-pastel-breathe var(--fv-follow-duration,8s) ease-in-out var(--fv-follow-delay,0s) infinite!important}
+@keyframes fv216-pastel-breathe{0%,100%{opacity:.045;transform:scale(.99)}32%{opacity:.13;transform:scale(1)}58%{opacity:.23;transform:scale(1.025)}80%{opacity:.12;transform:scale(1)}}
+@keyframes fvGridGlow{0%,14%,82%,100%{opacity:0}37%{opacity:.12}52%{opacity:.22}65%{opacity:.13}}
+@media(max-width:760px){
+#fervor-home .fv-home-wordmark{border-width:3px!important;padding:7px 4px!important;min-height:83px!important}
+#fervor-home .fv-home-wordmark strong{font-size:clamp(43px,14vw,77px)!important;-webkit-text-stroke:clamp(1.9px,.52vw,3.3px) #111!important;letter-spacing:0!important}
+#fervor-home .fv-home-mark{width:43px!important;height:43px!important;min-width:43px!important;font-size:28px!important}
+}
+@media(prefers-reduced-motion:reduce){
+#fervor-home .fv-home-color{transition:none!important;animation:none!important;opacity:.12!important}
+}
+/* The home header is a light utility strip; the wordmark remains the visual anchor. */
+#fervor-home .fv-home-header{min-height:38px!important;padding-top:0!important;padding-bottom:0!important;gap:12px!important}
+#fervor-home .fv-local-status{display:none!important}
+#fervor-home .fv-home-mark{width:38px!important;min-width:38px!important;height:38px!important;display:block!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important}
+#fervor-home .fv-home-mark img{width:100%;height:100%;display:block;object-fit:contain}
+#fervor-home .fv-home-utility{font-size:12px!important;padding:7px 14px!important;border-width:1.5px!important;box-shadow:1px 1px 0 #ddd!important}
+/* Slightly stronger stroke (previous version 5.8px max), but safeguard legibility. */
+#fervor-home .fv-home-wordmark strong{-webkit-text-stroke:clamp(3px,.46vw,6.3px) #111!important;
+  text-shadow:1.5px 1.5px 0 #111!important;}
+/* Credit is intentionally secondary to the hero and works on narrow screens. */
+#fervor-home .fv217-home-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;
+ padding:10px 0 5px;border-top:1px dotted #b7b7b7;width:100%;flex:0 0 auto;
+ color:#444;background:transparent;font:700 12px/1.4 var(--fx-mono)}
+#fervor-home .fv217-footer-brand{display:flex;align-items:center;gap:9px;min-width:0}
+#fervor-home .fv217-footer-brand img{width:27px;height:32px;object-fit:contain;filter:contrast(1.5)}
+#fervor-home .fv217-footer-brand strong{display:block;font-size:12px;letter-spacing:.02em;color:#222}
+#fervor-home .fv217-footer-brand small{display:block;color:#777;font-size:12px;letter-spacing:.02em;font-weight:400}
+#fervor-home .fv217-footer-by{font-weight:700;color:#24794a}
+#fervor-home .fv217-footer-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+#fervor-home .fv217-footer-links a{color:#333;font:700 12px var(--fx-mono);text-decoration:none;border-bottom:1px solid #aaa;padding:2px 1px;white-space:nowrap}
+#fervor-home .fv217-footer-links a:hover{color:#1d7b4b;border-color:#1d7b4b}
+/* Slightly brighter pastel rainbow; not neon, and never covering central text. */
+#fervor-home .fv-home-color{width:25px!important;height:25px!important;border-radius:0!important;
+ transition:left 480ms cubic-bezier(.22,.72,.22,1),top 480ms cubic-bezier(.22,.72,.22,1),background-color 2700ms ease,filter 750ms ease!important}
+#fervor-home .fv-home-color.fv-follow{animation:fv217-breathe var(--fv-follow-duration,8s) ease-in-out var(--fv-follow-delay,0s) infinite!important}
+@keyframes fv217-breathe{0%,100%{opacity:.15;transform:scale(1)}28%{opacity:.35;transform:scale(1)}56%{opacity:.57;transform:scale(1)}78%{opacity:.31;transform:scale(1)}}
+@keyframes fvGridGlow{0%,12%,86%,100%{opacity:0}33%{opacity:.20}52%{opacity:.34}68%{opacity:.19}}
+/* Compact circular F is the same heavy sans lettering as the hero. */
+/* Reliable centered workflow tabs: utility label on right doesn't displace their center. */
+/* The Sequence toolbar should never reveal red warning content through its sticky region. */
+/* More, Save and Export have one height, consistent rhythm and legible text. */
+body:not(.fervor-home-open)>.topbar .top-actions{align-items:center!important;gap:8px!important;flex-wrap:nowrap!important}
+body:not(.fervor-home-open)>.topbar .top-actions #export-jef{min-height:37px!important;height:37px!important;padding:7px 13px!important;
+ font:800 12px/1.2 var(--fx-sans)!important;
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ white-space:nowrap!important;box-sizing:border-box!important;letter-spacing:0!important}
+body:not(.fervor-home-open)>.topbar .top-actions #export-jef{color:#fff!important;background:#111!important;border-color:#111!important;border-radius:8px!important}
+@media(max-width:720px){
+#fervor-home .fv217-home-footer{gap:7px;padding:10px 0 4px;align-items:flex-start}
+#fervor-home .fv217-footer-brand small{display:none}
+#fervor-home .fv217-footer-brand img{width:23px;height:28px}
+#fervor-home .fv217-footer-links{gap:9px}
+#fervor-home .fv217-footer-links a{font-size:12px}
+#fervor-home .fv-home-wordmark strong{-webkit-text-stroke:clamp(2.15px,.54vw,3.5px) #111!important}
+body:not(.fervor-home-open)>.topbar .top-actions{gap:5px!important}
+body:not(.fervor-home-open)>.topbar .top-actions #export-jef{height:32px!important;min-height:32px!important;font-size:12px!important;padding:5px 9px!important}
+}
+@media(max-width:720px){
+html,body{max-width:100%;overflow-x:clip!important}
+}
+@media(max-width:370px){
+#fervor-home .fv217-footer-links{flex-direction:column;align-items:flex-end;gap:2px}
+}
+@media(prefers-reduced-motion:reduce){
+#fervor-home .fv-home-color{animation:none!important;transition:none!important;opacity:.2!important}
+}
+/* v2.21: blank first-use state and measurement overlays. Never alter stitch coordinates. */
+body.fv18-empty:not(.fervor-home-open) .workspace .stats{display:none!important}
+/* Leave room for pan/fit controls even on narrow displays. */
+/* Critical: overlay ruler canvases must not behave like the full-size stitch canvas. */
+/* In Focus mode, the toolbar must not claim settings are open when hidden. */
+/* Five warmer pastel follower squares, more visible at their peak but still restrained. */
+#fervor-home .fv-home-color.fv-follow{animation:fv219-follow-breathe var(--fv-follow-duration,8s) ease-in-out var(--fv-follow-delay,0s) infinite!important}
+@keyframes fv219-follow-breathe{0%,100%{opacity:.13;transform:scale(1)}31%{opacity:.40;transform:scale(1.025)}55%{opacity:.64;transform:scale(1.05)}78%{opacity:.35;transform:scale(1.012)}}
+@keyframes fvGridGlow{0%,12%,87%,100%{opacity:0}34%{opacity:.26}54%{opacity:.44}72%{opacity:.24}}
+@media(prefers-reduced-motion:reduce){
+#fervor-home .fv-home-color.fv-follow{animation:none!important;opacity:.20!important;transform:none!important}
+}
+/* Decorative layers must never capture user input, including mobile taps. */
+.fv-home-ambient,.fv-home-color{pointer-events:none!important;}
+button:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),summary:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),[role="button"],a,input:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),select:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)),textarea:where(:not(#stitch-lab,#stitch-lab *,#fervor-radar,#fervor-radar *,.sl-flyout,.sl-flyout *,.sl-commands,.sl-commands *)){touch-action:manipulation;}
+/* The dimmer is actionable only while the mobile settings drawer is genuinely open. */
+/* On touch screens, the screen-wide dimmer previously intercepted
+   the Settings button itself. The drawer has its own Close control. */

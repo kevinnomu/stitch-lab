@@ -1,0 +1,482 @@
+/* FERVOR 4.0 · Vector workspace.
+   Rules keep their original order; legacy selectors are scoped away from Stitch Lab. */
+/* FERVOR Vector — same grid, dotted separators, monochrome typography and pastel accents as Stitch Lab. */
+body.fv-vector-active{overflow:hidden!important;background:#f5f7f3!important}
+body.fv-vector-active > :not(#fervor-vector,#fv-project-files,#fv-suite-guide,script,style){display:none!important}
+#fervor-vector[hidden]{display:none!important}
+#fervor-vector{--vv-paper:#f7f8f5;--vv-panel:#ffffff;--vv-surface:#f1f4ef;--vv-ink:#263329;--vv-muted:#68796b;--vv-line:#b8c7b9;--vv-grid:rgba(75,98,77,.14);--vv-accent:#426b50;display:flex;flex-direction:column;position:fixed;inset:0;z-index:19000;background:var(--vv-paper);color:var(--vv-ink);font-family:var(--fx-sans);font-size:12px}
+body.fv-theme-dark #fervor-vector{--vv-paper:#080a08;--vv-panel:#101311;--vv-surface:#171b18;--vv-ink:#f2f4f0;--vv-muted:#afb9b0;--vv-line:#6c7b6e;--vv-grid:rgba(255,255,255,.16);--vv-accent:#e0ece1;color-scheme:dark}
+#fervor-vector *{box-sizing:border-box}
+#fervor-vector button,#fervor-vector select,#fervor-vector input{font:inherit;letter-spacing:0;box-shadow:none}
+#fervor-vector button{border:1px solid var(--vv-line);border-radius:2px;background:var(--vv-panel);color:var(--vv-ink);cursor:pointer;padding:7px 10px;white-space:nowrap;transition:background .2s ease,color .2s ease,border-color .2s ease}
+#fervor-vector button:hover{background:var(--vv-surface);border-color:var(--vv-ink)}
+#fervor-vector button:disabled{opacity:.4;cursor:not-allowed}
+#fervor-vector button:focus-visible,#fervor-vector select:focus-visible,#fervor-vector input:focus-visible{outline:2px dotted var(--vv-accent);outline-offset:3px}
+#fervor-vector .fvv-primary{background:var(--vv-ink);color:var(--vv-panel);border-color:var(--vv-ink);font-weight:700}
+#fervor-vector .fvv-primary:hover{opacity:.83;background:var(--vv-ink)}
+#fervor-vector .fvv-header{display:flex;align-items:center;gap:clamp(9px,1.7vw,24px);min-height:66px;background:var(--vv-panel);border-bottom:1px solid var(--vv-line);padding:8px clamp(12px,2vw,30px);flex-shrink:0}
+#fervor-vector .fvv-brand{display:flex;align-items:center;gap:10px;min-width:154px;font-family:var(--fx-mono)}
+
+#fervor-vector .fvv-brand strong{display:block;font-size:15px;letter-spacing:.09em}
+#fervor-vector .fvv-brand small{display:block;font-size:12px;letter-spacing:.055em;color:var(--vv-muted)}
+
+
+
+#fervor-vector .fvv-status-local{color:var(--vv-muted);font:700 12px var(--fx-mono);letter-spacing:.04em;margin-left:auto}
+#fervor-vector .fvv-header-actions{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+#fervor-vector .fvv-project-bar{background:var(--vv-surface);display:flex;align-items:center;gap:11px;border-bottom:1px dotted var(--vv-line);height:37px;min-height:37px;padding:0 16px;color:var(--vv-ink);font:700 12px var(--fx-mono)}
+
+
+
+#fervor-vector .fvv-project-bar button{font-size:12px;padding:4px 9px;background:transparent}
+#fervor-vector .fvv-main{display:grid;grid-template-columns:73px minmax(0,1fr) 302px;flex:1;min-height:0}
+#fervor-vector .fvv-tools{border-right:1px dotted var(--vv-line);background:var(--vv-panel);display:flex;flex-direction:column;align-items:stretch;gap:5px;padding:12px 7px;overflow:auto}
+#fervor-vector .fvv-tools-label{color:var(--vv-muted);text-align:center;font:700 12px var(--fx-mono);letter-spacing:.12em;margin-bottom:5px}
+#fervor-vector .fvv-tools button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid transparent;padding:8px 2px;min-height:52px;background:transparent}
+#fervor-vector .fvv-tools button.active{background:var(--vv-surface);border:1px dotted var(--vv-accent);color:var(--vv-ink)}
+#fervor-vector .fvv-tools button small{font-size:12px}
+#fervor-vector .fvv-icon{font-family:Arial,sans-serif;font-size:23px;line-height:23px}
+#fervor-vector .fvv-tool-separator{border-top:1px dotted var(--vv-line);margin:4px}
+#fervor-vector .fvv-canvas-area{display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;background-color:var(--vv-paper);background-image:linear-gradient(var(--vv-grid) 1px,transparent 1px),linear-gradient(90deg,var(--vv-grid) 1px,transparent 1px);background-size:25px 25px}
+#fervor-vector .fvv-canvas-top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:29px;padding:0 16px;background:var(--vv-panel);border-bottom:1px dotted var(--vv-line);color:var(--vv-muted);font:12px var(--fx-mono);letter-spacing:.05em}
+#fervor-vector .fvv-svg-frame{flex:1;min-height:0;display:grid;place-items:center;overflow:hidden;padding:clamp(10px,2vw,30px)}
+#fervor-vector #fvv-svg{max-width:100%;max-height:100%;width:100%;height:100%;touch-action:none;background:var(--vv-panel);box-shadow:0 0 0 1px var(--vv-line),5px 5px 0 rgba(46,71,52,.05);cursor:crosshair;user-select:none}
+#fervor-vector #fvv-svg .fvv-shape{cursor:pointer;stroke-linejoin:round;stroke-linecap:round}
+#fervor-vector #fvv-svg .fvv-shape.fvv-selected{filter:drop-shadow(0 0 1px rgba(0,0,0,.25))}
+#fervor-vector #fvv-svg .fvv-selection-box{stroke:#2f9261;stroke-width:1.8;stroke-dasharray:4 5;fill:none;pointer-events:none}
+#fervor-vector #fvv-svg .fvv-anchor{fill:#fff;stroke:#35744d;stroke-width:2;cursor:move}
+#fervor-vector #fvv-svg .fvv-anchor.chosen{fill:#91d0a1}
+#fervor-vector #fvv-svg .fvv-control{fill:#d8e6d9;stroke:#3b7252;stroke-width:1.4;cursor:crosshair}
+#fervor-vector #fvv-svg .fvv-handle-line{stroke:#689577;stroke-width:1.3;pointer-events:none}
+#fervor-vector .fvv-bottom-bar{min-height:37px;background:var(--vv-panel);border-top:1px dotted var(--vv-line);display:flex;align-items:center;gap:12px;padding:5px 13px;font-size:12px;color:var(--vv-muted)}
+#fervor-vector .fvv-bottom-bar #fvv-message{flex:1;text-align:center}
+#fervor-vector .fvv-zoom-group{display:flex;align-items:center;gap:5px;font:700 12px var(--fx-mono)}
+#fervor-vector .fvv-zoom-group button{padding:3px 8px}
+#fervor-vector .fvv-inspector{background:var(--vv-panel);border-left:1px dotted var(--vv-line);min-width:0;display:flex;flex-direction:column;overflow:hidden}
+
+
+
+#fervor-vector .fvv-panel{display:none;overflow:auto;flex:1;padding:18px 16px 28px}
+#fervor-vector .fvv-panel.active{display:block}
+#fervor-vector .fvv-panel-header{display:flex;align-items:baseline;justify-content:space-between;gap:6px;margin:4px 0 15px;font:700 12px var(--fx-mono)}
+#fervor-vector .fvv-panel-header small{font-size:12px;color:var(--vv-muted);font-weight:400}
+#fervor-vector .fvv-section{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:14px;min-height:28px}
+#fervor-vector .fvv-section label{color:var(--vv-muted);font-size:12px;white-space:nowrap}
+#fervor-vector select,#fervor-vector input[type=number]{width:60%;background:var(--vv-surface);border:1px solid var(--vv-line);border-radius:2px;color:var(--vv-ink);padding:7px;min-width:0}
+#fervor-vector .fvv-range{display:block}
+#fervor-vector .fvv-range>div{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+#fervor-vector .fvv-range output{font:700 12px var(--fx-mono);color:var(--vv-ink)}
+#fervor-vector input[type=range]{width:100%;accent-color:var(--vv-accent);cursor:pointer}
+#fervor-vector input[type=color]{width:64px;height:30px;padding:2px;background:var(--vv-surface);border:1px solid var(--vv-line)}
+#fervor-vector .fvv-details{border-top:1px dotted var(--vv-line);padding-top:10px;margin:10px 0}
+#fervor-vector .fvv-details>summary{font-weight:700;cursor:pointer;margin-bottom:16px}
+#fervor-vector .fvv-check-row{display:flex;gap:14px;margin:15px 0}
+#fervor-vector input[type=checkbox]{accent-color:var(--vv-accent)}
+#fervor-vector .fvv-check{display:block;margin:12px 0 18px;color:var(--vv-ink)}
+#fervor-vector .fvv-panel-buttons{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+#fervor-vector .fvv-panel-buttons button{flex:1;min-width:90px}
+#fervor-vector .fvv-divider{border-top:1px dotted var(--vv-line);margin:20px 0}
+#fervor-vector .fvv-help{font-size:12px;color:var(--vv-muted);line-height:1.5;margin:0 0 15px}
+#fervor-vector .fvv-info{font-size:12px;color:var(--vv-muted);line-height:1.6;border-top:1px dotted var(--vv-line);padding-top:13px;margin-top:22px}
+#fervor-vector .fvv-wide{width:100%;white-space:normal}
+#fervor-vector .fvv-layer-list{display:flex;flex-direction:column;gap:5px}
+#fervor-vector .fvv-layer-row{display:flex;align-items:center;gap:7px;background:var(--vv-surface);border:1px dotted var(--vv-line);padding:6px 7px;min-height:40px}
+#fervor-vector .fvv-layer-row.current{border-color:var(--vv-accent);background:var(--vv-panel)}
+#fervor-vector .fvv-layer-swatch{width:12px;height:12px;flex-shrink:0;border:1px solid var(--vv-line)}
+#fervor-vector .fvv-layer-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border:0!important;padding:4px 0!important;text-align:left;background:transparent!important}
+#fervor-vector .fvv-layer-row button:not(.fvv-layer-name){padding:4px!important;font-size:12px}
+@media(max-width:1100px){
+#fervor-vector .fvv-main{grid-template-columns:64px minmax(0,1fr) 250px}
+#fervor-vector .fvv-status-local{display:none}
+#fervor-vector .fvv-header{gap:7px;padding:7px 12px}
+#fervor-vector .fvv-brand{min-width:122px}
+#fervor-vector .fvv-header-actions button{padding:6px}
+}
+@media(max-width:780px){
+body.fv-vector-active{overflow:auto!important}
+#fervor-vector{position:fixed;overflow:auto}
+#fervor-vector .fvv-header{flex-wrap:wrap}
+
+#fervor-vector .fvv-header-actions{width:100%;justify-content:flex-start}
+#fervor-vector .fvv-main{display:grid;grid-template-columns:59px minmax(0,1fr);grid-template-rows:minmax(310px,55vh) auto;flex:none}
+#fervor-vector .fvv-inspector{grid-column:1/-1;grid-row:2;border-left:0;border-top:1px dotted var(--vv-line);min-height:300px;max-height:45vh}
+#fervor-vector .fvv-tools{grid-row:1;padding:8px 4px}
+#fervor-vector .fvv-tools button{min-height:43px}
+#fervor-vector .fvv-icon{font-size:18px}
+#fervor-vector .fvv-canvas-area{grid-column:2;grid-row:1}
+#fervor-vector .fvv-svg-frame{padding:10px}
+#fervor-vector .fvv-canvas-top span:nth-child(2){display:none}
+#fervor-vector .fvv-bottom-bar{font-size:12px}
+}
+/* Three coherent homepage actions and a reliably visible Vector switch in the editor. */
+#fervor-home .fv-home-ctas:has(.fvv-home-entry){gap:clamp(12px,2.2vw,30px)!important;align-items:flex-start!important;justify-content:center!important}
+#fervor-home .fv-home-ctas:has(.fvv-home-entry)>div{width:clamp(148px,16vw,215px)!important;max-width:32%!important}
+@media(max-width:760px){
+#fervor-home .fv-home-ctas:has(.fvv-home-entry){flex-wrap:wrap!important;gap:12px!important}
+#fervor-home .fv-home-ctas:has(.fvv-home-entry)>div{width:170px!important;max-width:45%!important}
+}
+/* Override the legacy v2.22 topbar visibility filter only for the Vector switch. */
+/* Keep workspace actions readable in the original light/dark appearance system. */
+body.fv-theme-dark #fervor-vector .fvv-header button,body.fv-theme-dark #fervor-vector .fvv-project-bar button,body.fv-theme-dark #fervor-vector .fvv-panel button,body.fv-theme-dark #fervor-vector .fvv-bottom-bar button{background:var(--vv-panel)!important;color:var(--vv-ink)!important;border-color:var(--vv-line)!important;-webkit-text-fill-color:var(--vv-ink)!important}
+body.fv-theme-dark #fervor-vector .fvv-header button.fvv-primary,body.fv-theme-dark #fervor-vector .fvv-panel button.fvv-primary{background:var(--vv-ink)!important;color:var(--vv-panel)!important;-webkit-text-fill-color:var(--vv-panel)!important;border-color:var(--vv-ink)!important}
+
+/* FERVOR v2.32 — Vector and Stitch Lab share the same application shell.
+   The Vector drawing engine remains isolated; all control IDs retain their API contracts. */
+body.fv-vector-active{background:#f7f9f6!important}
+#fervor-vector{--vv-paper:#f7f9f6;--vv-panel:#fff;--vv-surface:#f3f6f3;
+  --vv-ink:#222c23;--vv-muted:#6d7970;--vv-line:#d7dfd8;
+  --vv-grid:rgba(71,93,78,.105);--vv-accent:#25864b;
+  --vv-canvas-paper:#fff;--vv-canvas-line:#eef0ef;--vv-canvas-major:#e3e8e4;
+  background:var(--vv-paper);font-family:var(--fx-sans);}
+body.fv-theme-dark #fervor-vector{--vv-paper:#080a08;--vv-panel:#0f120f;--vv-surface:#1c211c;
+  --vv-ink:#f2f5f2;--vv-muted:#abb7ad;--vv-line:#626c63;
+  --vv-grid:rgba(255,255,255,.105);--vv-accent:#e8f2e9;
+  --vv-canvas-paper:#0b0d0b;--vv-canvas-line:#252a26;--vv-canvas-major:#363f38;}
+#fervor-vector button{font-family:var(--fx-sans);border-radius:6px;transition:background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease}
+#fervor-vector .fvv-header{position:relative;display:flex;gap:14px;min-height:76px;height:76px;
+  flex-shrink:0;align-items:center;padding:0 clamp(12px,2.2vw,31px);
+  border-bottom:2px solid var(--vv-ink);background:var(--vv-panel);isolation:isolate;}
+#fervor-vector .fvv-editor-ambient{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:1;background-image:linear-gradient(var(--vv-grid) 1px,transparent 1px),linear-gradient(90deg,var(--vv-grid) 1px,transparent 1px);background-size:25px 25px}
+#fervor-vector .fvv-editor-ambient i{position:absolute;display:block;width:25px;height:25px;background:#b7a4db;opacity:0;left:27%;top:25px;animation:fvEditorGlow var(--fv-editor-duration,18s) ease-in-out var(--fv-editor-delay,0s) infinite;pointer-events:none}
+#fervor-vector .fvv-editor-ambient i:nth-child(2){left:34%;background:#a3cda7;opacity:0;}
+#fervor-vector .fvv-editor-ambient i:nth-child(3){left:39%;background:#ead18e;opacity:0;}
+#fervor-vector .fvv-editor-ambient i:nth-child(4){left:50%;background:#e9adb1;opacity:0;}
+#fervor-vector .fvv-editor-ambient i:nth-child(5){left:63%;background:#a2b9ea;opacity:0;}
+#fervor-vector .fvv-editor-ambient i:nth-child(6){left:70%;background:#95d2d0;opacity:0;}
+#fervor-vector .fvv-editor-ambient i:nth-child(7){left:77%;background:#b7a4db;opacity:0;}
+#fervor-vector .fvv-brand{display:flex;gap:9px;align-items:center;flex-shrink:0;min-width:240px;font-family:var(--fx-mono)}
+#fervor-vector .fvv-logo{display:grid;place-items:center;padding:0!important;width:55px;height:55px;border:0!important;background:transparent!important;border-radius:50%;overflow:hidden}
+#fervor-vector .fvv-logo img{width:100%;height:100%;object-fit:contain}
+body.fv-theme-dark #fervor-vector .fvv-logo img{filter:invert(1)}
+#fervor-vector .fvv-brand-chevron{font:bold 19px var(--fx-sans);margin-right:6px}
+#fervor-vector .fvv-brand-label strong{display:block;font:bold 14px var(--fx-mono);letter-spacing:.01em;color:var(--vv-ink)}
+#fervor-vector .fvv-brand-label small{display:block;margin-top:4px;font:700 12px var(--fx-mono);letter-spacing:.065em;color:var(--vv-muted)}
+#fervor-vector .fvv-status-local{display:flex;align-items:center;gap:5px;font:700 12px var(--fx-mono);letter-spacing:.025em;margin-left:auto;white-space:nowrap;color:var(--vv-muted)}
+#fervor-vector .fvv-status-local small{font-size:12px;font-weight:400}
+#fervor-vector .fvv-local-dot{width:6px;height:6px;background:#5e9972;border-radius:50%}
+#fervor-vector .fvv-header-actions{flex-wrap:nowrap;gap:9px;margin-left:auto}
+#fervor-vector .fvv-header-actions button{padding:10px 12px;min-height:42px;background:var(--vv-panel);border:1px solid #b3bcb3;font:700 13px var(--fx-sans);color:var(--vv-ink);white-space:nowrap;border-radius:10px}
+#fervor-vector .fvv-header-actions .fvv-theme-button{border:1px dotted #8f9d91;border-radius:3px;font:700 12px var(--fx-mono);letter-spacing:.04em}
+#fervor-vector .fvv-header-actions .fvv-switch{border:1px dotted var(--vv-line);border-radius:22px}
+#fervor-vector .fvv-header-actions .fvv-primary{color:#fff;background:#121612;border-color:#121612}
+body.fv-theme-dark #fervor-vector .fvv-header-actions .fvv-primary{color:#080a08!important;background:#eaf0e9!important;border-color:#eaf0e9!important;-webkit-text-fill-color:#080a08!important}
+#fervor-vector .fvv-more-menu[hidden]{display:none!important}
+#fervor-vector .fvv-more-menu{position:absolute;top:calc(100% - 5px);right:clamp(12px,2.2vw,31px);display:flex;flex-direction:column;min-width:195px;background:var(--vv-panel);border:1px solid var(--vv-ink);border-radius:8px;padding:5px;box-shadow:0 12px 30px rgba(20,31,23,.12);z-index:15}
+#fervor-vector .fvv-more-menu button{border:0;border-radius:4px;text-align:left;padding:10px 12px;color:var(--vv-ink);background:transparent;font-size:12px}
+#fervor-vector .fvv-project-bar{height:45px;min-height:45px;display:flex;align-items:stretch;padding:0 24px;gap:0;background:var(--vv-panel);border-bottom:1px solid var(--vv-line);overflow-x:auto;overflow-y:hidden}
+#fervor-vector .fvv-project-list{display:flex;align-items:stretch;flex:0 1 auto;gap:0}
+#fervor-vector .fvv-project-tab{display:flex;align-items:center;gap:8px;min-width:125px;max-width:220px;padding:0 9px 0 4px;border-right:1px solid var(--vv-line);border-top:3px solid transparent;background:var(--vv-panel)}
+#fervor-vector .fvv-project-tab.active{border-top-color:var(--vv-accent);background:var(--vv-surface)}
+#fervor-vector .fvv-project-title{border:0!important;overflow:hidden;text-overflow:ellipsis;max-width:170px;background:transparent!important;padding:5px 5px!important;font:700 13px var(--fx-sans)!important}
+#fervor-vector .fvv-project-close{border:0!important;background:transparent!important;font:bold 17px var(--fx-sans)!important;padding:4px!important;min-width:23px}
+#fervor-vector .fvv-new-project{border:0!important;border-radius:0!important;background:transparent!important;color:var(--vv-ink);font:700 23px var(--fx-sans)!important;padding:0 17px!important}
+#fervor-vector .fvv-stage-bar{height:49px;min-height:49px;background:var(--vv-panel);border-bottom:1px solid var(--vv-line);display:flex;align-items:center;justify-content:center;position:relative;padding:0 22px}
+#fervor-vector .fvv-stage-mark{position:absolute;left:18px;font:700 12px var(--fx-mono);color:var(--vv-muted);letter-spacing:.06em}
+#fervor-vector .fvv-stages{height:100%;display:flex;gap:21px;align-items:center}
+#fervor-vector .fvv-stage{height:100%;padding:0 13px!important;border:0!important;border-bottom:3px solid transparent!important;border-radius:0!important;background:transparent!important;color:#79817b!important;font:700 15px var(--fx-sans)!important}
+#fervor-vector .fvv-stage.active{color:var(--vv-accent)!important;border-bottom-color:var(--vv-accent)!important}
+#fervor-vector .fvv-settings-button{position:absolute;right:18px;border:0!important;background:transparent!important;color:var(--vv-accent)!important;font:700 13px var(--fx-sans)!important;padding:8px!important}
+#fervor-vector .fvv-main{display:grid;grid-template-columns:72px minmax(0,1fr);min-height:0;flex:1;background:var(--vv-paper);transition:grid-template-columns .25s ease}
+#fervor-vector.fvv-settings-open .fvv-main{grid-template-columns:72px minmax(0,1fr) minmax(260px,302px)}
+#fervor-vector .fvv-tools{border-right:1px solid var(--vv-line);background:var(--vv-panel);padding:11px 6px;gap:7px;align-items:center;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+#fervor-vector .fvv-tools-label{font:700 12px var(--fx-mono);color:#aab2ab;margin-bottom:3px}
+#fervor-vector .fvv-tools button{position:relative;width:59px;min-height:58px;padding:6px 2px!important;border-radius:7px!important;border:1px solid transparent!important;gap:2px}
+#fervor-vector .fvv-tools button.active{background:#e9f4eb!important;border:1px solid #83b58d!important;color:#25864b!important;box-shadow:inset 4px 0 #25864b!important}
+body.fv-theme-dark #fervor-vector .fvv-tools button.active{background:#1e3023!important;color:#e9f5eb!important;border-color:#d0e1d1!important;box-shadow:inset 4px 0 #ecf0ec!important}
+#fervor-vector .fvv-tools button small{font:700 12px var(--fx-sans);max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#fervor-vector .fvv-icon{display:grid;place-items:center;width:27px;height:27px;line-height:1;color:inherit;font-size:23px}
+#fervor-vector .fvv-icon svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;fill:none}
+#fervor-vector .fvv-tool-separator{margin:3px 0;width:55px;border-top:1px dotted var(--vv-line)}
+#fervor-vector .fvv-tool-bottom{border-top:1px dotted var(--vv-line);margin-top:5px;padding-top:9px;display:flex;flex-direction:column;align-items:center;gap:8px}
+#fervor-vector .fvv-canvas-area{display:flex;flex-direction:column;padding:12px 13px;min-width:0;min-height:0;background:var(--vv-paper);background-image:none}
+#fervor-vector .fvv-preview-shell{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--vv-panel);border:1.4px solid #3d4a40;border-radius:12px;box-shadow:0 2px 6px rgba(31,50,35,.08);overflow:hidden}
+body.fv-theme-dark #fervor-vector .fvv-preview-shell{border-color:#c3cbc5;box-shadow:none}
+#fervor-vector .fvv-preview-tools{min-height:65px;padding:9px 14px 9px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--vv-line);background:var(--vv-panel)}
+#fervor-vector .fvv-view-tabs{display:flex;align-items:center;gap:14px;height:45px}
+#fervor-vector .fvv-view-btn{height:45px;padding:9px 3px!important;border:0!important;border-bottom:3px solid transparent!important;border-radius:0!important;background:transparent!important;color:var(--vv-ink)!important;font:700 12px var(--fx-mono)!important}
+#fervor-vector .fvv-view-btn.active{border-bottom-color:var(--vv-accent)!important;color:var(--vv-accent)!important}
+#fervor-vector .fvv-preview-actions{display:flex;align-items:center;gap:7px}
+#fervor-vector .fvv-preview-actions button{background:var(--vv-panel);border:1px solid var(--vv-line);font-size:12px;border-radius:5px;padding:9px 10px}
+#fervor-vector .fvv-preview-actions #fvv-appearance-toggle{font-weight:700;color:var(--vv-ink);min-width:108px}
+#fervor-vector .fvv-canvas-top{position:absolute;top:clamp(90px,14vh,102px);left:clamp(20px,4vw,43px);right:clamp(16px,3vw,35px);z-index:2;display:flex;align-items:center;gap:8px;padding:0;background:transparent;border:0;pointer-events:none;color:var(--vv-muted);font:700 12px var(--fx-mono);letter-spacing:.015em;justify-content:flex-start}
+#fervor-vector .fvv-canvas-badge{padding:7px 8px;background:var(--vv-panel);border:1px solid var(--vv-line);border-radius:4px;color:#7b8d80}
+#fervor-vector .fvv-canvas-top #fvv-tool-label{margin-left:auto}
+#fervor-vector .fvv-preview-shell{position:relative}
+#fervor-vector .fvv-svg-frame{flex:1;min-height:0;padding:0;display:grid;place-items:center;overflow:hidden;background:var(--vv-panel)}
+#fervor-vector #fvv-svg{width:100%;height:100%;max-width:100%;max-height:100%;background:var(--vv-canvas-paper);box-shadow:none;cursor:crosshair}
+#fervor-vector .fvv-bottom-bar{min-height:48px;background:var(--vv-panel);border-top:1px solid var(--vv-line);gap:12px;padding:6px 14px}
+#fervor-vector .fvv-canvas-status{display:flex;align-items:center;gap:8px;min-width:0;font:700 12px var(--fx-mono);color:var(--vv-muted)}
+#fervor-vector .fvv-canvas-status #fvv-message{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:30vw}
+#fervor-vector .fvv-canvas-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#66a27e;flex-shrink:0}
+#fervor-vector .fvv-bottom-bar #fvv-coordinates{margin-left:auto;white-space:nowrap;font:12px var(--fx-mono)}
+#fervor-vector .fvv-zoom-group{display:flex;align-items:center;gap:7px;white-space:nowrap}
+#fervor-vector .fvv-zoom-group i{height:20px;border-left:1px solid var(--vv-line);margin:0 5px}
+#fervor-vector .fvv-zoom-group button{border:0!important;background:transparent!important;font:700 12px var(--fx-sans)!important;padding:7px 5px!important}
+#fervor-vector .fvv-zoom-group #fvv-zoom-display{min-width:43px;text-align:center;color:var(--vv-accent)}
+#fervor-vector .fvv-inspector{display:none;min-width:0;overflow:hidden;background:var(--vv-panel);border-left:1px solid var(--vv-line)}
+#fervor-vector.fvv-settings-open .fvv-inspector{display:flex}
+
+
+
+#fervor-vector .fvv-panel{padding:19px 17px 24px}
+#fervor-vector .fvv-panel-header strong{font:700 12px var(--fx-mono)}
+#fervor-vector .fvv-section label{color:var(--vv-muted)}
+#fervor-vector .fvv-section select{max-width:66%}
+#fervor-vector .fvv-info{line-height:1.5}
+body.fv-theme-dark #fervor-vector .fvv-brand-label strong,body.fv-theme-dark #fervor-vector .fvv-brand-label small{color:#f4f5f4!important}
+body.fv-theme-dark #fervor-vector .fvv-header button:not(.fvv-primary),body.fv-theme-dark #fervor-vector .fvv-view-tabs button,body.fv-theme-dark #fervor-vector .fvv-settings-button{background:transparent!important;color:var(--vv-ink)!important;-webkit-text-fill-color:var(--vv-ink)!important}
+body.fv-theme-dark #fervor-vector .fvv-header-actions .fvv-theme-button{border-color:var(--vv-line)!important}
+body.fv-theme-dark #fervor-vector .fvv-view-btn.active{color:var(--vv-accent)!important;-webkit-text-fill-color:var(--vv-accent)!important}
+body.fv-theme-dark #fervor-vector .fvv-canvas-badge{background:var(--vv-panel)!important;color:#e5eee5!important}
+@media(max-width:1220px){
+#fervor-vector .fvv-status-local{display:none}
+#fervor-vector .fvv-brand{min-width:210px}
+#fervor-vector .fvv-header-actions{margin-left:auto}
+}
+@media(max-width:1000px){
+#fervor-vector .fvv-brand{min-width:160px}
+#fervor-vector .fvv-header{gap:7px;padding:0 10px}
+#fervor-vector .fvv-header-actions{gap:5px}
+#fervor-vector .fvv-header-actions button{padding:9px;font-size:12px}
+#fervor-vector .fvv-stage-mark{display:none}
+#fervor-vector .fvv-stages{gap:5px}
+#fervor-vector .fvv-stage{font-size:13px!important}
+#fervor-vector.fvv-settings-open .fvv-main{grid-template-columns:68px minmax(0,1fr) minmax(220px,260px)}
+#fervor-vector .fvv-preview-tools{padding:6px 9px}
+#fervor-vector .fvv-canvas-top{top:86px}
+}
+@media(max-width:780px){
+body.fv-vector-active{overflow:hidden!important}
+#fervor-vector{overflow:hidden!important}
+#fervor-vector .fvv-header{height:60px;min-height:60px;flex-wrap:nowrap;padding:0 8px}
+#fervor-vector .fvv-brand{min-width:125px;gap:3px}
+#fervor-vector .fvv-logo{width:38px;height:38px}
+#fervor-vector .fvv-brand-chevron{display:none}
+#fervor-vector .fvv-brand-label strong{font-size:12px}
+#fervor-vector .fvv-brand-label small{font-size:12px}
+#fervor-vector .fvv-header-actions{width:auto;gap:4px;justify-content:flex-end}
+#fervor-vector .fvv-header-actions button{padding:6px 8px;min-height:34px;font-size:12px}
+#fervor-vector .fvv-header-actions .fvv-switch,#fervor-vector .fvv-header-actions #fvv-save{display:none}
+#fervor-vector .fvv-header-actions .fvv-theme-button{font-size:12px}
+#fervor-vector .fvv-header-actions .fvv-primary{font-size:12px;max-width:114px;white-space:normal;line-height:1.05}
+#fervor-vector .fvv-project-bar{height:38px;min-height:38px;padding:0 8px}
+#fervor-vector .fvv-stage-bar{height:45px;min-height:45px;padding:0 5px}
+#fervor-vector .fvv-stage{font-size:12px!important;padding:0 8px!important}
+#fervor-vector .fvv-settings-button{right:5px;font-size:12px!important}
+#fervor-vector .fvv-settings-button span{display:none}
+#fervor-vector .fvv-main{grid-template-columns:59px minmax(0,1fr);grid-template-rows:minmax(0,1fr);flex:1}
+#fervor-vector.fvv-settings-open .fvv-main{grid-template-columns:59px minmax(0,1fr);grid-template-rows:minmax(200px,55%) minmax(180px,45%)}
+#fervor-vector .fvv-tools{grid-row:1;grid-column:1;overflow:auto;padding:5px 3px}
+#fervor-vector .fvv-tools button{width:51px;min-height:48px}
+#fervor-vector .fvv-icon{font-size:20px}
+#fervor-vector .fvv-icon svg{width:21px;height:21px}
+#fervor-vector .fvv-canvas-area{grid-column:2;grid-row:1;padding:6px}
+#fervor-vector .fvv-inspector,#fervor-vector.fvv-settings-open .fvv-inspector{grid-column:1/-1;grid-row:2;max-height:none;min-height:0;border-top:1px solid var(--vv-line)}
+#fervor-vector .fvv-preview-tools{min-height:51px;padding:4px 5px}
+#fervor-vector .fvv-view-tabs{gap:4px;height:42px}
+#fervor-vector .fvv-view-btn{font-size:12px!important;padding:5px 2px!important;height:40px}
+#fervor-vector .fvv-preview-actions{gap:2px}
+#fervor-vector .fvv-preview-actions #fvv-undo,#fervor-vector .fvv-preview-actions #fvv-redo{display:none}
+#fervor-vector .fvv-preview-actions #fvv-appearance-toggle{font-size:12px;min-width:0;padding:6px 4px}
+#fervor-vector .fvv-canvas-top{top:56px;left:9px;right:9px;font-size:12px}
+#fervor-vector .fvv-canvas-top span:nth-child(2){display:none}
+#fervor-vector .fvv-svg-frame{padding:0}
+#fervor-vector .fvv-bottom-bar{padding:3px 5px;min-height:37px;gap:3px;flex-wrap:nowrap}
+#fervor-vector .fvv-canvas-status{font-size:12px;max-width:30%}
+#fervor-vector .fvv-canvas-status #fvv-message{max-width:65px}
+#fervor-vector .fvv-bottom-bar #fvv-coordinates{display:none}
+#fervor-vector .fvv-zoom-group{gap:2px}
+#fervor-vector .fvv-zoom-group i{margin:0 1px;height:14px}
+#fervor-vector .fvv-zoom-group button{font-size:12px!important;padding:3px 1px!important}
+#fervor-vector .fvv-zoom-group #fvv-zoom-design,#fervor-vector .fvv-zoom-group #fvv-focus{display:none}
+#fervor-vector .fvv-zoom-group #fvv-zoom-display{min-width:35px}
+}
+@media(prefers-reduced-motion:reduce){
+#fervor-vector .fvv-main,#fervor-vector .fvv-canvas-area,#fervor-vector button{transition:none!important}
+}
+/* Header menus must float above the project and workflow rows. */
+#fervor-vector .fvv-header{z-index:50}
+#fervor-vector .fvv-more-menu{z-index:60}
+/* Continuous technical grid across the full viewport, not only the intrinsic SVG viewport. */
+#fervor-vector .fvv-svg-frame{background-color:var(--vv-canvas-paper)!important;
+ background-image:linear-gradient(var(--vv-canvas-line) 1px,transparent 1px),linear-gradient(90deg,var(--vv-canvas-line) 1px,transparent 1px),linear-gradient(var(--vv-canvas-major) 1px,transparent 1px),linear-gradient(90deg,var(--vv-canvas-major) 1px,transparent 1px)!important;
+ background-size:var(--fvv-grid-size,25px) var(--fvv-grid-size,25px),var(--fvv-grid-size,25px) var(--fvv-grid-size,25px),var(--fvv-major-size,100px) var(--fvv-major-size,100px),var(--fvv-major-size,100px) var(--fvv-major-size,100px)!important;}
+#fervor-vector #fvv-svg{background:transparent!important}
+/* v2.33: one workflow navigation, true-size drafting grid, and shared masthead motion. */
+#fervor-vector .fvv-header{background-color:var(--vv-panel);background-image:linear-gradient(to right,var(--vv-grid) 1px,transparent 1px),linear-gradient(to bottom,var(--vv-grid) 1px,transparent 1px),linear-gradient(to right,var(--vv-grid) 1px,transparent 1px),linear-gradient(to bottom,var(--vv-grid) 1px,transparent 1px);background-size:25px 25px,25px 25px,125px 125px,125px 125px;isolation:isolate;overflow:visible}
+#fervor-vector .fvv-editor-ambient{overflow:hidden}
+#fervor-vector .fvv-header :is(.fvv-brand,.fvv-header-actions,.fvv-status-local){position:relative;z-index:2}
+#fervor-vector .fvv-inspector .fvv-panel{padding:21px 18px 26px}
+#fervor-vector .fvv-stage-bar{border-bottom:1px solid var(--vv-line)}
+#fervor-vector .fvv-preview-shell{min-width:0;min-height:0}
+#fervor-vector .fvv-svg-frame{background-position:var(--fvv-grid-origin-x,0px) var(--fvv-grid-origin-y,0px)!important}
+#fervor-vector .fvv-canvas-area{padding:12px 13px}
+#fervor-vector .fvv-settings-button{white-space:nowrap}
+@media(prefers-reduced-motion:reduce){
+#fervor-vector .fvv-editor-ambient i{animation:none!important;opacity:.17!important}
+}
+/* v2.34 — dark theme ambient: white 6px dots, retaining 25px placement and motion.
+   Only decorative homepage and header pixels are affected; gameplay pieces
+   and artwork keep their original colors. */
+body.fv-theme-dark #fervor-home .fv-home-ambient .fv-home-color,body.fv-theme-dark #fervor-vector .fvv-editor-ambient i{background-color:transparent!important;
+  background-image:radial-gradient(circle at center, #fff 0 2.9px, transparent 3.2px)!important;
+  background-size:25px 25px!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  filter:none!important;}
+@keyframes fv234-white-dots{0%,13%,88%,100% { opacity:0; }
+  34% { opacity:.34; }
+  54% { opacity:.95; }
+  72% { opacity:.48; }}
+body.fv-theme-dark #fervor-home .fv-home-ambient .fv-home-color:not(.fv-follow){animation:fv234-white-dots var(--fv-glow-duration,16s) ease-in-out var(--fv-glow-delay,0s) infinite!important;}
+body.fv-theme-dark #fervor-home .fv-home-ambient .fv-home-color.fv-follow{animation:fv234-white-dots var(--fv-follow-duration,8s) ease-in-out var(--fv-follow-delay,0s) infinite!important;}
+body.fv-theme-dark #fervor-vector .fvv-editor-ambient i{animation:fv234-white-dots var(--fv-editor-duration,18s) ease-in-out var(--fv-editor-delay,0s) infinite!important;}
+@media(prefers-reduced-motion:reduce){
+body.fv-theme-dark #fervor-home .fv-home-ambient .fv-home-color,body.fv-theme-dark #fervor-vector .fvv-editor-ambient i{animation:none!important;opacity:.36!important;
+    transition:none!important;}
+}
+/* Do not interpolate from pastel square fills when the theme becomes dark. */
+body.fv-theme-dark #fervor-home .fv-home-ambient .fv-home-color{transition:left 480ms cubic-bezier(.22,.72,.22,1),top 480ms cubic-bezier(.22,.72,.22,1),opacity 420ms ease!important;}
+/* Desktop sequence: Vector | primary Stitch Lab workspace | Open Artwork.
+   Keep three balanced columns so the primary action remains centered. */
+#fervor-home .fv-home-ctas:has(#fv-home-open-vector){display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:clamp(10px,2.1vw,28px)!important;
+  align-items:start!important;
+  justify-content:center!important;
+  width:min(100%,790px)!important;}
+#fervor-home .fv-home-ctas:has(#fv-home-open-vector)>div{width:100%!important;
+  min-width:0!important;
+  max-width:none!important;}
+#fervor-home .fv-home-ctas:has(#fv-home-open-vector) .fv-home-pill{width:100%!important;min-width:0!important;}
+@media(max-width:600px){
+#fervor-home .fv-home-ctas:has(#fv-home-open-vector){grid-template-columns:1fr!important;
+    max-width:290px!important;
+    gap:11px!important;}
+}
+/* v2.36 / Shared editor proportions and achromatic dark appearance.
+   Stitch Lab is the reference system; Vector mirrors the same three-row
+   header, compact tool buttons, inspector dimensions, and neutral controls.
+   The artwork and Arcade are not color-filtered. */
+/* Shared header and controls use the physical dimensions of Stitch Lab. */
+#fervor-vector .fvv-header{height:66px!important; min-height:66px!important;
+  padding:0 clamp(13px,2.4vw,37px)!important;
+  gap:12px!important;}
+#fervor-vector .fvv-brand{min-width:0!important;gap:9px!important;}
+#fervor-vector .fvv-logo{width:49px!important;height:49px!important;min-width:49px!important;}
+#fervor-vector .fvv-brand-label strong{font-size:16px!important;}
+#fervor-vector .fvv-brand-label small{font-size:12px!important;}
+#fervor-vector .fvv-brand-chevron{font-size:19px!important;margin-right:0!important;}
+#fervor-vector .fvv-header-actions{gap:7px!important;}
+#fervor-vector .fvv-header-actions button{height:35px!important;min-height:35px!important;padding:6px 12px!important;
+  border-radius:7px!important;font:800 12px var(--fx-sans)!important;}
+#fervor-vector .fvv-header-actions .fvv-theme-button{border-radius:3px!important;font:700 12px var(--fx-mono)!important;}
+#fervor-vector .fvv-header-actions .fvv-switch{border-radius:999px!important;}
+#fervor-vector .fvv-project-bar{height:37px!important;min-height:37px!important;padding-left:clamp(8px,2vw,24px)!important;}
+#fervor-vector .fvv-project-tab{min-width:125px!important;}
+#fervor-vector .fvv-stage-bar{height:41px!important;min-height:41px!important;}
+#fervor-vector .fvv-stages{gap:13px!important;}
+#fervor-vector .fvv-stage{font-size:13px!important;padding:0 10px!important;
+  border-bottom-width:2px!important;}
+#fervor-vector .fvv-settings-button{font-size:12px!important;padding:5px 8px!important;}
+/* Stitch Lab uses 64px rail at 1240, 68px at 1440, 58px on tablet. */
+#fervor-vector{--fv235-rail:64px;--fv235-side:265px;}
+#fervor-vector .fvv-main{grid-template-columns:var(--fv235-rail) minmax(0,1fr)!important;}
+#fervor-vector.fvv-settings-open .fvv-main{grid-template-columns:var(--fv235-rail) minmax(0,1fr) var(--fv235-side)!important;}
+#fervor-vector .fvv-tools{width:var(--fv235-rail)!important;min-width:0!important;
+  padding:8px 3px!important;gap:3px!important;}
+#fervor-vector .fvv-tools button{width:57px!important;min-width:0!important;max-width:100%!important;
+  height:55px!important;min-height:55px!important;
+  padding:5px 3px!important;gap:2px!important;
+  border-radius:7px!important;}
+#fervor-vector .fvv-icon{height:23px!important;width:23px!important;}
+#fervor-vector .fvv-icon svg{width:21px!important;height:21px!important;}
+#fervor-vector .fvv-tools button small{font-size:12px!important;line-height:1.1!important;}
+#fervor-vector .fvv-tools-label{font-size:12px!important;margin:2px 0 5px!important;}
+#fervor-vector .fvv-canvas-area{padding:13px clamp(9px,1.3vw,20px)!important;}
+#fervor-vector .fvv-preview-tools{height:52px!important;min-height:52px!important;padding:4px 13px!important;}
+#fervor-vector .fvv-view-tabs{height:42px!important;gap:15px!important;}
+#fervor-vector .fvv-view-btn{font-size:12px!important;}
+#fervor-vector .fvv-preview-actions button{min-height:32px!important;}
+#fervor-vector .fvv-inspector{font-size:12px!important;}
+#fervor-vector .fvv-inspector .fvv-panel{padding:15px 13px 19px!important;}
+
+#fervor-vector .fvv-svg-frame{background-color:var(--vv-canvas-paper)!important;}
+@media(min-width:1361px){
+#fervor-vector{--fv235-rail:68px;--fv235-side:292px;}
+}
+@media(max-width:1100px){
+#fervor-vector{--fv235-rail:58px;--fv235-side:260px;}
+#fervor-vector .fvv-tools button{width:51px!important;height:52px!important;min-height:52px!important;}
+#fervor-vector .fvv-header{gap:7px!important;padding:0 12px!important;}
+#fervor-vector .fvv-header-actions{gap:5px!important;}
+#fervor-vector .fvv-header-actions button{font-size:12px!important;padding:6px 8px!important;}
+}
+@media(max-width:780px){
+#fervor-vector .fvv-header{height:55px!important;min-height:55px!important;padding:0 8px!important;}
+#fervor-vector .fvv-logo{width:40px!important;height:40px!important;min-width:40px!important;}
+#fervor-vector .fvv-brand-label strong{font-size:12px!important;}
+#fervor-vector .fvv-brand-label small{font-size:12px!important;}
+#fervor-vector .fvv-header-actions button{height:32px!important;min-height:32px!important;padding:5px 7px!important;font-size:12px!important;}
+#fervor-vector .fvv-project-bar{height:34px!important;min-height:34px!important;}
+#fervor-vector .fvv-stage-bar{height:40px!important;min-height:40px!important;}
+#fervor-vector .fvv-stages{gap:5px!important;}
+#fervor-vector .fvv-stage{font-size:12px!important;padding:0 6px!important;}
+#fervor-vector{--fv235-rail:59px;}
+#fervor-vector .fvv-main{grid-template-columns:59px minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important;}
+#fervor-vector.fvv-settings-open .fvv-main{grid-template-columns:59px minmax(0,1fr)!important;grid-template-rows:minmax(200px,55%) minmax(180px,45%)!important;}
+#fervor-vector .fvv-tools button{width:48px!important;height:49px!important;min-height:49px!important;}
+#fervor-vector .fvv-canvas-area{padding:6px!important;}
+#fervor-vector .fvv-preview-tools{height:49px!important;min-height:49px!important;padding:4px 5px!important;}
+#fervor-vector .fvv-inspector{max-height:none!important;}
+}
+/* Pure monochrome dark-mode surfaces: no green ink or green-tinted panels. */
+body.fv-theme-dark.fv-vector-active{background:#080808!important;}
+body.fv-theme-dark #fervor-vector{--vv-paper:#080808;--vv-panel:#101010;--vv-surface:#1b1b1b;
+  --vv-ink:#f3f3f3;--vv-muted:#b9b9b9;--vv-line:#757575;
+  --vv-grid:rgba(255,255,255,.18);--vv-accent:#fff;
+  --vv-canvas-paper:#080808;--vv-canvas-line:rgba(255,255,255,.15);
+  --vv-canvas-major:rgba(255,255,255,.24);
+  background:#080808!important;color:#f3f3f3!important;}
+body.fv-theme-dark #fervor-vector :is(.fvv-header,.fvv-project-bar,.fvv-stage-bar,.fvv-tools,.fvv-inspector,.fvv-preview-tools,.fvv-preview-shell,.fvv-bottom-bar){background-color:#101010!important;color:#f3f3f3!important;
+  border-color:#858585!important;}
+body.fv-theme-dark #fervor-vector :is(.fvv-main,.fvv-canvas-area,.fvv-svg-frame){background-color:#080808!important;}
+body.fv-theme-dark #fervor-vector .fvv-header{background-color:#080808!important;
+  background-image:linear-gradient(rgba(255,255,255,.19) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.19) 1px,transparent 1px)!important;
+  background-size:25px 25px!important;}
+body.fv-theme-dark #fervor-vector .fvv-editor-ambient{background-image:none!important;}
+body.fv-theme-dark #fervor-vector .fvv-tools button.active{background:#292929!important;color:#fff!important;
+  border-color:#bdbdbd!important;box-shadow:inset 4px 0 #fff!important;}
+body.fv-theme-dark #fervor-vector .fvv-tools button:hover:not(.active){background:#1b1b1b!important;color:#fff!important;border-color:#777!important;}
+body.fv-theme-dark #fervor-vector .fvv-project-tab.active{background:#222!important;border-top-color:#fff!important;}
+body.fv-theme-dark #fervor-vector .fvv-stage.active,body.fv-theme-dark #fervor-vector .fvv-view-btn.active{color:#fff!important;-webkit-text-fill-color:#fff!important;border-bottom-color:#fff!important;}
+body.fv-theme-dark #fervor-vector :is(.fvv-preview-actions button,.fvv-section button,.fvv-inspector input,.fvv-inspector textarea,.fvv-inspector select){background:#171717!important;color:#f4f4f4!important;
+  border-color:#888!important;-webkit-text-fill-color:#f4f4f4!important;}
+body.fv-theme-dark #fervor-vector .fvv-header-actions .fvv-primary,body.fv-theme-dark #fervor-vector .fvv-panel button.fvv-primary{background:#f5f5f5!important;color:#080808!important;border-color:#fff!important;-webkit-text-fill-color:#080808!important;}
+body.fv-theme-dark #fervor-vector .fvv-more-menu,body.fv-theme-dark #fervor-vector .fvv-more-menu button{background:#151515!important;color:#fff!important;border-color:#858585!important;}
+body.fv-theme-dark #fervor-vector .fvv-local-dot{background:#ddd!important;}
+body.fv-theme-dark #fervor-vector #fvv-svg :is(.fvv-selection-box,.fvv-anchor,.fvv-control,.fvv-handle-line){stroke:#f0f0f0!important;}
+body.fv-theme-dark #fervor-vector #fvv-svg .fvv-anchor.chosen{fill:#fff!important;}
+body.fv-theme-dark #fervor-vector #fvv-svg .fvv-control{fill:#777!important;}
+body.fv-theme-dark #fervor-vector .fvv-canvas-badge{color:#eee!important;border-color:#999!important;background:#151515!important;}
+/* Stitch Lab dark header: the same white 25px drafting grid as Vector.
+   Previous global dark background declarations removed the light-mode grid. */
+body.fv-theme-dark:not(.fervor-home-open):not(.fv-vector-active) > .topbar{background-color:#080808!important;
+  background-image:linear-gradient(rgba(255,255,255,.19) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.19) 1px,transparent 1px)!important;
+  background-size:25px 25px!important;background-position:0 0!important;
+  border-bottom:1px solid #aaa!important;}
+body.fv-theme-dark:not(.fervor-home-open):not(.fv-vector-active) > .topbar::before{display:none!important;}
+/* Light mode retains the 7-color square animations and green active controls.
+   Dark mode retains only floating white decorative dots, not large filled squares.
+   Canvas artwork and actual game pieces are never recolored. */
+@media(prefers-reduced-motion:reduce){
+#fervor-vector .fvv-header,#fervor-vector .fvv-project-bar,#fervor-vector .fvv-stage-bar,#fervor-vector .fvv-tools button{transition:none!important;}
+}
+/* Match the understated Stitch Lab canvas contrast and neutral status lights. */
+body.fv-theme-dark #fervor-vector{--vv-canvas-line:rgba(255,255,255,.10);
+  --vv-canvas-major:rgba(255,255,255,.16);}
+body.fv-theme-dark #fervor-vector .fvv-canvas-dot,body.fv-theme-dark #fervor-vector .fvv-local-dot{background:#c8c8c8!important;}

@@ -1,0 +1,117 @@
+/* Project Files uses the same drafting frame, contrast and type as the editors. */
+#fv-project-files{
+ --project-bg:var(--fx-bg);--project-side:var(--fx-raise);--project-line:var(--fx-line-2);
+ --project-tested:#17573a;--project-danger:#a13c30;
+ width:min(1000px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 24px);
+ padding:0;overflow:auto;box-sizing:border-box;border:1px dotted var(--project-line);
+ background:var(--project-bg);color:var(--fx-text);box-shadow:0 24px 90px #0007;
+ font:13px/1.5 var(--fx-mono,monospace);
+}
+#fv-project-files::backdrop{background:#15110ec4;backdrop-filter:blur(4px)}
+body.fv-theme-dark #fv-project-files{--project-tested:#a1e6bd;--project-danger:#ffb8a5;color-scheme:dark}
+body.fv-theme-art #fv-project-files{
+ --project-bg:#25201beF;--project-side:#312820;--project-line:#9d8572;
+ --fx-text:#fff0e3;--fx-muted:#d4c2b1;--fx-accent:#f8e9dc;--fx-ink:#251b16;--fx-hover:#483a30;--fx-line:#665346;
+ backdrop-filter:blur(16px);
+}
+#fv-project-files [hidden],#fv-brand-files-menu[hidden]{display:none!important}
+#fv-project-files button,#fv-project-files input,#fv-project-files select{font:inherit;color:inherit;box-sizing:border-box}
+#fv-project-files button{
+ cursor:pointer;background:transparent;border:1px solid var(--fx-line);border-radius:5px;padding:5px 10px;
+}
+#fv-project-files button:hover,#fv-project-files button[aria-current="page"]{background:var(--fx-hover)}
+#fv-project-files button:disabled{opacity:.45;cursor:default}
+#fv-project-files :is(button,input,select):focus-visible{outline:2px solid var(--fv-focus);outline-offset:2px}
+.fv-project-header{
+ min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+ padding:14px 20px;border-bottom:1px dotted var(--project-line);
+}
+.fv-project-header h2{font:750 21px/1.25 var(--fx-mono);margin:0 0 3px}
+.fv-project-header p{color:var(--fx-muted);margin:0}
+#fv-project-files .fv-project-close{width:36px;height:36px;font-size:24px;line-height:1}
+.fv-project-layout{display:grid;grid-template-columns:180px minmax(0,1fr);min-height:440px}
+.fv-project-sidebar{min-width:0;padding:13px;background:var(--project-side);border-right:1px dotted var(--project-line)}
+.fv-project-sidebar h3{font:650 12px var(--fx-mono);margin:18px 4px 6px;color:var(--fx-muted)}
+#fv-project-folders,.fv-project-sidebar nav{display:grid;gap:3px}
+#fv-project-folders p{margin:3px 4px;color:var(--fx-muted);font-size:12px}
+#fv-project-files .fv-project-sidebar button{min-width:0;text-align:left;border:1px solid transparent;padding:6px 7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#fv-project-files .fv-project-sidebar button[aria-current="page"]{border-color:var(--fx-line-2);font-weight:700}
+#fv-project-folders button{padding-inline-start:calc(7px + var(--project-indent))!important}
+.fv-project-folder-icon{margin-inline-end:6px}
+#fv-project-trash-count{float:right;color:var(--fx-muted);margin-left:3px}
+.fv-project-main{min-width:0;padding:12px 16px}
+.fv-project-tools,.fv-project-actions,.fv-project-form{
+ display:flex;flex-wrap:wrap;align-items:center;gap:7px;
+}
+.fv-project-tools input,.fv-project-tools select,.fv-project-form input,.fv-project-form select{
+ background:var(--project-side);border:1px solid var(--project-line);border-radius:5px;min-height:34px;padding:5px 7px;
+}
+.fv-project-tools input{flex:1;min-width:138px}
+.fv-project-segment{display:flex;gap:2px;border:1px solid var(--fx-line);border-radius:6px;padding:2px}
+#fv-project-files .fv-project-segment button{border-color:transparent;padding:3px 6px}
+#fv-project-files .fv-project-segment [aria-pressed="true"]{background:var(--fx-accent);color:var(--fx-ink)}
+#fv-project-path{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin:9px 0 7px;min-height:25px;font-size:12px;color:var(--fx-muted)}
+#fv-project-files #fv-project-path button{border:0;padding:3px 6px;color:var(--fx-muted)}
+.fv-project-content{display:grid;min-height:295px;max-height:min(55dvh,495px);overflow:auto;padding:4px 3px 7px;align-content:start;gap:10px}
+.fv-project-content[data-layout="grid"]{grid-template-columns:repeat(auto-fill,minmax(min(100%,148px),1fr))}
+.fv-project-content[data-layout="list"]{grid-template-columns:1fr;gap:4px}
+#fv-project-files .fv-project-tile{
+ display:grid;grid-template-rows:auto 1fr;align-items:start;text-align:left;min-width:0;
+ padding:6px;border:1px dotted var(--fx-line-2);background:var(--project-side);
+}
+#fv-project-files .fv-project-tile[aria-pressed="true"]{border:1px solid var(--fx-accent);background:var(--fx-hover)}
+.fv-project-preview{
+ display:grid;place-items:center;overflow:hidden;width:100%;aspect-ratio:288/176;
+ background:var(--project-bg);color:var(--fx-muted);border-radius:3px;
+}
+.fv-project-preview img{width:100%;height:100%;object-fit:cover}
+.fv-project-meta{display:grid;gap:2px;min-width:0;margin:4px 2px;overflow-wrap:anywhere}
+.fv-project-meta strong{font-size:13px;line-height:1.3}
+.fv-project-meta small{font-size:11px;color:var(--fx-muted)}
+.fv-project-tested{font-size:11px;color:var(--project-tested)}
+#fv-project-files .fv-project-content[data-layout="list"] .fv-project-tile{grid-template:1fr/53px 1fr;gap:8px;align-items:center}
+.fv-project-content[data-layout="list"] .fv-project-preview svg{width:24px;height:24px}
+.fv-project-empty{grid-column:1/-1;color:var(--fx-muted);padding:16px;margin:0}
+.fv-project-actions,.fv-project-form{margin:6px 0 0;padding:9px 0 0;border-top:1px dotted var(--project-line)}
+.fv-project-actions strong{flex-basis:100%;overflow-wrap:anywhere}
+#fv-project-files .fv-project-primary{background:var(--fx-accent);color:var(--fx-ink);font-weight:750}
+#fv-project-files .fv-project-trash{color:var(--project-danger)}
+.fv-project-transfer{border-top:1px dotted var(--project-line);padding:8px 20px}
+.fv-project-transfer summary{cursor:pointer;width:max-content;font-weight:650}
+.fv-project-transfer-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-top:8px}
+.fv-project-transfer-actions small{color:var(--fx-muted)}
+#fv-project-status{margin:0;min-height:28px;padding:6px 20px 9px;color:var(--fx-muted);border-top:1px dotted var(--project-line);font-size:12px}
+.fv-project-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.sl-brand-files{position:relative;display:flex;align-items:center;gap:1px;flex:none}
+.sl-brand-chevron{display:grid;place-items:center;width:22px;height:29px;padding:0;border:0;background:transparent;color:var(--sl-text);cursor:pointer}
+.sl-brand-chevron:hover,.sl-brand-chevron[aria-expanded="true"]{background:var(--sl-hover)}
+#fv-brand-files-menu{left:0;right:auto;min-width:204px;border-radius:5px;border-style:dotted}
+#fv-brand-files-menu small{color:var(--sl-muted);white-space:nowrap}
+#recent-browse-files{margin-top:5px;width:100%}
+@media(max-width:650px){
+ #fv-project-files{width:calc(100vw - 14px)}
+ .fv-project-layout{grid-template-columns:1fr;min-height:0}
+ .fv-project-sidebar{border-right:0;border-bottom:1px dotted var(--project-line);padding:6px 9px}
+ .fv-project-sidebar nav{grid-auto-flow:column;grid-auto-columns:max-content;overflow:auto}
+ #fv-project-folders{display:flex;overflow:auto}
+ #fv-project-folders button{flex:none}
+ .fv-project-sidebar h3{margin:7px 4px 2px}
+ .fv-project-content{max-height:38dvh;min-height:175px}
+ .fv-project-main{padding:8px}
+ .fv-project-header{padding:9px 12px;min-height:0}
+}
+/* Keep this top-layer window independent of the legacy page-wide form styles. */
+body #fv-project-files :is(button,input,select):not(#fx-none){
+ font:inherit!important;color:var(--fx-text)!important;background:var(--project-side)!important;
+ border-color:var(--fx-line)!important;box-shadow:none!important;
+}
+body #fv-project-files :is(#fv-project-folders,.fv-project-sidebar nav,#fv-project-path) button:not(#fx-none){
+ background:transparent!important;border-color:transparent!important;
+}
+body #fv-project-files button:not(#fx-none):is(:hover,[aria-current="page"],.fv-project-tile[aria-pressed="true"]){
+ background:var(--fx-hover)!important;border-color:var(--project-line)!important;
+}
+body #fv-project-files :is(.fv-project-primary,.fv-project-segment [aria-pressed="true"]):not(#fx-none){
+ background:var(--fx-accent)!important;color:var(--fx-ink)!important;border-color:var(--fx-accent)!important;font-weight:750!important;
+}
+body #fv-project-files .fv-project-trash:not(#fx-none){color:var(--project-danger)!important}

@@ -1,0 +1,40 @@
+/* The suite's workspace symbols share one stroke weight and view box. */
+(() => {
+ const paths = {
+  bay:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="15.5" cy="8.5" r="1.5"/><path d="m3 16 5.5-5 5 4.5 2.5-2.5 5 4.5"/>',
+  vector:'<path d="m3 3 12 3 3 9-3 3-9-3L3 3Zm0 0 7 7m8 5 3 3-3 3-3-3"/><circle cx="11" cy="11" r="1.5"/>',
+  stitch:'<path d="M5 19 15.7 4.8a2.1 2.1 0 1 1 3 3L5 19Zm10.4-12 1.3-1.3M5 19c-2 0-2.8-1.1-2.3-2.3C4 13.3 10 21 15 21m2.5 0H20"/>',
+  mold:'<path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm0 9 8-4.5M4 7.5l8 4.5v9"/><path stroke-dasharray="1.3 2" d="m8 5.3 8 4.5v9"/>',
+  compose:'<path d="M9 18V5l11-2v13M9 7l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/>',
+  arcade:'<path d="M7 7h10a3 3 0 0 1 2.9 2.3l1.4 5.7a2.5 2.5 0 0 1-4.3 2.3l-2-2.3H9l-2 2.3A2.5 2.5 0 0 1 2.7 15l1.4-5.7A3 3 0 0 1 7 7Zm0 3v4m-2-2h4m7 0h.01m2-2h.01"/>',
+  radar:'<circle cx="12" cy="12" r="9"/><path d="M12 6a6 6 0 1 0 6 6m-6 0 7-7m-7 11h.01m-4-5h.01"/>',
+  art:'<rect x="4" y="3" width="16" height="18" rx="1"/><path d="m6 16 4-5 3 3 2-2 3 4"/><circle cx="15" cy="7.5" r="1"/>',
+  import:'<path d="M12 3v12m-4-4 4 4 4-4M4 15v5h16v-5"/>',
+  folder:'<path d="M3 7h7l2 2h9v10H3zm0 0V5h7l2 2h7v2"/>',
+  grid:'<rect x="3.5" y="3.5" width="6" height="6" rx="1"/><rect x="14.5" y="3.5" width="6" height="6" rx="1"/><rect x="3.5" y="14.5" width="6" height="6" rx="1"/><rect x="14.5" y="14.5" width="6" height="6" rx="1"/>',
+  detail:'<rect x="4" y="4" width="16" height="16" rx="2"/>',
+  compare:'<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M12 5v14m-7-3 5-5m5 5 4-4"/>',
+  adjust:'<path d="M4 6h16M4 12h16M4 18h16"/><circle fill="var(--fx-raise)" cx="9" cy="6" r="2"/><circle fill="var(--fx-raise)" cx="15" cy="12" r="2"/><circle fill="var(--fx-raise)" cx="9" cy="18" r="2"/>',
+  crop:'<path d="M7 3v14h14M3 7h14v14m-5-9 7-7"/>',
+  versions:'<path d="M4.6 8A8.2 8.2 0 1 1 4 15m0-10v4h4m4-2v5l3 2"/>',
+  retouch:'<path d="m4 13 9-9a2 2 0 0 1 3 0l4 4a2 2 0 0 1 0 3l-8 8H8l-4-4a1.5 1.5 0 0 1 0-2Zm5-5 8 8m-5 3h9"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 10v6m0-9h.01"/>',
+  star:'<path d="m12 3 2.8 5.6 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.5l6.2-.9L12 3Z"/>',
+  search:'<circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/>',
+  flag:'<path d="M5 21V4m0 1c5-4 8 4 14 .5v10c-6 4-9-4-14 0"/>',
+  library:'<rect x="6" y="5" width="14" height="13" rx="1"/><path d="M3 8v13h14M6 15l4-4 3 3 3-3 4 4"/>',
+  delete:'<path d="M4 6h16M9 6V3h6v3m3 0-1 14H7L6 6m4 4v6m4-6v6"/>',
+  clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/>',
+  play:'<path d="m8 5 12 7-12 7V5Z"/>',
+  hand:'<path d="M7 12V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-6a1.5 1.5 0 0 1 3 0v7-3a1.5 1.5 0 0 1 3 0v6c0 3-2 6-6 6h-1c-2 0-3.5-1-4.7-2.6L4 14a1.5 1.5 0 0 1 2.1-2.1L8 14"/>',
+  panel:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/>',
+  spark:'<path d="M12 2v8m-4-4h8m3 7v8m-4-4h8M5 10v6m-3-3h6"/>',
+  full:'<path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/>',
+  back:'<path d="m13 5-7 7 7 7M6 12h14"/>',
+  plus:'<path d="M12 5v14m-7-7h14"/>',
+  rotate:'<path d="M4 9a8 8 0 1 1 1 8M4 5v4h4"/>',
+  flip:'<path d="M12 3v18M9 7v10H3l6-10Zm6 0v10h6l-6-10Z"/>',
+  close:'<path d="m6 6 12 12M18 6 6 18"/>'
+ };
+ window.FervorIcon = (name, size = 18) => paths[name] ? '<svg xmlns="http://www.w3.org/2000/svg" width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[name]+'</svg>' : '';
+})();
