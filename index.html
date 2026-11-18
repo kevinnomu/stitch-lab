@@ -2123,10 +2123,21 @@ html body #fervor-home #fv-theme-toggle::before{content:"";width:14px;height:14p
    <p>Turn artwork into machine-ready embroidery.</p>
   </div>
   <figure class="portfolio-sewout">
-   <div class="portfolio-photo">
-    <img src="media/gallop-sewout.png" width="720" height="484" alt="Black thread stitched into the shape of a galloping horse and rider on fabric" fetchpriority="high">
+   <div class="portfolio-preview">
+    <picture class="portfolio-loop">
+     <source media="(prefers-reduced-motion: reduce)" srcset="media/gallop-satin.png">
+     <img src="media/gallop-satin.gif" width="1080" height="650" alt="Stitch Lab simulates satin stitches forming the Gallop horse and rider" fetchpriority="high">
+    </picture>
+    <img class="portfolio-poster" src="media/gallop-satin.png" width="1080" height="650" alt="Completed Gallop satin stitch simulation">
    </div>
-   <figcaption><strong>Gallop</strong><span>Janome MC500E sew-out</span></figcaption>
+   <figcaption>
+    <strong>Gallop</strong><span>Satin stitch simulation</span>
+    <label class="portfolio-motion">
+     <input type="checkbox" aria-label="Show still stitch preview">
+     <span class="portfolio-pause" aria-hidden="true">Show still</span>
+     <span class="portfolio-resume" aria-hidden="true">▶ Play</span>
+    </label>
+   </figcaption>
   </figure>
   <div class="portfolio-actions">
    <button class="portfolio-primary" id="gallop-start" type="button">Try the Gallop workflow <span aria-hidden="true">↗</span></button>
@@ -11294,16 +11305,26 @@ body.fv-theme-art #fervor-home.portfolio-home{
 }
 .portfolio-wordmark p{margin:10px 0 0;font-weight:700;font-size:clamp(11px,1.8vw,14px)}
 .portfolio-sewout{width:min(100%,clamp(440px,63vh,650px));margin:clamp(15px,2.5vh,24px) auto 0}
-.portfolio-photo{
- position:relative;overflow:hidden;aspect-ratio:684 / 444;
- outline:1px solid var(--fx-line-2);outline-offset:4px;background:#a09787;
+.portfolio-preview{
+ aspect-ratio:1080 / 650;
+ outline:1px solid var(--fx-line-2);outline-offset:4px;background:#eadecf;
 }
-.portfolio-photo img{
- position:absolute;display:block;top:-4.05%;left:-2.63%;width:105.263%;max-width:none;height:auto;
- filter:brightness(1.24) contrast(1.04);
+.portfolio-preview img{display:block;width:100%;height:auto}
+.portfolio-preview .portfolio-poster,.portfolio-resume{display:none}
+.portfolio-sewout:has(input:checked) :is(.portfolio-loop,.portfolio-pause){display:none}
+.portfolio-sewout:has(input:checked) :is(.portfolio-poster,.portfolio-resume){display:block}
+.portfolio-motion{
+ position:relative;cursor:pointer;text-decoration:underline;text-underline-offset:2px;
+}
+.portfolio-motion input{
+ position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;
+}
+.portfolio-motion:focus-within{outline:2px solid var(--fv-focus);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+ .portfolio-motion{display:none}
 }
 .portfolio-sewout figcaption{
- display:flex;justify-content:space-between;gap:8px;margin-top:10px;
+ display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;
  text-align:start;color:var(--fx-muted);font-size:clamp(10px,1.6vw,12px);
 }
 .portfolio-sewout figcaption strong{color:var(--fx-text)}
