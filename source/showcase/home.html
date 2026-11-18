@@ -8,10 +8,21 @@
    <p>Turn artwork into machine-ready embroidery.</p>
   </div>
   <figure class="portfolio-sewout">
-   <div class="portfolio-photo">
-    <img src="media/gallop-sewout.png" width="720" height="484" alt="Black thread stitched into the shape of a galloping horse and rider on fabric" fetchpriority="high">
+   <div class="portfolio-preview">
+    <picture class="portfolio-loop">
+     <source media="(prefers-reduced-motion: reduce)" srcset="media/gallop-satin.png">
+     <img src="media/gallop-satin.gif" width="1080" height="650" alt="Stitch Lab simulates satin stitches forming the Gallop horse and rider" fetchpriority="high">
+    </picture>
+    <img class="portfolio-poster" src="media/gallop-satin.png" width="1080" height="650" alt="Completed Gallop satin stitch simulation">
    </div>
-   <figcaption><strong>Gallop</strong><span>Janome MC500E sew-out</span></figcaption>
+   <figcaption>
+    <strong>Gallop</strong><span>Satin stitch simulation</span>
+    <label class="portfolio-motion">
+     <input type="checkbox" aria-label="Show still stitch preview">
+     <span class="portfolio-pause" aria-hidden="true">Show still</span>
+     <span class="portfolio-resume" aria-hidden="true">▶ Play</span>
+    </label>
+   </figcaption>
   </figure>
   <div class="portfolio-actions">
    <button class="portfolio-primary" id="gallop-start" type="button">Try the Gallop workflow <span aria-hidden="true">↗</span></button>
