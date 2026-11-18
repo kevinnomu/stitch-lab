@@ -1,50 +1,93 @@
-#fervor-home.portfolio-home{
- position:fixed;inset:0;overflow:auto;padding:0 max(20px,5vw);
- display:grid;grid-template-rows:auto 1fr auto;color:var(--fx-text);background-color:var(--fx-bg);
- background-image:var(--fv-editor-grid);background-size:25px 25px,25px 25px,100px 100px,100px 100px;
+body #fervor-home.portfolio-home{
+ --portfolio-wash:radial-gradient(ellipse at 50% 45%,var(--fx-raise),transparent 68%);
+ position:fixed;inset:0;overflow:auto;padding:0 max(16px,5vw);
+ display:grid;grid-template-rows:auto 1fr auto;
+ color:var(--fx-text);
+ background-color:var(--fx-bg)!important;
+ background-image:var(--fv-editor-grid),var(--portfolio-wash)!important;
+ background-size:25px 25px,25px 25px,100px 100px,100px 100px,100% 100%!important;
+ background-position:center;
  font:14px/1.5 var(--fx-mono);
 }
-#fervor-home[hidden],#gallop-guide[hidden]{display:none!important}
 body.fv-theme-art #fervor-home.portfolio-home{
- background-image:linear-gradient(90deg,#211b17f5 10%,#211b178a),var(--fv-editor-grid),url('media/gallop-sewout.png');
- background-size:auto,25px 25px,25px 25px,100px 100px,100px 100px,cover;background-position:center;
+ --portfolio-wash:radial-gradient(ellipse at 50% 47%,#48382d,#211b17 58%,#14110f);
 }
-#fervor-home .portfolio-header,#fervor-home .portfolio-footer{
- min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--fv-frame-line);
+#fervor-home[hidden],#gallop-guide[hidden]{display:none!important}
+#fervor-home.portfolio-home :is(.portfolio-header,.portfolio-footer){
+ min-height:58px!important;display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
-#fervor-home .portfolio-footer{border:0;border-top:1px dotted var(--fv-frame-line);font-size:12px;flex-wrap:wrap}
-.portfolio-brand{font-weight:900;letter-spacing:.12em}
+#fervor-home .portfolio-header{border-bottom:1px dotted var(--fv-frame-line)}
+#fervor-home .portfolio-footer{border-top:1px dotted var(--fv-frame-line);font-size:12px;flex-wrap:wrap}
+.portfolio-footer a{color:inherit;text-underline-offset:3px}
+.portfolio-footer span{color:var(--fx-muted)}
+.portfolio-brand{font-weight:900;letter-spacing:.1em;white-space:nowrap}
 .portfolio-brand span{color:var(--fx-faint)}
-.portfolio-frame{
- align-self:center;justify-self:center;max-width:1020px;width:100%;margin:22px 0;padding:clamp(18px,4vw,38px);
- border:1px dotted var(--fv-frame-line);background:var(--fx-bg);
+.portfolio-hero{
+ align-self:center;justify-self:center;width:min(100%,760px);padding:clamp(22px,4vh,42px) 0 20px;text-align:center;
 }
-.portfolio-main{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(18px,4vw,44px);align-items:center}
-.portfolio-main h1{font:900 clamp(38px,8vw,82px)/.96 var(--fx-mono);letter-spacing:-.07em;margin:0 0 16px}
-.portfolio-main p{max-width:49ch;color:var(--fx-muted)}
-.portfolio-main .portfolio-subtitle{font-weight:800;color:var(--fx-text);margin-bottom:4px}
-.portfolio-main figure{min-width:0;margin:0}
-.portfolio-main figure img{width:100%;height:auto;max-height:376px;display:block;object-fit:cover;border:1px solid var(--fx-line-2)}
-.portfolio-main figcaption{font-size:11px;color:var(--fx-muted);margin-top:5px}
-.portfolio-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:19px 0}
+.portfolio-wordmark{
+ padding:clamp(9px,1.6vw,17px);border:1px dotted var(--fv-frame-line);
+ background:var(--fx-bg);
+}
+.portfolio-wordmark h1{
+ margin:0;border:2px solid var(--fx-text);padding:.22em .06em .25em;
+ font:950 clamp(30px,9vw,94px)/.94 "Arial Black",system-ui,sans-serif;
+ letter-spacing:-.055em;text-transform:uppercase;
+ color:var(--fx-accent);
+ background:repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 7px) center/auto 100%;
+ -webkit-text-stroke:clamp(2px,.05em,5px) var(--fx-bg);
+ paint-order:stroke fill;
+ text-shadow:0 .035em var(--fx-bg);
+}
+.portfolio-wordmark p{margin:10px 0 0;font-weight:700;font-size:clamp(11px,1.8vw,14px)}
+.portfolio-sewout{width:min(100%,clamp(440px,63vh,650px));margin:clamp(15px,2.5vh,24px) auto 0}
+.portfolio-photo{
+ position:relative;overflow:hidden;aspect-ratio:684 / 444;
+ outline:1px solid var(--fx-line-2);outline-offset:4px;background:#a09787;
+}
+.portfolio-photo img{
+ position:absolute;display:block;top:-4.05%;left:-2.63%;width:105.263%;max-width:none;height:auto;
+ filter:brightness(1.24) contrast(1.04);
+}
+.portfolio-sewout figcaption{
+ display:flex;justify-content:space-between;gap:8px;margin-top:10px;
+ text-align:start;color:var(--fx-muted);font-size:clamp(10px,1.6vw,12px);
+}
+.portfolio-sewout figcaption strong{color:var(--fx-text)}
+.portfolio-actions{
+ display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;justify-items:center;
+ gap:8px;margin:clamp(13px,2.5vh,22px) auto 0;
+}
 #fervor-home.portfolio-home button,#gallop-guide button,.portfolio-file{
- min-height:35px;padding:6px 11px;border:1px solid var(--fx-line-2);border-radius:999px;background:var(--fx-bg)!important;
+ min-height:36px;padding:7px 13px;border:1px solid var(--fx-line-2);border-radius:999px;background:var(--fx-bg)!important;
  color:var(--fx-text)!important;cursor:pointer;box-shadow:none;font:700 12px var(--fx-mono);
 }
-#fervor-home.portfolio-home .fv-theme-toggle{border-style:dotted;border-radius:2px}
+html body #fervor-home.portfolio-home #fv-theme-toggle{
+ width:auto!important;min-width:112px!important;height:34px!important;padding:0 10px!important;
+ border:1px dotted currentColor!important;border-radius:0!important;font:700 11px var(--fx-mono)!important;
+ letter-spacing:.025em!important;
+}
+html body #fervor-home.portfolio-home #fv-theme-toggle::before{content:none!important;display:none!important}
 #fervor-home.portfolio-home .portfolio-primary,#gallop-guide #gallop-next{
  background:var(--fx-accent)!important;color:var(--fx-ink)!important;border-color:var(--fx-accent);
 }
-#fervor-home.portfolio-home button:hover,.portfolio-file:hover{opacity:.82}
-.portfolio-proof{font-size:12px;border-top:1px dotted var(--fx-line-2);padding:9px 0}
-.portfolio-proof summary{cursor:pointer;font-weight:750}
-.portfolio-proof>div{display:flex;gap:5px;flex-wrap:wrap;padding:8px 0 0}
+#fervor-home.portfolio-home .portfolio-primary{
+ grid-column:2;grid-row:1;min-height:52px;padding:10px clamp(15px,3vw,33px);font-size:clamp(13px,2vw,16px);
+}
+.portfolio-actions #portfolio-vector{grid-column:1;grid-row:1;justify-self:end}
+.portfolio-actions #portfolio-stitch{grid-column:3;grid-row:1;justify-self:start}
+#fervor-home.portfolio-home button:hover,.portfolio-file:hover{opacity:.85}
+#fervor-home.portfolio-home :is(button,summary,a):focus-visible,.portfolio-file:focus-within{
+ outline:2px solid var(--fv-focus);outline-offset:3px;
+}
+.portfolio-proof{
+ width:fit-content;max-width:100%;margin:12px auto 0;padding:0 10px;font-size:12px;
+ background:var(--fx-bg);border-block:1px dotted var(--fx-line-2);
+}
+.portfolio-proof summary{padding:5px 0;cursor:pointer;font-weight:750}
+.portfolio-proof>div{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:8px 0 0}
 .portfolio-file{position:relative;display:inline-flex;align-items:center;overflow:hidden}
 .portfolio-file input{position:absolute;inset:0;opacity:0;width:100%;cursor:pointer}
-.portfolio-file:focus-within{outline:2px solid var(--fv-focus)}
-.portfolio-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;padding:0;margin:24px 0 0;border-top:1px dotted var(--fx-line-2)}
-.portfolio-steps li{display:grid;min-width:0;padding:10px 6px 0;font-size:12px}
-.portfolio-steps span{color:var(--fx-muted);font-size:11px}
 body.fv-vector-active > #gallop-guide:not([hidden]),#gallop-guide:not([hidden]){
  display:block!important;position:fixed;bottom:14px;left:82px;z-index:70000;max-width:min(370px,calc(100vw - 104px));padding:10px 12px;
  background:var(--fx-bg);color:var(--fx-text);border:1px dotted var(--fv-frame-line);box-shadow:0 6px 25px #0003;
@@ -54,8 +97,13 @@ body.fv-vector-active > #gallop-guide:not([hidden]),#gallop-guide:not([hidden]){
 #gallop-guide #gallop-close{height:28px;min-height:28px;width:28px;padding:0;font-size:17px}
 #gallop-guide p{margin:5px 0 9px}
 @media(max-width:680px){
- .portfolio-main{grid-template-columns:1fr}
- .portfolio-main figure img{max-height:230px}
- .portfolio-steps{grid-template-columns:1fr 1fr}
  #gallop-guide:not([hidden]),body.fv-vector-active > #gallop-guide:not([hidden]){bottom:85px;left:10px;max-width:calc(100vw - 20px)}
+}
+@media(max-width:520px){
+ .portfolio-sewout{width:calc(100% - 10px)}
+ .portfolio-actions{grid-template-columns:1fr 1fr}
+ #fervor-home.portfolio-home .portfolio-primary{grid-column:1 / -1;min-height:48px}
+ .portfolio-actions #portfolio-vector{grid-column:1;grid-row:2}
+ .portfolio-actions #portfolio-stitch{grid-column:2;grid-row:2}
+ #fervor-home.portfolio-home .portfolio-footer{gap:6px;font-size:10px}
 }
